@@ -5,7 +5,10 @@ module.exports = {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    fontFamily: {
+      'mono': 'DejaVuSansMono',
+      'mono-bold': 'DejaVuSansMonoBold',
+    }
   },
   plugins: [],
 }
