@@ -1,12 +1,12 @@
 <template>
-    <article class="flex flex-col border-2 border-lime-600">
+    <article class="flex flex-col border-2 border-primary-600">
         <img :src="imgurl" alt="">
-        <div class="flex gap-2 border-t-2 divide-x-2 divide-lime-600 border-lime-600 text-lime-600 divide-solid">
-            <p class="flex-grow px-4 py-2 ">
-                {{artist}}:<span class="text-orange-600">{{title}}</span> 
-                YR:<span class="text-orange-600 ">{{year}}</span>
+        <div class="flex gap-2 border-t-2 divide-x-2 divide-primary-600 border-primary-600 text-primary-600 divide-solid">
+            <p class="flex-grow px-3 py-2 ">
+                {{artist}}:<span class="text-secondary-600">{{title}}</span> 
+                YR:<span class="text-secondary-600 ">{{year}}</span>
             </p>
-            <a :href="url" class="px-4 py-2 underline visited:text-lime-800 active:text-orange-600">WATCH</a>
+            <a :href="url" class="px-3 py-2 underline visited:text-primary-800 active:text-secondary-600">WATCH</a>
         </div>
     </article>
 </template>

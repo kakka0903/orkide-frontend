@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const colors = require('tailwindcss/colors');
+
 module.exports = {
   content: [
     "./index.html",
@@ -8,6 +11,12 @@ module.exports = {
     fontFamily: {
       'mono': 'DejaVuSansMono',
       'mono-bold': 'DejaVuSansMonoBold',
+    },
+    extend: {
+      colors: {
+        primary: colors.blue,
+        secondary: colors.red,
+      }
     }
   },
   plugins: [],

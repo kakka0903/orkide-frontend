@@ -1,10 +1,10 @@
 
 <template>
-    <nav class="flex items-center justify-between gap-6 my-8 text-xl text-lime-900">
+    <nav class="flex items-center justify-between gap-6 mt-4 mb-8 text-lg text-primary-900">
         <button 
             v-for="(_, page) in pages" 
             @click="$emit('navigate', page)"
-            class="first:mr-auto first:text-orange-600"
+            class="first:mr-auto first:text-secondary-600"
         >
             {{page}}
         </button>

@@ -20,15 +20,15 @@ const props = defineProps({
 const classes = computed(() => {
     return {
         'text-white': props.type == 'primary',
-        'bg-lime-600' : props.type == 'primary',
-        'active:bg-orange-600' : props.type == 'primary',
-        'focus:border-orange-600' : props.type == 'primary',
+        'bg-primary-600' : props.type == 'primary',
+        'active:bg-secondary-600' : props.type == 'primary',
+        'focus:border-secondary-600' : props.type == 'primary',
         
-        'text-lime-600' : props.type == 'secondary',
-        'border-lime-600' : props.type == 'secondary',
-        'active:text-orange-600' : props.type == 'secondary',
-        'active:border-orange-600' : props.type == 'secondary',
-        'focus:border-orange-600' : props.type == 'secondary',
+        'text-primary-600' : props.type == 'secondary',
+        'border-primary-600' : props.type == 'secondary',
+        'active:text-secondary-600' : props.type == 'secondary',
+        'active:border-secondary-600' : props.type == 'secondary',
+        'focus:border-secondary-600' : props.type == 'secondary',
     }
 })
 
