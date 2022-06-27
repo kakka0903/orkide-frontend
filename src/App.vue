@@ -13,9 +13,9 @@ import Contact from "./components/Contact.vue";
     <link rel="icon" type="image/x-icon" href="favicon.ico">
   </head>
 
-  <div style="height: 100vh;" class="flex flex-col font-mono mx-10">
+  <div style="height: 100vh;" class="flex flex-col mx-10 font-mono">
     <Navigation></Navigation>
-    <Component :is="Landing" class="flex-grow"></component>
+    <Component :is="Landing" class="flex-grow overflow-scroll"></component>
     <Footer></Footer>
   </div>
 </template>
