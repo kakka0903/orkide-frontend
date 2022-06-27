@@ -38,7 +38,7 @@ const classes = computed(() => {
     <button
         :style="{ width: `${width}ch`}"
         :class="classes"
-        class="box-content p-4 text-2xl font-bold text-left uppercase break-all border hover:lowercase focus:outline-none"
+        class="box-content p-4 text-xl font-bold text-left uppercase break-all border hover:lowercase focus:outline-none"
     >
         <slot></slot>
     </button>
