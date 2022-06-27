@@ -2,19 +2,19 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import Navigation from "./components/Navigation.vue";
-import Landing from "./components/Landing.vue";
+import Orkide from "./components/Landing.vue";
 import Projects from "./components/Projects.vue";
 import Footer from "./components/Footer.vue";
 import Socials from "./components/Socials.vue";
 import { ref, computed } from 'vue';
 
 const pages = {
-  Landing,
+  Orkide,
   Projects,
   Socials
 }
 
-var currentPage = ref("Landing");
+var currentPage = ref("Orkide");
 </script>
 
 <template>
@@ -22,7 +22,7 @@ var currentPage = ref("Landing");
     <link rel="icon" type="image/x-icon" href="favicon.ico">
   </head>
 
-  <div style="height: 100vh;" class="flex flex-col mx-10 font-mono">
+  <div style="height: 100vh;" class="flex flex-col mx-6 overflow-hidden font-mono">
     <Navigation :pages="pages" @navigate="(page) => currentPage = page"/>
     <Component @navigate="(page) => currentPage = page" :is="pages[currentPage]" class="flex-grow overflow-scroll"></component>
     <Footer></Footer>
