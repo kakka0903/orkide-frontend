@@ -10,6 +10,20 @@
 
 @font-face {
     font-family: "DejaVuSansMono";
+    src: url("/DejaVuSansMono-BoldOblique.ttf");
+    font-weight: 800;
+    font-style: oblique;
+}
+
+@font-face {
+    font-family: "DejaVuSansMono";
     src: url("/DejaVuSansMono.ttf");
     font-weight: 600;
+}
+
+@font-face {
+    font-family: "DejaVuSansMono";
+    src: url("/DejaVuSansMono-Oblique.ttf");
+    font-weight: 600;
+    font-style: oblique;
 }
