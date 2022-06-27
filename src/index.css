@@ -4,12 +4,12 @@
 
 @font-face {
     font-family: "DejaVuSansMono";
-    src: url("public/DejaVuSansMono-Bold.ttf");
+    src: url("/DejaVuSansMono-Bold.ttf");
     font-weight: 800;
 }
 
 @font-face {
     font-family: "DejaVuSansMono";
-    src: url("public/DejaVuSansMono.ttf");
+    src: url("/DejaVuSansMono.ttf");
     font-weight: 600;
 }
