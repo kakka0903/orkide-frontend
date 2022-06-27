@@ -6,6 +6,15 @@ import Landing from "./components/Landing.vue";
 import Projects from "./components/Projects.vue";
 import Footer from "./components/Footer.vue";
 import Socials from "./components/Socials.vue";
+import { ref, computed } from 'vue';
+
+const pages = {
+  Landing,
+  Projects,
+  Socials
+}
+
+var currentPage = ref("Landing");
 </script>
 
 <template>
@@ -14,8 +23,8 @@ import Socials from "./components/Socials.vue";
   </head>
 
   <div style="height: 100vh;" class="flex flex-col mx-10 font-mono">
-    <Navigation></Navigation>
-    <Component :is="Landing" class="flex-grow overflow-scroll"></component>
+    <Navigation :pages="pages" @navigate="(page) => currentPage = page"/>
+    <Component @navigate="(page) => currentPage = page" :is="pages[currentPage]" class="flex-grow overflow-scroll"></component>
     <Footer></Footer>
   </div>
 </template>

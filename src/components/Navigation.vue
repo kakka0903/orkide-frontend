@@ -1,8 +1,21 @@
 
 <template>
-    <nav class="flex justify-between items-center gap-6 font text-xl my-8 text-lime-900">
-        <button type="" class="text-orange-600 mr-auto">orkide</button>
-        <button type="">socials</button>
-        <button type="">projects</button>
+    <nav class="flex items-center justify-between gap-6 my-8 text-xl text-lime-900">
+        <button 
+            v-for="(_, page) in pages" 
+            @click="$emit('navigate', page)"
+            class="first:mr-auto first:text-orange-600"
+        >
+            {{page}}
+        </button>
     </nav>
 </template>
+
+<script setup>
+defineProps({
+    pages: {
+        type: Array,
+        required: true,
+    }
+})
+</script>
