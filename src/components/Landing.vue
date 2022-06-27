@@ -9,8 +9,8 @@
                 <p class="leading-none">02. <br> 05. <br> 22.</p>
             </div>
             <div class="flex gap-4 text-xl font-bold text-lime-600">
-                <BoxButton :width="3">@socials*</BoxButton>
-                <BoxButton :width="3" type="primary">projects~</BoxButton> 
+                <BoxButton :width="3" @click="$emit('navigate', 'Socials')" >@socials*</BoxButton>
+                <BoxButton :width="3" @click="$emit('navigate', 'Projects')" type="primary">projects~</BoxButton> 
             </div>
         </div>
     </main>
