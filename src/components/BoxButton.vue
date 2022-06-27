@@ -24,8 +24,8 @@ const classes = computed(() => {
         'active:bg-orange-600' : props.type == 'primary',
         'focus:border-orange-600' : props.type == 'primary',
         
-        'text-green-600' : props.type == 'secondary',
-        'border-green-600' : props.type == 'secondary',
+        'text-lime-600' : props.type == 'secondary',
+        'border-lime-600' : props.type == 'secondary',
         'active:text-orange-600' : props.type == 'secondary',
         'active:border-orange-600' : props.type == 'secondary',
         'focus:border-orange-600' : props.type == 'secondary',
