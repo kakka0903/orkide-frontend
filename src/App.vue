@@ -5,7 +5,7 @@ import Navigation from "./components/Navigation.vue";
 import Landing from "./components/Landing.vue";
 import Projects from "./components/Projects.vue";
 import Footer from "./components/Footer.vue";
-import Contact from "./components/Contact.vue";
+import Socials from "./components/Socials.vue";
 </script>
 
 <template>
