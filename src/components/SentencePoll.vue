@@ -30,10 +30,10 @@
 <div class="text-primary-600">
     <span class="lowercase">
     {{preOption}}
-    <div :class="{ 'border-primary-600' : !chosen, 'border-secondary-600': chosen}" class="inline-block border-b-4  border-dotted relative group">
+    <div :class="{ 'border-primary-600' : !chosen, 'border-secondary-600': chosen}" class="relative inline-block border-b-4 border-dotted group">
         <span class="opacity-0">{{selected}}</span>
-        <div class="transition-all transform-gpu  duration-150 absolute left-0 top-0 flex flex-col" :style="{transform: 'translateY(-'+(100/(options.length)*selectedIndex)+'%)'}">
-            <button class="hover:uppercase mb-2 text-left disabled:pointer-events-none" :disabled="chosen"
+        <div class="absolute top-0 left-0 flex flex-col transition-all duration-150 transform-gpu" :style="{transform: 'translateY(-'+(100/(options.length)*selectedIndex)+'%)'}">
+            <button class="mb-2 text-left hover:uppercase disabled:pointer-events-none" :disabled="chosen"
                   :class="{'text-secondary-600' : option == selected && chosen, 'opacity-25': chosen && option != selected}"
                   :key="option" v-for="option in options"
                   @click="selected = option; chosen = true; $emit('selected', selected)">{{option}}</button>

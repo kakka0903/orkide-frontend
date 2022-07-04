@@ -1,6 +1,10 @@
 <template>
     <main class="flex flex-col">
-        <h1 class="flex-grow font-bold text-7xl text-primary-600">orkide<br>.com</h1>
+        <h1 class="font-bold text-7xl text-primary-600">orkide<br>.com</h1>
+        
+        <div class="flex items-center justify-center flex-grow">
+            <SentencePoll  class="mb-20 text-lg" sentence="i really enjoy %o? " :options="['life', 'sex']" :intitalSelection="0" />
+        </div>
     
         <div class="flex items-end justify-between">
             <div class="flex items-end text-2xl font-bold text-secondary-600 ">
@@ -18,4 +22,5 @@
 
 <script setup>
 import BoxButton from './BoxButton.vue';
+import SentencePoll from './SentencePoll.vue'
 </script>
