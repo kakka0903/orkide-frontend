@@ -1,15 +1,18 @@
 <template>
-    <main class=" flex flex-col font-bold">
-        <PageHeading class="mb-14 mt-10 " title="LAHN CINEMA" description="lahnzki's OG music videos"/>
-        <section class="space-y-4">
-            <ProjectCard artist="UG" title="TRAPMOBILE" :year="2022" url="https://www.youtube.com/channel/UCWc-1iefSoth8CuMxzNFxow/videos" imgurl="album.png"/>
-            <ProjectCard artist="UG" title="TRAPMOBILE" :year="2022" url="https://www.youtube.com/channel/UCWc-1iefSoth8CuMxzNFxow/videos" imgurl="album.png"/>
-            <ProjectCard artist="UG" title="TRAPMOBILE" :year="2022" url="https://www.youtube.com/channel/UCWc-1iefSoth8CuMxzNFxow/videos" imgurl="album.png"/>
-        </section>
+    <main class="flex flex-col font-bold">
+        <PageHeading class="mt-10 mb-14 " title="LAHN CINEMA" description="lahnzki's OG music videos"/>
+        <div class="flex flex-col flex-grow mb-10 space-y-5">
+            <ProjectTicket title="TRAPMOBILE" artist="UNDERGRUNN" length="2min 50s" date="SEP 2020"/>
+            <ProjectTicket title="TIPP TOPP" artist="UNDERGRUNN" length="1min 20s" date="AUG 2022"/>
+            <ProjectTicket title="ITALIA" artist="UNDERGRUNN" length="2min 2s" date="AUG 2022"/>
+            <ProjectTicket title="ITALIA" artist="UNDERGRUNN" length="2min 2s" date="AUG 2022"/>
+            <ProjectTicket title="ITALIA" artist="UNDERGRUNN" length="2min 2s" date="AUG 2022"/>
+        </div>
     </main>
 </template>
 
 <script setup>
 import PageHeading from './PageHeading.vue';
 import ProjectCard from './ProjectCard.vue';
+import ProjectTicket from './ProjectTicket.vue';
 </script>
