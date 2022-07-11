@@ -1,8 +1,8 @@
 
 <template>
-    <nav class="flex items-center justify-between gap-6 mt-4 mb-8 text-lg text-primary-900">
-        <button 
-            v-for="(_, page) in pages" 
+    <nav class="flex items-center justify-between gap-6 my-4 text-lg text-primary-900">
+        <button
+            v-for="(_, page) in pages"
             :key="page"
             @click="$emit('navigate', page)"
             class="first:mr-auto first:text-secondary-600"
