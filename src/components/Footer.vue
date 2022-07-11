@@ -1,8 +1,8 @@
 
 <template>
-    <div class="flex justify-between my-4 text-lg text-secondary-800 ">
+    <div class="flex justify-between my-4 text-lg text-secondary-dark ">
         <TimeZoneClock/>
-        <p class="italic"> <a class="active:text-secondary-600" href="https://kakka.dev">kasper</a>  x lahnzki</p>
+        <p class="italic"> <a class="active:text-secondary" href="https://kakka.dev">kasper</a>  x lahnzki</p>
     </div>
 </template>
 

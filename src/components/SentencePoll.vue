@@ -27,14 +27,14 @@
 </script>
 
 <template>
-<div class="text-primary-600">
+<div class="text-primary">
     <span class="lowercase">
     {{preOption}}
-    <div :class="{ 'border-primary-600' : !chosen, 'border-secondary-600': chosen}" class="relative inline-block border-b-4 border-dotted group">
+    <div :class="{ 'border-primary' : !chosen, 'border-secondary': chosen}" class="relative inline-block border-b-4 border-dotted group">
         <span class="opacity-0">{{selected}}</span>
         <div class="absolute top-0 left-0 flex flex-col transition-all duration-150 transform-gpu" :style="{transform: 'translateY(-'+(100/(options.length)*selectedIndex)+'%)'}">
             <button class="mb-2 text-left hover:uppercase disabled:pointer-events-none" :disabled="chosen"
-                  :class="{'text-secondary-600' : option == selected && chosen, 'opacity-25': chosen && option != selected}"
+                  :class="{'text-secondary' : option == selected && chosen, 'opacity-25': chosen && option != selected}"
                   :key="option" v-for="option in options"
                   @click="selected = option; chosen = true; $emit('selected', selected)">{{option}}</button>
         </div>
