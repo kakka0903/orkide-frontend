@@ -7,13 +7,13 @@
         </div>
 
         <div class="flex items-end justify-between">
-            <div class="flex items-end text-2xl font-bold text-secondary ">
+            <div class="flex items-end text-xl font-bold text-secondary ">
                 <p style="text-orientation: upright; writing-mode: vertical-rl;">MERCH&nbsp;</p>
                 <p style="text-orientation: upright; writing-mode: vertical-rl;">COMIN</p>
                 <p class="leading-none">02. <br> 05. <br> 22.</p>
             </div>
-            <div class="flex text-xl font-bold gap-x-4 text-primary">
-                <BoxButton :width="3" @click="$emit('navigate', 'Socials')" >@socials*</BoxButton>
+            <div class="flex items-end text-lg font-bold gap-x-4 text-primary">
+                <BoxButton :width="3" @click="$emit('navigate', 'Socials')" >social</BoxButton>
                 <BoxButton :width="3" @click="$emit('navigate', 'Projects')" type="primary">projects~</BoxButton>
             </div>
         </div>
