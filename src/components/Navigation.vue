@@ -5,7 +5,7 @@
             v-for="(_, page) in pages"
             :key="page"
             @click="$emit('navigate', page)"
-            class="first:mr-auto first:text-secondary"
+            class="lowercase first:mr-auto first:text-secondary hover:uppercase"
         >
             {{page}}
         </button>
