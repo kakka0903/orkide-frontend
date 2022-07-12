@@ -8,7 +8,7 @@
 
 <script setup>
 defineProps({
-    title:Text,
-    description:Text,
+    title:String,
+    description:String,
 })
 </script>
