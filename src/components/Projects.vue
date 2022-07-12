@@ -6,8 +6,6 @@
             <ProjectTicket title="TRAPMOBILE" artist="UNDERGRUNN" length="2min 50s" date="SEP 2020"/>
             <ProjectTicket title="TIPP TOPP" artist="UNDERGRUNN" length="1min 20s" date="AUG 2022"/>
             <ProjectTicket title="ITALIA" artist="UNDERGRUNN" length="2min 2s" date="AUG 2022"/>
-            <ProjectTicket title="ITALIA" artist="UNDERGRUNN" length="2min 2s" date="AUG 2022"/>
-            <ProjectTicket title="ITALIA" artist="UNDERGRUNN" length="2min 2s" date="AUG 2022"/>
         </div>
     </main>
 </template>
