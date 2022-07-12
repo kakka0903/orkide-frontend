@@ -1,7 +1,7 @@
 <template>
     <main class="flex flex-col font-bold">
-        <PageHeading class="mt-10 mb-14 " title="LAHN CINEMA" description="lahnzki's OG music videos"/>
         <div class="flex flex-col flex-grow mb-10 space-y-5">
+        <PageHeading title="LAHN CINEMA" description="Get a ticket and enjoy"/>
             <ProjectTicket title="TRAPMOBILE" artist="UNDERGRUNN" length="2min 50s" date="SEP 2020"/>
             <ProjectTicket title="TIPP TOPP" artist="UNDERGRUNN" length="1min 20s" date="AUG 2022"/>
             <ProjectTicket title="ITALIA" artist="UNDERGRUNN" length="2min 2s" date="AUG 2022"/>
