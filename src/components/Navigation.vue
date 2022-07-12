@@ -15,7 +15,7 @@
 <script setup>
 defineProps({
     pages: {
-        type: Array,
+        type: Object,
         required: true,
     }
 })
