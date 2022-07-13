@@ -22,7 +22,7 @@ var currentPage = ref("Orkide");
     <link rel="icon" type="image/x-icon" href="favicon.ico">
   </head>
 
-  <div style="height: 100vh;" class="flex flex-col mx-10 font-mono">
+  <div style="height: 100vh;" class="flex flex-col mx-8 font-mono">
     <Navigation :pages="pages" @navigate="(page) => currentPage = page"/>
     <Component @navigate="(page) => currentPage = page" :is="pages[currentPage]" class="flex-grow"></component>
     <Footer></Footer>
