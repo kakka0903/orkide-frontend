@@ -1,6 +1,6 @@
 
 <template>
-    <nav class="flex items-center justify-between gap-6 py-8 text-base font-bold text-primary-dark">
+    <nav class="flex items-center justify-between gap-6 py-6 text-base font-bold xs:py-8 text-primary-dark">
         <button
             v-for="(_, page) in pages"
             :key="page"

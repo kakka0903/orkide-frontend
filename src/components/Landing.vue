@@ -1,6 +1,6 @@
 <template>
     <main class="flex flex-col">
-        <h1 class="mt-2 leading-none font-bold text-[87.5px] text-primary">orkide<br>.com</h1>
+        <h1 class="mt-2 font-bold leading-none text-7xl xs:text-8xl text-primary">orkide<br>.com</h1>
 
         <div class="flex items-center justify-center flex-grow">
             <SentencePoll  class="mb-20 text-2xl" sentence="i really enjoy %o? " :options="['life', 'sex']" :intitalSelection="0" />
