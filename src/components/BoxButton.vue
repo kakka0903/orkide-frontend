@@ -36,7 +36,7 @@ const classes = computed(() => {
 
 <template>
     <button
-        :style="{ width: `${width}ch`}"
+        :style="{ width: `${width+0.001}ch`}"
         :class="classes"
         class="box-content p-4 font-bold text-left uppercase break-all border hover:lowercase focus:outline-none"
     >
