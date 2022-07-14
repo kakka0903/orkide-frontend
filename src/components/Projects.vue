@@ -8,7 +8,7 @@
             <ProjectTicket @click="isVideoModalOpen = true" title="ITALIA" artist="UNDERGRUNN" length="2min 2s" date="AUG 2022"/>
         </div>
         <button v-if="isVideoModalOpen" class="absolute top-0 left-0 w-full h-full bg-black opacity-50"></button>
-        <VideoModal @close="isVideoModalOpen = !isVideoModalOpen" v-show="isVideoModalOpen" title="TRAPMOBILE" year="2020" description="Some description about the video. Most ambitious project by the orkide team ever created. Directed and edited by @williamnymoen and @lahnzki" artist="UNDERGRUNN" embedlink="https://www.youtube.com/embed/Ri3k4XB2e7c"/>
+        <VideoModal @close="isVideoModalOpen = !isVideoModalOpen" v-if="isVideoModalOpen" title="TRAPMOBILE" year="2020" description="Some description about the video. Most ambitious project by the orkide team ever created. Directed and edited by @williamnymoen and @lahnzki" artist="UNDERGRUNN" embedlink="https://www.youtube.com/embed/Ri3k4XB2e7c"/>
     </main>
 </template>
 
