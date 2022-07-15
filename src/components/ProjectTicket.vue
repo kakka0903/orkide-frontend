@@ -36,25 +36,28 @@
                         </p>
                     </div>
                     <div class="absolute top-0 right-0 flex flex-col text-xs ">
-                        <BoxButton @click.stop type="primary" :width="3" class="p-2 py-[13px] px-3">WATCH!</BoxButton>
+                        <BoxButton @click.stop="showModal = true" type="primary" :width="3" class="p-2 py-[13px] px-3">WATCH!</BoxButton>
                         <BoxButton @click.stop type="secondary" :width="3" class="p-2 py-[14px] px-3">MORE+</BoxButton>
                     </div>
                 </div>
             </transition>
         </div>
-
     </button>
+    <VideoModal v-if="showModal" @close="showModal = false" :embedlink="embedLink" :title="title" description="A music video by Orkidé" :artist="artist" :year="2022"/>
 </template>
 
 <script setup>
 import BoxButton from './BoxButton.vue'
+import VideoModal from './VideoModal.vue'
 import { ref } from 'vue';
 const isFlipped = ref(false);
+const showModal = ref(false);
 defineProps({
     date:String,
     length:String,
     title:String,
     artist:String,
     description:String,
+    embedLink:String,
 })
 </script>
