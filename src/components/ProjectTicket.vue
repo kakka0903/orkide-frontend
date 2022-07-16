@@ -48,7 +48,7 @@
                 <p>There is no BTS content for {{title}} yet :(</p>
             </div>
         </BoxModal>
-        <VideoModal v-if="showModal" @close="showModal = false" :embedlink="embedLink" :title="title" description="A music video by Orkidé" :artist="artist" :year="2022"/>
+        <VideoModal v-if="showModal" @close="showModal = false" :embedlink="embedLink" :title="title" :artist="artist" :year="2022"/>
     </button>
 </template>
 
