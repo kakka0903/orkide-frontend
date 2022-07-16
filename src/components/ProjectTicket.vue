@@ -37,21 +37,29 @@
                     </div>
                     <div class="absolute top-0 right-0 flex flex-col text-xs ">
                         <BoxButton @click.stop="showModal = true" type="primary" :width="3" class="p-2 py-[13px] px-3">WATCH!</BoxButton>
-                        <BoxButton @click.stop type="secondary" :width="3" class="p-2 py-[14px] px-3">MORE+</BoxButton>
+                        <BoxButton @click.stop="showBTSModal = true" type="secondary" :width="3" class="p-2 py-[14px] px-3">MORE+</BoxButton>
                     </div>
                 </div>
             </transition>
         </div>
+        <BoxModal @close="showBTSModal = false" :isOpen="showBTSModal">
+            <div class="max-w-xs px-4 py-4 space-y-4 text-primary-dark">
+                <h1 class="text-xl text-primary">BEHIND THE SCENES</h1>
+                <p>There is no BTS content for {{title}} yet :(</p>
+            </div>
+        </BoxModal>
+        <VideoModal v-if="showModal" @close="showModal = false" :embedlink="embedLink" :title="title" description="A music video by Orkidé" :artist="artist" :year="2022"/>
     </button>
-    <VideoModal v-if="showModal" @close="showModal = false" :embedlink="embedLink" :title="title" description="A music video by Orkidé" :artist="artist" :year="2022"/>
 </template>
 
 <script setup>
 import BoxButton from './BoxButton.vue'
+import BoxModal from './BoxModal.vue'
 import VideoModal from './VideoModal.vue'
 import { ref } from 'vue';
 const isFlipped = ref(false);
 const showModal = ref(false);
+const showBTSModal = ref(false);
 defineProps({
     date:String,
     length:String,
