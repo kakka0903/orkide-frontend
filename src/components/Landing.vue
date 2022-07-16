@@ -6,7 +6,9 @@
             enter-from-class="translate-x-10 opacity-0"
             enter-to-class="scale-100 translate-x-0 opacity-100"
         >
-        <h1 class="mt-2 font-bold leading-none text-7xl text-primary">orkide<br>.com</h1>
+            <a href="">
+                <h1 class="mt-2 font-bold leading-none text-7xl text-primary">orkide<br>.com</h1>
+            </a>
         </transition>
 
         <transition appear
