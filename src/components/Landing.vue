@@ -7,7 +7,7 @@
             enter-to-class="scale-100 translate-x-0 opacity-100"
         >
             <a href="">
-                <h1 class="mt-2 font-bold leading-none text-7xl text-primary">orkide<br>.com</h1>
+                <h1 class="mt-2 font-bold leading-none text-7xl text-primary">orkidé<br>.com</h1>
             </a>
         </transition>
 
