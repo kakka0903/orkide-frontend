@@ -21,9 +21,9 @@ const currentPage = ref(pages.value[0])
 
   <div style="height: 100vh;" class="flex flex-col mx-6 font-mono xs:mx-10">
     <Navigation :pages="pages" :currentPage="currentPage" @navigate="(page) => currentPage = page"/>
-    <Landing @navigate="(page) => currentPage = page" class="flex-grow" v-if="currentPage == 'orkidé'"/>
-    <Projects class="flex-grow" :musicVideos="musicVideos" v-if="currentPage == 'projects'"/>
-    <Socials class="flex-grow" v-if="currentPage == 'socials'"/>
+    <Landing class="flex-grow" @navigate="(page) => currentPage = page" v-show="currentPage == 'orkidé'"/>
+    <Projects class="flex-grow" :musicVideos="musicVideos" v-show="currentPage == 'projects'"/>
+    <Socials class="flex-grow" v-show="currentPage == 'socials'"/>
     <Footer></Footer>
   </div>
 </template>
