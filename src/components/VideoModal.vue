@@ -6,6 +6,7 @@
                 <h3 class="text-3xl leading-none uppercase text-secondary">{{musicVideo.name}}</h3>
                 <p class="text-sm uppercase">{{musicVideo.artist}} - {{musicVideo.year}}</p>
             </div>
+            <ReactionPoll class="ml-auto"/>
         </div>
     </BoxModal>
 </template>
@@ -13,6 +14,7 @@
 <script setup>
 import { computed } from '@vue/runtime-core';
 import BoxModal from './BoxModal.vue';
+import ReactionPoll from './ReactionPoll.vue';
 const props = defineProps({
     musicVideo:{
         type:Object,
