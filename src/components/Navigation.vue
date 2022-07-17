@@ -5,7 +5,8 @@
             v-for="page in pages"
             :key="page"
             @click="$emit('navigate', page)"
-            class="lowercase first:mr-auto first:text-secondary active:text-secondary-dark hover:uppercase"
+            class="lowercase first:mr-auto active:text-secondary-dark hover:uppercase"
+            :class="{'text-secondary': currentPage == page}"
         >
             {{page}}
         </button>
@@ -16,6 +17,10 @@
 defineProps({
     pages: {
         type: Array,
+        required: true,
+    },
+    currentPage:{
+        type: String,
         required: true,
     }
 })

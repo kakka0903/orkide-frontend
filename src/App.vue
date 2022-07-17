@@ -20,7 +20,7 @@ const currentPage = ref(pages.value[0])
   </head>
 
   <div style="height: 100vh;" class="flex flex-col mx-6 font-mono xs:mx-10">
-    <Navigation :pages="pages" @navigate="(page) => currentPage = page"/>
+    <Navigation :pages="pages" :currentPage="currentPage" @navigate="(page) => currentPage = page"/>
     <Landing @navigate="(page) => currentPage = page" class="flex-grow" v-if="currentPage == 'orkidé'"/>
     <Projects class="flex-grow" :musicVideos="musicVideos" v-if="currentPage == 'projects'"/>
     <Socials class="flex-grow" v-if="currentPage == 'socials'"/>
