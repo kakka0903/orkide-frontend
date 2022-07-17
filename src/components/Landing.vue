@@ -11,15 +11,14 @@
             </a>
         </transition>
 
-        <transition appear
-            enter-active-class="transition duration-500 ease-out delay-700 transform-gpu"
-            enter-from-class="translate-x-10 opacity-0"
-            enter-to-class="scale-100 translate-x-0 opacity-100"
-        >
-            <div class="flex items-center justify-center flex-grow delay-150">
-                <SentencePoll class="mb-20 text-2xl" sentence="i really enjoy %o? " :options="['life', 'sex']" :intitalSelection="0" />
-            </div>
-        </transition>
+        <div class="flex items-center justify-center flex-grow text-2xl">
+            <transition appear
+                enter-active-class="transition duration-500 ease-out delay-150 transform-gpu"
+                enter-from-class="translate-x-10 opacity-0"
+            >
+                <PollSequence :polls="polls"/>
+            </transition>
+        </div>
 
         <div class="flex items-end justify-between">
             <div class="flex items-end text-2xl font-bold text-secondary ">
@@ -44,4 +43,13 @@
 <script setup>
 import BoxButton from './BoxButton.vue';
 import SentencePoll from './SentencePoll.vue'
+import PollSequence from './PollSequence.vue'
+import { ref } from '@vue/reactivity';
+const polls = ref([
+    {sentence:'i am %o today', options:['horrible', 'great', 'okay']},
+    {sentence:'sister is %o today', options:['horrible', 'great', 'okay']},
+    {sentence:'dad is %o today', options:['horrible', 'great', 'okay']},
+    {sentence:'mom is %o today', options:['horrible', 'great', 'okay']},
+    {sentence:'god %o the queen ', options:['save', 'marry']}
+])
 </script>
