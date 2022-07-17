@@ -1,5 +1,5 @@
 <script setup>
-    import { computed, ref } from 'vue'
+    import { computed, ref, watch } from 'vue'
 
     const props = defineProps({
         sentence: String,
@@ -18,6 +18,11 @@
         return -1;
     })
 
+    /* reset chosen and selected when props change */
+    watch(props, () => {
+        chosen.value = false;
+        selected.value = props.options[0];
+    })
 
     const optionIndex = computed(() => props.sentence.indexOf("%o"))
     const preOption = computed(() => props.sentence.substring(0, props.sentence.indexOf("%o")))
