@@ -2,7 +2,7 @@
 <template>
     <nav class="flex items-center justify-between gap-6 py-6 text-base font-bold xs:py-8 text-primary-dark">
         <button
-            v-for="(_, page) in pages"
+            v-for="page in pages"
             :key="page"
             @click="$emit('navigate', page)"
             class="lowercase first:mr-auto first:text-secondary active:text-secondary-dark hover:uppercase"
@@ -15,7 +15,7 @@
 <script setup>
 defineProps({
     pages: {
-        type: Object,
+        type: Array,
         required: true,
     }
 })

@@ -2,19 +2,16 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
 import Navigation from "./components/Navigation.vue";
-import Orkide from "./components/Landing.vue";
+import Landing from "./components/Landing.vue";
 import Projects from "./components/Projects.vue";
 import Footer from "./components/Footer.vue";
 import Socials from "./components/Socials.vue";
+import useMusicVideos from './composables/useMusicVideos.js';
 import { ref, computed } from 'vue';
 
-const pages = {
-  Orkide,
-  Projects,
-  Socials
-}
-
-var currentPage = ref("Orkide");
+const { musicVideos } = useMusicVideos();
+const pages = ref(['orkidé', 'socials', 'projects'])
+const currentPage = ref(pages.value[0])
 </script>
 
 <template>
@@ -24,7 +21,9 @@ var currentPage = ref("Orkide");
 
   <div style="height: 100vh;" class="flex flex-col mx-6 font-mono xs:mx-10">
     <Navigation :pages="pages" @navigate="(page) => currentPage = page"/>
-    <Component @navigate="(page) => currentPage = page" :is="pages[currentPage]" class="flex-grow"></component>
+    <Landing @navigate="(page) => currentPage = page" class="flex-grow" v-if="currentPage == 'orkidé'"/>
+    <Projects class="flex-grow" :musicVideos="musicVideos" v-if="currentPage == 'projects'"/>
+    <Socials class="flex-grow" v-if="currentPage == 'socials'"/>
     <Footer></Footer>
   </div>
 </template>

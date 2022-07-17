@@ -17,7 +17,7 @@
             enter-to-class="scale-100 translate-x-0 opacity-100"
         >
             <div class="flex items-center justify-center flex-grow delay-150">
-                <SentencePoll  class="mb-20 text-2xl" sentence="i really enjoy %o? " :options="['life', 'sex']" :intitalSelection="0" />
+                <SentencePoll class="mb-20 text-2xl" sentence="i really enjoy %o? " :options="['life', 'sex']" :intitalSelection="0" />
             </div>
         </transition>
 
@@ -33,8 +33,8 @@
                 enter-to-class="scale-100 translate-x-0 opacity-100"
             >
             <div class="flex items-end text-2xl font-bold gap-x-4 text-primary">
-                <BoxButton :width="3" @click="$emit('navigate', 'Socials')" >social</BoxButton>
-                <BoxButton :width="3" @click="$emit('navigate', 'Projects')" type="primary">projects~</BoxButton>
+                <BoxButton :width="3" @click="$emit('navigate', 'socials')" >social</BoxButton>
+                <BoxButton :width="3" @click="$emit('navigate', 'projects')" type="primary">projects~</BoxButton>
             </div>
             </transition>
         </div>

@@ -23,6 +23,7 @@
 import PageHeading from './PageHeading.vue';
 import ProjectCard from './ProjectCard.vue';
 import ProjectTicket from './ProjectTicket.vue';
-import useMusicVideos from '../composables/useMusicVideos.js';
-const { musicVideos } = useMusicVideos();
+defineProps({
+    musicVideos: Array,
+})
 </script>
