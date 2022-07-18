@@ -13,8 +13,11 @@
 
         <div class="flex items-center justify-center flex-grow text-2xl">
             <transition appear
-                enter-active-class="transition duration-500 ease-out delay-150 transform-gpu"
+                appear-active-class="transition duration-500 delay-150 transform-gpu"
+                enter-active-class="transition duration-150 ease-out transform-gpu"
                 enter-from-class="translate-x-10 opacity-0"
+                leave-active-class="transition duration-150 ease-in transform-gpu"
+                leave-to-class="-translate-x-10 opacity-0"
             >
                 <PollSequence :polls="polls"/>
             </transition>
