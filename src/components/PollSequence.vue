@@ -1,14 +1,16 @@
 <template>
-    <SentencePoll
-        v-if="pollsIndex < polls.length"
-        :sentence="currentPoll.sentence"
-        :options="currentPoll.options"
-        @selected="progress()"
-    />
-    <p class="text-primary" v-else>
-        thanks
-        <BlinkSmiley/>
-    </p>
+    <div v-if="showPoll">
+        <SentencePoll
+            v-if="pollsIndex < polls.length"
+            :sentence="currentPoll.sentence"
+            :options="currentPoll.options"
+            @selected="progress()"
+        />
+        <p class="text-primary" v-else>
+            thanks
+            <BlinkSmiley/>
+        </p>
+    </div>
 </template>
 
 <script setup>
@@ -26,6 +28,7 @@ const props = defineProps({
 })
 
 const pollsIndex = ref(0);
+const showPoll = ref(true);
 const currentPoll = computed(() => {
     return props.polls[pollsIndex.value];
 })
@@ -33,7 +36,11 @@ const currentPoll = computed(() => {
 /* progress to the next poll */
 function progress() {
     setTimeout(() => {
+        showPoll.value = false;
         pollsIndex.value++;
+        setTimeout(() => {
+            showPoll.value = true;
+        }, props.delay);
     }, props.delay)
 }
 </script>
