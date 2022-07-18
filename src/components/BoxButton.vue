@@ -21,15 +21,11 @@ const classes = computed(() => {
     return {
         'text-white' : props.type == 'primary',
         'bg-primary' : props.type == 'primary',
-        'border-1' : props.type == 'primary',
         'active:bg-secondary' : props.type == 'primary',
-        'focus:border-secondary' : props.type == 'primary',
 
         'text-primary' : props.type == 'secondary',
         'bg-white' : props.type == 'secondary',
         'active:text-secondary' : props.type == 'secondary',
-        'active:border-secondary' : props.type == 'secondary',
-        'focus:border-secondary' : props.type == 'secondary',
     }
 })
 
@@ -39,7 +35,7 @@ const classes = computed(() => {
     <button
         :style="{ width: `${width+0.01}ch`}"
         :class="classes"
-        class="box-content p-4 font-bold text-left uppercase break-all border border-primary hover:lowercase focus:outline-none"
+        class="box-content p-4 font-bold text-left uppercase break-all border border-primary active:border-secondary hover:lowercase focus:outline-none focus:border-secondary"
     >
         <slot></slot>
     </button>
