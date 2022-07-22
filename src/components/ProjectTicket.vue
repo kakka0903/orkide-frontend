@@ -1,5 +1,5 @@
 <template>
-    <button @click="isFlipped = !isFlipped" class="relative max-w-xs h-[123px]">
+    <button @click="isFlipped = !isFlipped" class="relative max-w-xs h-[123px] w-full">
         <div class="w-full h-full text-left">
             <transition mode="out-in"
                 enter-active-class="transition duration-300 ease-out transform-gpu"
