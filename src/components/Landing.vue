@@ -11,7 +11,7 @@
             </a>
         </transition>
 
-        <div class="flex items-center justify-center flex-grow text-2xl">
+        <div class="flex items-center justify-center flex-grow text-xl sm:text-2xl">
             <transition appear
                 appear-active-class="transition duration-500 delay-150 transform-gpu"
                 enter-active-class="transition duration-150 ease-out transform-gpu"
