@@ -6,6 +6,7 @@
     font-family: "DejaVuSansMono";
     src: url("/DejaVuSansMono-Bold.ttf");
     font-weight: 800;
+    font-display: swap;
 }
 
 @font-face {
@@ -13,12 +14,14 @@
     src: url("/DejaVuSansMono-BoldOblique.ttf");
     font-weight: 800;
     font-style: oblique;
+    font-display: swap;
 }
 
 @font-face {
     font-family: "DejaVuSansMono";
     src: url("/DejaVuSansMono.ttf");
     font-weight: 600;
+    font-display: swap;
 }
 
 @font-face {
@@ -26,4 +29,5 @@
     src: url("/DejaVuSansMono-Oblique.ttf");
     font-weight: 600;
     font-style: oblique;
+    font-display: swap;
 }
