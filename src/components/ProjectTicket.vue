@@ -37,7 +37,7 @@
                     </div>
                     <div class="absolute top-0 right-0 flex flex-col text-xs ">
                         <BoxButton @click.stop="showModal = true" type="primary" :width="3" class="p-2 py-[13px] px-3">WATCH!</BoxButton>
-                        <BoxButton @click.stop="showBTSModal = true" type="secondary" :width="3" class="p-2 py-[14px] px-3">MORE+</BoxButton>
+                        <BoxButton @click.stop="showBTSModal = true" type="secondary" :width="3" class="p-2 py-[14px] px-3">BTS <br> :-)</BoxButton>
                     </div>
                 </div>
             </transition>
