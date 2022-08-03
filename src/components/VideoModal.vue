@@ -1,12 +1,9 @@
 <template>
     <BoxModal :isOpen="true" class="text-primary">
         <YoutubeEmbed :youtubeId="musicVideo.youtubeId"/>
-        <div class="flex items-center p-4 bg-white border-t-4 border-secondary">
-            <div class="">
-                <h3 class="text-3xl leading-none uppercase text-secondary">{{musicVideo.name}}</h3>
-                <p class="text-sm uppercase">{{musicVideo.artist}} - {{musicVideo.year}}</p>
-            </div>
-            <ReactionPoll class="ml-auto"/>
+        <div class="p-4">
+            <h3 class="text-3xl leading-none uppercase text-secondary">{{musicVideo.name}}</h3>
+            <p class="text-sm uppercase">{{musicVideo.artist}} - {{musicVideo.year}}</p>
         </div>
     </BoxModal>
 </template>
