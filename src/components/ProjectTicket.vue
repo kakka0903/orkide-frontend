@@ -44,7 +44,7 @@
         </div>
         <BoxModal @close="showNoBTSModal = false" :isOpen="showNoBTSModal">
             <div class="max-w-xs px-4 py-4 space-y-4 text-primary-dark">
-                <p>There is no BTS content for {{musicVideo.name}} yet :(</p>
+                <p>Det finnes ikke behind the scenes innhold for <span class="italic">{{musicVideo.name}}</span> enda :(</p>
             </div>
         </BoxModal>
         <VideoModal
