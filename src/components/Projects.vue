@@ -29,25 +29,25 @@ import ProjectTicket from './ProjectTicket.vue';
 import BlinkSmiley from './BlinkSmiley.vue'
 const musicVideos = ref([
     {
-        id:2, youtubeId:"Ri3k4XB2e7c", name: 'TRAPMOBILE', description: 'is the third music video produced by Orkidé. The trapmobile seen in the videos, is a Volvo station wagon.', artist: 'Undergrunn', length: 165, year: 2020,
+        id:2, youtubeId:"Ri3k4XB2e7c", name: 'TRAPMOBILE', description: 'er den tredje musikkvideoen produsert av Orkidé. Trapmobilen man ser videoen, er magnus sin stasjonsvogn.', artist: 'Undergrunn', length: 165, year: 2020,
         clips: [
-            {number:0, youtubeId:'Ri3k4XB2e7c', image:'police-bts.png', description: 'marstein løper fra politiet'},
-            {number:1, youtubeId:'Ri3k4XB2e7c', image:'album.png', description: 'intervju med petter'},
+            {number:0, youtubeId:'Ri3k4XB2e7c', description: 'marstein løper fra politiet'},
+            {number:1, youtubeId:'Ri3k4XB2e7c', description: 'intervju med petter'},
             {number:2, youtubeId:'Ri3k4XB2e7c'},
-            {number:2, youtubeId:'Ri3k4XB2e7c'},
-            {number:2, youtubeId:'Ri3k4XB2e7c'},
-            {number:2, youtubeId:'Ri3k4XB2e7c'},
-            {number:2, youtubeId:'Ri3k4XB2e7c'},
+            {number:3, youtubeId:'Ri3k4XB2e7c'},
+            {number:4, youtubeId:'Ri3k4XB2e7c'},
+            {number:5, youtubeId:'Ri3k4XB2e7c', image:'police-bts.png'},
+            {number:6, youtubeId:'Ri3k4XB2e7c', image:'album.png'},
         ]
     },
     {
-        id:1, youtubeId:"2NR29EicJP4", name: 'DR.PLAZA', description: 'This music video is actually banned in saudi arabia since it features the use of narcotics', artist: 'Undergrunn', length: 238, year: 2019,
+        id:1, youtubeId:"2NR29EicJP4", name: 'DR.PLAZA', description: 'Denne musikkvideoen ble fasktisk bannlyst i saudi arabia siden den viser bruk av narkotiske stoffer.', artist: 'Undergrunn', length: 238, year: 2019,
         clips: [
             {number:0, youtubeId:'Ri3k4XB2e7c', image:'police-bts.png', description: 'marstein løper fra politiet'},
         ]
     },
     {
-        id:0, youtubeId:"KaCIVZKTjv4", name: 'Hjemmebrent', description: 'This project was codenamed "generic song 3" since information orkidé projects kept leaking to the masses.', artist: 'MONSTER', length: 199, year: 2019,
+        id:0, youtubeId:"KaCIVZKTjv4", name: 'Hjemmebrent', description: 'prosjektet fikk kodenavnet "generisk sang 3" siden hemmelig informasjon om Orkidé ble lekket til massene.', artist: 'MONSTER', length: 199, year: 2019,
         clips: []
     },
 ])
