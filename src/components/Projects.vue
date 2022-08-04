@@ -28,12 +28,30 @@ import ProjectCard from './ProjectCard.vue';
 import ProjectTicket from './ProjectTicket.vue';
 import BlinkSmiley from './BlinkSmiley.vue'
 const musicVideos = ref([
-    { id:1, youtubeId:"Ri3k4XB2e7c", name: 'Trapmobile', description: 'is the third music video produced by Orkidé. The trapmobile seen in the videos, is a Volvo station wagon.', artist: 'Undergrunn', length: 165, year: 2020},
-    { id:2, youtubeId:"2NR29EicJP4", name: 'DR.PLAZA', description: 'This music video is actually banned in saudi arabia since it features the use of narcotics', artist: 'Undergrunn', length: 238, year: 2019},
-    { id:3, youtubeId:"KaCIVZKTjv4", name: 'Hjemmebrent', description: 'This project was codenamed "generic song 3" since information orkidé projects kept leaking to the masses.', artist: 'MONSTER', length: 199, year: 2019},
-    { id:3, youtubeId:"KaCIVZKTjv4", name: 'Hjemmebrent', description: 'This project was codenamed "generic song 3" since information orkidé projects kept leaking to the masses.', artist: 'MONSTER', length: 199, year: 2019},
-    { id:3, youtubeId:"KaCIVZKTjv4", name: 'Hjemmebrent', description: 'This project was codenamed "generic song 3" since information orkidé projects kept leaking to the masses.', artist: 'MONSTER', length: 199, year: 2019},
-    { id:3, youtubeId:"KaCIVZKTjv4", name: 'Hjemmebrent', description: 'This project was codenamed "generic song 3" since information orkidé projects kept leaking to the masses.', artist: 'MONSTER', length: 199, year: 2019},
-    { id:3, youtubeId:"KaCIVZKTjv4", name: 'Hjemmebrent', description: 'This project was codenamed "generic song 3" since information orkidé projects kept leaking to the masses.', artist: 'MONSTER', length: 199, year: 2019},
+    {
+        id:2, youtubeId:"Ri3k4XB2e7c", name: 'PERRONI OG PERIGNON', description: 'is the third music video produced by Orkidé. The trapmobile seen in the videos, is a Volvo station wagon.', artist: 'Undergrunn', length: 165, year: 2020,
+        clips: [
+            {number:0, youtubeId:'Ri3k4XB2e7c', image:'police-bts.png', description: 'marstein løper fra politiet'},
+            {number:1, youtubeId:'Ri3k4XB2e7c', image:'police-bts.png', description: 'intervju med petter'},
+            {number:2, youtubeId:'Ri3k4XB2e7c', image:'police-bts.png'},
+            {number:3, youtubeId:'Ri3k4XB2e7c', image:'police-bts.png', description: 'marstein løper fra politiet'},
+            {number:4, youtubeId:'Ri3k4XB2e7c', image:'police-bts.png', description: 'marstein løper fra politiet'},
+            {number:5, youtubeId:'Ri3k4XB2e7c', image:'police-bts.png', description: 'marstein løper fra politiet'},
+            {number:6, youtubeId:'Ri3k4XB2e7c', image:'police-bts.png', description: 'marstein løper fra politiet'},
+            {number:7, youtubeId:'Ri3k4XB2e7c', image:'police-bts.png', description: 'marstein løper fra politiet'},
+            {number:8, youtubeId:'Ri3k4XB2e7c', image:'police-bts.png', description: 'marstein løper fra politiet'},
+        ]
+    },
+    {
+        id:1, youtubeId:"2NR29EicJP4", name: 'DR.PLAZA', description: 'This music video is actually banned in saudi arabia since it features the use of narcotics', artist: 'Undergrunn', length: 238, year: 2019,
+        clips: [
+            {number:0, youtubeId:'Ri3k4XB2e7c', image:'police-bts.png', description: 'marstein løper fra politiet'},
+        ]
+    },
+    {
+        id:0, youtubeId:"KaCIVZKTjv4", name: 'Hjemmebrent', description: 'This project was codenamed "generic song 3" since information orkidé projects kept leaking to the masses.', artist: 'MONSTER', length: 199, year: 2019,
+        clips: []
+    },
 ])
+
 </script>
