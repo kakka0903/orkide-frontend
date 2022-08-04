@@ -3,12 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build ",
     "preview": "vite preview"
   },
   "dependencies": {
     "@heroicons/vue": "^1.0.6",
+    "gsap": "^3.10.4",
     "vue": "^3.2.25"
   },
   "devDependencies": {
