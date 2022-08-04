@@ -29,17 +29,15 @@ import ProjectTicket from './ProjectTicket.vue';
 import BlinkSmiley from './BlinkSmiley.vue'
 const musicVideos = ref([
     {
-        id:2, youtubeId:"Ri3k4XB2e7c", name: 'PERRONI OG PERIGNON', description: 'is the third music video produced by Orkidé. The trapmobile seen in the videos, is a Volvo station wagon.', artist: 'Undergrunn', length: 165, year: 2020,
+        id:2, youtubeId:"Ri3k4XB2e7c", name: 'TRAPMOBILE', description: 'is the third music video produced by Orkidé. The trapmobile seen in the videos, is a Volvo station wagon.', artist: 'Undergrunn', length: 165, year: 2020,
         clips: [
             {number:0, youtubeId:'Ri3k4XB2e7c', image:'police-bts.png', description: 'marstein løper fra politiet'},
-            {number:1, youtubeId:'Ri3k4XB2e7c', image:'police-bts.png', description: 'intervju med petter'},
-            {number:2, youtubeId:'Ri3k4XB2e7c', image:'police-bts.png'},
-            {number:3, youtubeId:'Ri3k4XB2e7c', image:'police-bts.png', description: 'marstein løper fra politiet'},
-            {number:4, youtubeId:'Ri3k4XB2e7c', image:'police-bts.png', description: 'marstein løper fra politiet'},
-            {number:5, youtubeId:'Ri3k4XB2e7c', image:'police-bts.png', description: 'marstein løper fra politiet'},
-            {number:6, youtubeId:'Ri3k4XB2e7c', image:'police-bts.png', description: 'marstein løper fra politiet'},
-            {number:7, youtubeId:'Ri3k4XB2e7c', image:'police-bts.png', description: 'marstein løper fra politiet'},
-            {number:8, youtubeId:'Ri3k4XB2e7c', image:'police-bts.png', description: 'marstein løper fra politiet'},
+            {number:1, youtubeId:'Ri3k4XB2e7c', image:'album.png', description: 'intervju med petter'},
+            {number:2, youtubeId:'Ri3k4XB2e7c'},
+            {number:2, youtubeId:'Ri3k4XB2e7c'},
+            {number:2, youtubeId:'Ri3k4XB2e7c'},
+            {number:2, youtubeId:'Ri3k4XB2e7c'},
+            {number:2, youtubeId:'Ri3k4XB2e7c'},
         ]
     },
     {
