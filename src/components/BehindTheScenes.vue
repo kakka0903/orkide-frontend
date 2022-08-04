@@ -30,7 +30,7 @@ function onBeforeEnter(el) {
 function onEnter(el, done) {
     gsap.to(el, {
         opacity: 1,
-        delay: el.dataset.index * 0.1,
+        delay: el.dataset.index * 0.25,
         ease:"expo.out",
         duration: 2,
         onComplete: done,
