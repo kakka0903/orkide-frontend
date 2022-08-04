@@ -36,21 +36,20 @@
                         </p>
                     </div>
                     <div class="absolute top-0 right-0 flex flex-col text-xs ">
-                        <BoxButton @click.stop="showModal = true" type="primary" :width="3" class="p-2 py-[13px] px-3">WATCH!</BoxButton>
-                        <BoxButton @click.stop="showBTSModal = true" type="secondary" :width="3" class="p-2 py-[14px] px-3">BTS <br> :-)</BoxButton>
+                        <BoxButton @click.stop="showVideoModal = true" type="primary" :width="3" class="p-2 py-[13px] px-3">WATCH!</BoxButton>
+                        <BoxButton @click.stop="showBts" type="secondary" :width="3" class="p-2 py-[14px] px-3">BTS <br> :-)</BoxButton>
                     </div>
                 </div>
             </transition>
         </div>
-        <BoxModal @close="showBTSModal = false" :isOpen="showBTSModal">
+        <BoxModal @close="showNoBTSModal = false" :isOpen="showNoBTSModal">
             <div class="max-w-xs px-4 py-4 space-y-4 text-primary-dark">
-                <h1 class="text-xl text-primary">BEHIND THE SCENES</h1>
                 <p>There is no BTS content for {{musicVideo.name}} yet :(</p>
             </div>
         </BoxModal>
         <VideoModal
-            v-if="showModal"
-            @close="showModal = false"
+            v-if="showVideoModal"
+            @close="showVideoModal = false"
             :musicVideo="musicVideo"
         />
     </button>
@@ -60,14 +59,25 @@
 import BoxButton from './BoxButton.vue'
 import BoxModal from './BoxModal.vue'
 import VideoModal from './VideoModal.vue'
-import { ref } from 'vue';
+import { ref, getCurrentInstance } from 'vue';
+
+const instance = getCurrentInstance();
 const isFlipped = ref(false);
-const showModal = ref(false);
-const showBTSModal = ref(false);
-defineProps({
+const showVideoModal = ref(false);
+const showNoBTSModal = ref(false);
+
+const props = defineProps({
     musicVideo: {
         type: Object,
         required: true,
     }
 })
+
+function showBts() {
+    if (props.musicVideo.clips.length) {
+        instance.parent.emit('bts', props.musicVideo);
+    } else {
+        showNoBTSModal.value = true;
+    }
+}
 </script>
