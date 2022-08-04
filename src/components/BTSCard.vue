@@ -1,37 +1,39 @@
 <template>
-    <article
-        @click="isModalOpen = true"
+    <div
+        class="relative w-full border-2 border-primary hover:border-secondary"
+        style="padding-top:100%;"
         :style="backgroundStyle"
-        class="flex items-end justify-end h-32 p-2 bg-white border-4 cursor-pointer hover:border-secondary hover:text-secondary text-primary sm:col-span-1 border-primary"
+        @click="isModalOpen = true"
     >
-        <p class="">#{{id}}</p>
-        <BoxModal :isOpen="isModalOpen" @close="isModalOpen = false">
-            <div class="w-full max-w-sm">
-                <YoutubeEmbed :youtubeId="youtubeId" />
-            </div>
+        <p class="absolute bottom-2 right-3 text-secondary">#0{{clip.number}}</p>
+        <BoxModal
+            :isOpen="isModalOpen" @close="isModalOpen = false"
+            class="text-primary-dark"
+        >
+            <YoutubeEmbed class="w-full max-w-sm" :youtubeId="clip.youtubeId"/>
+            <p v-if="clip.description" class="p-4"> {{clip.description}}</p>
         </BoxModal>
-    </article>
+    </div>
 </template>
 
 <script setup>
-
 import { computed, ref } from 'vue'
 import BoxModal from './BoxModal.vue';
 import YoutubeEmbed from './YoutubeEmbed.vue';
 const isModalOpen = ref(false);
 
-
 const props = defineProps({
-    id: Number,
-    imageUrl: String,
-    youtubeId: String,
+    clip: Object,
 })
 
 const backgroundStyle = computed(() => {
-    return {
-        "background-image" : "url( " + props.imageUrl + " )",
-        'background-size': 'cover',
+    if(props.clip.imageUrl) {
+        return {
+            "background-image" : "url( " + props.imageUrl + " )",
+            'background-size': 'cover',
+        }
     }
+    return '';
 })
 </script>
 
