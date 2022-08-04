@@ -8,8 +8,8 @@
             EKSTRA! SE eksklusive
             <span class="italic text-secondary">behind the scenes</span>
             klipp fra filmingen av Orkidé musikkvideoer. Trykk
-            <span class="italic">BTS</span>
-            nedenfor <blink-smiley/>
+            <span class="italic">BTS</span> på baksiden av bilettene
+            under <blink-smiley/>
         </p>
         <div class="flex flex-col content-start flex-grow gap-2 mb-2 sm:gap-y-3 sm:justify-center sm:items-start sm:flex-wrap sm:flex-row">
             <ProjectTicket
