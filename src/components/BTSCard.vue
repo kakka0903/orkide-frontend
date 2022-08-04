@@ -27,10 +27,11 @@ const props = defineProps({
 })
 
 const backgroundStyle = computed(() => {
-    if(props.clip.imageUrl) {
+    if(props.clip.image) {
         return {
-            "background-image" : "url( " + props.imageUrl + " )",
+            "background-image" : "url( " + props.clip.image + " )",
             'background-size': 'cover',
+            'background-color':'black'
         }
     }
     return '';
