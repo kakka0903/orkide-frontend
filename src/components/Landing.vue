@@ -1,6 +1,5 @@
 <template>
-    <main class="flex flex-col tra">
-
+    <main class="flex flex-col">
         <transition appear
             enter-active-class="transition duration-500 ease-out transform-gpu"
             enter-from-class="translate-x-10 opacity-0"
@@ -11,16 +10,18 @@
             </a>
         </transition>
 
-        <div class="flex items-center justify-center flex-grow text-xl sm:text-2xl">
-            <transition appear
-                appear-active-class="transition duration-500 delay-150 transform-gpu"
-                enter-active-class="transition duration-150 ease-out transform-gpu"
-                enter-from-class="translate-x-10 opacity-0"
-                leave-active-class="transition duration-150 ease-in transform-gpu"
-                leave-to-class="-translate-x-10 opacity-0"
-            >
-                <PollSequence :polls="polls"/>
-            </transition>
+        <div class="flex items-center justify-center flex-grow my-20 text-xl sm:text-2xl">
+            <div class="h-28">
+                <transition appear
+                    appear-active-class="transition duration-500 delay-150 transform-gpu"
+                    enter-active-class="transition duration-150 ease-out transform-gpu"
+                    enter-from-class="translate-x-10 opacity-0"
+                    leave-active-class="transition duration-150 ease-in transform-gpu"
+                    leave-to-class="-translate-x-10 opacity-0"
+                >
+                    <PollSequence :polls="polls"/>
+                </transition>
+            </div>
         </div>
 
         <div class="flex items-end justify-between">
