@@ -20,7 +20,7 @@
                     <div class="ml-6 text-primary">
                         <p class="text-xs font-normal">VARIGHET</p>
                         <p class="mb-4 text-xs text-secondary">{{musicVideo.length}}s</p>
-                        <p class="text-xs font-normal">ÅRTALL</p>
+                        <p class="text-xs font-normal">ÅRSTALL</p>
                         <p class="text-xs text-secondary">{{musicVideo.year}}</p>
                     </div>
                     <div class="relative flex ml-auto text-primary">
