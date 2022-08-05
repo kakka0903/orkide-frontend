@@ -52,7 +52,7 @@ import { ref } from '@vue/reactivity';
 const polls = ref([
     {sentence:'jeg liker %o', options:['nettsiden', 'jakka', 'smilet']},
     {sentence:'mamma er %o', options:['snill', 'snill', 'snill']},
-    {sentence:'en dag skal jeg %o', options:['spise fancy','ha sex', 'ta LS' ]},
+    {sentence:'en dag skal jeg %o', options:['ta LS','ha sex','dø']},
     {sentence:'lahnzki er %o', options:['hvem egt?', 'william', 'magnus']}
 ])
 </script>
