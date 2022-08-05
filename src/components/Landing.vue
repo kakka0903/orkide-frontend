@@ -26,9 +26,9 @@
 
         <div class="flex items-end justify-between">
             <div class="flex items-end text-2xl font-bold text-secondary ">
-                <p style="text-orientation: upright; writing-mode: vertical-rl;">MERCH&nbsp;</p>
-                <p style="text-orientation: upright; writing-mode: vertical-rl;">COMIN</p>
-                <p class="leading-none">02. <br> 05. <br> 22.</p>
+                <p style="text-orientation: upright; writing-mode: vertical-rl;">MERCH&nbsp;&nbsp;&nbsp;</p>
+                <p style="text-orientation: upright; writing-mode: vertical-rl;">COMING&nbsp;</p>
+                <p style="text-orientation: upright; writing-mode: vertical-rl;">SOON</p>
             </div>
             <transition appear
                 enter-active-class="transition duration-500 ease-out delay-300 transform-gpu"
