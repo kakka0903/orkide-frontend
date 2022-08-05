@@ -50,8 +50,9 @@ import SentencePoll from './SentencePoll.vue'
 import PollSequence from './PollSequence.vue'
 import { ref } from '@vue/reactivity';
 const polls = ref([
-    {sentence:'i like your %o', options:['website', 'jacket', 'smile']},
-    {sentence:'my mom is a %o', options:['sweetheart', 'sweetheart', 'sweetheart']},
-    {sentence:'one day i will %o ', options:['be happy','have sex', 'die' ]}
+    {sentence:'jeg liker %o', options:['nettsiden', 'jakka', 'smilet']},
+    {sentence:'mamma er %o', options:['snill', 'snill', 'snill']},
+    {sentence:'en dag skal jeg %o', options:['spise fancy','ha sex', 'ta LS' ]},
+    {sentence:'lahnzki er %o', options:['hvem egt?', 'william', 'magnus']}
 ])
 </script>
