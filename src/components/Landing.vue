@@ -52,7 +52,7 @@ import { ref } from 'vue';
 const polls = ref([
     {sentence:'jeg liker %o', options:['nettsiden', 'jakka', 'smilet']},
     {sentence:'mamma er %o', options:['snill', 'snill', 'snill']},
-    {sentence:'en dag skal jeg %o', options:['ta LS','ha sex','dø']},
-    {sentence:'lahnzki er %o', options:['hvem egt?', 'william', 'magnus']}
+    {sentence:'en dag skal jeg %o', options:['smile','ha sex','dø']},
+    {sentence:'livet er et %o', options:['mareritt','hull','fly']}
 ])
 </script>
