@@ -22,6 +22,10 @@ import ProjectTicket from './ProjectTicket.vue';
 import BlinkSmiley from './BlinkSmiley.vue'
 const musicVideos = ref([
     {
+        id:0, youtubeId:"", name: 'ITALIA', description: '', artist: 'Undergrunn', length: 0, year: 2022, isNew: true,
+        clips: []
+    },
+    {
         id:0, youtubeId:"1meKrSyHErM", name: 'TOPPEN AV OSL', description: 'Fin vin, fin bil. Bli med til toppen. Det er sånn vi har det her.', artist: 'Undergrunn', length: 190, year: 2021,
         clips: []
     },
