@@ -16,8 +16,8 @@ module.exports = {
       colors: {
         primary: "#0011FF",
         'primary-dark': "#1D3A8A",
-        secondary: "#FF0000",
-        'secondary-dark': "#7E1D1C",
+        secondary: "#84CC16",
+        'secondary-dark': "#5D9010",
       },
       screens:{
         'xs':'385px',
