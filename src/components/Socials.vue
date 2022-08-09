@@ -6,7 +6,7 @@
             <a class="bg-white text-secondary hover:bg-secondary active:text-primary hover:text-white" href="https://www.youtube.com/channel/UCWc-1iefSoth8CuMxzNFxow">YOUTUBE</a>
             <a class="bg-white text-primary hover:bg-primary active:text-secondary hover:text-white" href="https://www.tiktok.com/@orkide.co">TIKTOK</a>
         </div>
-        <p class="font-bold text-primary">For business kontakt på <a class="underline text-secondary" href="mailto:magnuslahn@gmail.com">magnuslahn@gmail.com</a></p>
+        <p class="font-bold text-primary">For business ta kontakt på <a class="underline text-secondary" href="mailto:magnuslahn@gmail.com">magnuslahn@gmail.com</a></p>
     </main>
 </template>
 
