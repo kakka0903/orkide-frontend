@@ -36,8 +36,21 @@
                         </p>
                     </div>
                     <div class="absolute top-0 right-0 flex flex-col text-xs ">
-                        <BoxButton @click.stop="showVideoModal = true" type="primary" :width="3" class="p-2 py-[13px] px-3">WATCH!</BoxButton>
-                        <BoxButton @click.stop="showBts" type="secondary" :width="3" class="p-2 py-[14px] px-3">BTS <br> :-)</BoxButton>
+                        <BoxButton
+                            @click.stop="showVideoModal = true"
+                            type="primary" :width="4"
+                            class="h-[27px]"
+                        >
+                            <PlayIcon/>
+                        </BoxButton>
+                        <BoxButton
+                            @click.stop="showBts"
+                            type="secondary"
+                            :width="4"
+                            class="h-[28px]"
+                        >
+                            <PlusIcon/>
+                        </BoxButton>
                     </div>
                 </div>
             </transition>
@@ -59,6 +72,7 @@
 import BoxButton from './BoxButton.vue'
 import BoxModal from './BoxModal.vue'
 import VideoModal from './VideoModal.vue'
+import { PlayIcon, PlusIcon } from '@heroicons/vue/solid'
 import { ref, getCurrentInstance } from 'vue';
 
 const instance = getCurrentInstance();
