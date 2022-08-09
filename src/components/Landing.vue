@@ -26,7 +26,7 @@
 
         <div class="flex items-end justify-between">
             <div class="flex items-end text-2xl font-bold text-secondary ">
-                <p style="text-orientation: upright; writing-mode: vertical-rl;">MERCH&nbsp;&nbsp;&nbsp;</p>
+                <p style="text-orientation: upright; writing-mode: vertical-rl;">PRINTS&nbsp;&nbsp;</p>
                 <p style="text-orientation: upright; writing-mode: vertical-rl;">COMING&nbsp;</p>
                 <p style="text-orientation: upright; writing-mode: vertical-rl;">SOON</p>
             </div>
@@ -51,7 +51,7 @@ import PollSequence from './PollSequence.vue'
 import { ref } from 'vue';
 const polls = ref([
     {sentence:'jeg liker %o', options:['nettsiden', 'jakka', 'smilet']},
-    {sentence:'mamma er %o', options:['snill', 'snill', 'snill']},
+    {sentence:'mamma er %o', options:['snill', 'sint', 'streng']},
     {sentence:'en dag skal jeg %o', options:['smile','ha sex','dø']},
     {sentence:'livet er et %o', options:['mareritt','hull','fly']}
 ])
