@@ -26,15 +26,15 @@ const musicVideos = ref([
         clips: []
     },
     {
-        id:0, youtubeId:"1meKrSyHErM", name: 'TOPPEN AV OSL', description: 'Fin vin, fin bil. Bli med til toppen. Det er sånn vi har det her.', artist: 'Undergrunn', length: 190, year: 2021,
+        id:1, youtubeId:"1meKrSyHErM", name: 'TOPPEN AV OSL', description: 'Fin vin, fin bil. Bli med til toppen. Det er sånn vi har det her.', artist: 'Undergrunn', length: 190, year: 2021,
         clips: []
     },
     {
-        id:1, youtubeId:"55cqJAV-Lhs", name: 'KOM OG BETAL', description: 'Alexander McQueen sko jeg leser en fin bok, bak i en lynet McQueen coupe.', artist: 'Undergrunn', length: 176, year: 2020,
+        id:2, youtubeId:"55cqJAV-Lhs", name: 'KOM OG BETAL', description: 'Alexander McQueen sko jeg leser en fin bok, bak i en lynet McQueen coupe.', artist: 'Undergrunn', length: 176, year: 2020,
         clips: []
     },
     {
-        id:2, youtubeId:"Ri3k4XB2e7c", name: 'TRAPMOBILE', description: 'er den tredje musikkvideoen produsert av Orkidé for UG. Bli med inn i en toyota hiace selvom mamma sier nei.', artist: 'Undergrunn', length: 165, year: 2020,
+        id:3, youtubeId:"Ri3k4XB2e7c", name: 'TRAPMOBILE', description: 'er den tredje musikkvideoen produsert av Orkidé for UG. Bli med inn i en toyota hiace selvom mamma sier nei.', artist: 'Undergrunn', length: 165, year: 2020,
         clips: [
             {number:0, youtubeId:'Ri3k4XB2e7c', description: 'marstein løper fra politiet'},
             {number:1, youtubeId:'Ri3k4XB2e7c', description: 'intervju med petter'},
@@ -46,7 +46,7 @@ const musicVideos = ref([
         ]
     },
     {
-        id:1, youtubeId:"2NR29EicJP4", name: 'DR.PLAZA', description: 'Her started sammarbeidet som ble bølgen. Tsunami.', artist: 'Undergrunn', length: 238, year: 2019,
+        id:4, youtubeId:"2NR29EicJP4", name: 'DR.PLAZA', description: 'Her started sammarbeidet som ble bølgen. Tsunami.', artist: 'Undergrunn', length: 238, year: 2019,
         clips: [
             {number:0, youtubeId:'Ri3k4XB2e7c', image:'police-bts.png', description: 'marstein løper fra politiet'},
         ]
