@@ -35,21 +35,11 @@ const musicVideos = ref([
     },
     {
         id:3, youtubeId:"Ri3k4XB2e7c", name: 'TRAPMOBILE', description: 'er den tredje musikkvideoen produsert av Orkidé for UG. Bli med inn i en toyota hiace selvom mamma sier nei.', artist: 'Undergrunn', length: 165, year: 2020,
-        clips: [
-            {number:0, youtubeId:'Ri3k4XB2e7c', description: 'marstein løper fra politiet'},
-            {number:1, youtubeId:'Ri3k4XB2e7c', description: 'intervju med petter'},
-            {number:2, youtubeId:'Ri3k4XB2e7c'},
-            {number:3, youtubeId:'Ri3k4XB2e7c'},
-            {number:4, youtubeId:'Ri3k4XB2e7c'},
-            {number:5, youtubeId:'Ri3k4XB2e7c', image:'police-bts.png'},
-            {number:6, youtubeId:'Ri3k4XB2e7c', image:'album.png'},
-        ]
+        clips: []
     },
     {
         id:4, youtubeId:"2NR29EicJP4", name: 'DR.PLAZA', description: 'Her started sammarbeidet som ble bølgen. Tsunami.', artist: 'Undergrunn', length: 238, year: 2019,
-        clips: [
-            {number:0, youtubeId:'Ri3k4XB2e7c', image:'police-bts.png', description: 'marstein løper fra politiet'},
-        ]
+        clips: []
     },
 ])
 
