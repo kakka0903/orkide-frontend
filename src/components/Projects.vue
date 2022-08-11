@@ -22,7 +22,7 @@ import ProjectTicket from './ProjectTicket.vue';
 import BlinkSmiley from './BlinkSmiley.vue'
 const musicVideos = ref([
     {
-        id:0, youtubeId:"", name: 'ITALIA', description: '', artist: 'Undergrunn', length: 0, year: 2022, isNew: true,
+        id:0, youtubeId:"VCTC2wkUgUE", name: 'ITALIA', description: 'Pakk bagen, åpne vin flaska og bli med til Italia', artist: 'Undergrunn', length: 188, year: 2022, isNew: true,
         clips: []
     },
     {
