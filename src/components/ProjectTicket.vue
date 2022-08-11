@@ -25,7 +25,7 @@
                         <p class="text-xs text-secondary">{{musicVideo.year}}</p>
                     </div>
                     <div class="relative flex ml-auto text-primary">
-                        <div class="w-4 h-full mr-2 bg-primary"></div>
+                        <svg class="mr-[10px]" xmlns="http://www.w3.org/2000/svg" width="15" height="79"><g data-name="Group 301"><path data-name="Subtraction 51" d="M44.785 212.5H0v-1h44.785v1Zm0-2H0v-2h44.785v2Zm0-5H0v-1h44.785v1Zm0-2H0v-1.006h44.785v1.006Zm0-4H0v-5h44.785v5Zm0-7H0v-1h44.785v1Zm0-6H0v-2h44.785v2Zm0-4H0v-2h44.785v2Zm0-3H0v-2h44.785v2Zm0-9H0v-1h44.785v1Zm0-2H0v-2h44.785v2Zm0-5H0v-1h44.785v1Zm0-2H0v-1.005h44.785v1Zm0-4H0v-2h44.785v2Zm0-4H0v-1h44.785v1Zm0-6H0v-2h44.785v2Zm0-4H0v-2h44.785v2Zm0-3H0v-2h44.785v2Zm0-9H0v-1h44.785v1Zm0-2H0v-2h44.785v2Zm0-5H0v-1h44.785v1Zm0-2H0v-1.006h44.785v1.006Zm0-4H0v-2h44.785v2Zm0-4H0v-1h44.785v1Zm0-6H0v-2h44.785v2Zm0-4H0v-2h44.785v2Zm0-3H0v-2h44.785v2Zm0-9H0v-1h44.785v1Zm0-2H0v-2h44.785v2Zm0-5H0v-1h44.785v1Zm0-2H0v-1.006h44.785V83.5Zm0-4H0v-2h44.785v2Zm0-4H0v-1h44.785v1Zm0-6H0v-2h44.785v2Zm0-4H0v-2h44.785v2Zm0-3H0v-2h44.785v2Zm0-9H0v-1h44.785v1Zm0-2H0v-2h44.785v2Zm0-5H0v-1h44.785v1Zm0-2H0v-1.006h44.785v1Zm0-4H0v-2h44.785v2Zm0-4H0v-1h44.785v1Zm0-6H0v-2h44.785v2Zm0-4H0v-2h44.785v2Zm0-3H0v-2h44.785v2Zm0-9H0v-1h44.785v1Zm0-2H0v-2h44.785v2Zm0-5H0v-1h44.785v1Zm0-2H0V4.494h44.785V5.5Zm0-4H0V0h44.785v1.5Z" fill="#01f"/></g></svg>
                         <p class="absolute w-2 bottom-0 -right-0  -rotate-90 text-[8px]">85775643:8567383</p>
                     </div>
                 </div>
