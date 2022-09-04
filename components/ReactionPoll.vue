@@ -18,7 +18,6 @@
 </template>
 
 <script setup>
-import { computed, ref } from "vue";
 import { ThumbDownIcon, ThumbUpIcon } from "@heroicons/vue/outline";
 const selected = ref('');
 function select(type) {

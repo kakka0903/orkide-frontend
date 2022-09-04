@@ -3,7 +3,6 @@
 </template>
 
 <script>
-import { ref, computed, onMounted, onBeforeMount } from 'vue'
 export default {
     name: 'timezone-clock',
 

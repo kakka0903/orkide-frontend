@@ -3,7 +3,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 var text = ref(':)');
 setTimeout(() => {
     text.value = ';)'

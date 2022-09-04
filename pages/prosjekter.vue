@@ -15,7 +15,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
 const musicVideos = ref([
     {
         id:0, youtubeId:"", name: 'ITALIA', description: '', artist: 'Undergrunn', length: 0, year: 2022, isNew: true,

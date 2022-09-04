@@ -17,7 +17,6 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
 const isModalOpen = ref(false);
 
 const props = defineProps({

@@ -14,8 +14,6 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue';
-
 const props = defineProps({
     // delay before progressing
     delay: {
