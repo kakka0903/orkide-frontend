@@ -18,8 +18,6 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-import BoxModal from './BoxModal.vue';
-import YoutubeEmbed from './YoutubeEmbed.vue';
 const isModalOpen = ref(false);
 
 const props = defineProps({

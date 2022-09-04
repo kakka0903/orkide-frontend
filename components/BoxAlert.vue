@@ -29,8 +29,7 @@
 </template>
 
 <script setup>
-import { ExclamationIcon, CheckCircleIcon } from '@heroicons/vue/outline'
-import { onMounted, ref } from "@vue/runtime-core";
+import { onMounted, ref } from "vue";
 
 defineProps({
     level:{

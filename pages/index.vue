@@ -45,9 +45,6 @@
 </template>
 
 <script setup>
-import BoxButton from './BoxButton.vue';
-import SentencePoll from './SentencePoll.vue'
-import PollSequence from './PollSequence.vue'
 import { ref } from 'vue';
 const polls = ref([
     {sentence:'jeg liker %o', options:['nettsiden', 'jakka', 'smilet']},

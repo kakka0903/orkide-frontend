@@ -10,9 +10,6 @@
 
 <script setup>
 import { computed } from '@vue/runtime-core';
-import BoxModal from './BoxModal.vue';
-import ReactionPoll from './ReactionPoll.vue';
-import YoutubeEmbed from './YoutubeEmbed.vue';
 const props = defineProps({
     musicVideo:{
         type:Object,

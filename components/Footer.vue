@@ -5,7 +5,3 @@
         <p class="italic">developed by <a class="underline active:text-bg-secondary" href="https://kakka.dev">kasper</a></p>
     </footer>
 </template>
-
-<script setup>
-import TimeZoneClock from "./TimeZoneClock.vue";
-</script>

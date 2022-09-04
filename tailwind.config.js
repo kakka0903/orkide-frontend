@@ -8,10 +8,6 @@ module.exports = {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
-    fontFamily: {
-      'mono': 'DejaVuSansMono',
-      'mono-bold': 'DejaVuSansMonoBold',
-    },
     extend: {
       colors: {
         primary: "#0011FF",

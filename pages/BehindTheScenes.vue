@@ -14,17 +14,13 @@
 </template>
 
 <script setup>
-import BTSCard from './BTSCard.vue';
+/*
 import gsap from 'gsap';
 import { onMounted, ref } from 'vue';
 
-const props = defineProps({
-    musicVideo: Object,
-})
-
 function onBeforeEnter(el) {
-  el.style.opacity = 0
-  el.style.height = 0
+    el.style.opacity = 0
+    el.style.height = 0
 }
 
 function onEnter(el, done) {
@@ -38,4 +34,5 @@ function onEnter(el, done) {
     console.log('delay: ' + el.dataset.index*0.1);
 }
 
+*/
 </script>

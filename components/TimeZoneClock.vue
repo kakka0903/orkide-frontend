@@ -24,7 +24,7 @@ export default {
             return `${hours.value}:${minutes.value}:${seconds.value}`
         })
         const updateTime = () => {
-            // update time variables 
+            // update time variables
             var date = new Date()
             hours.value = addZeroPadding(date.getHours())
             minutes.value = addZeroPadding(date.getMinutes())
@@ -33,7 +33,7 @@ export default {
             // call again in a second
             window.setTimeout(updateTime, 1000)
         }
-        
+
         onBeforeMount(() => {
             // get timezone and start update loop
             getTimeZone()

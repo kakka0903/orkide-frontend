@@ -22,7 +22,6 @@
 </template>
 
 <script setup>
-import { XIcon } from '@heroicons/vue/outline'
 
 const emit = defineEmits(['close'])
 defineProps({

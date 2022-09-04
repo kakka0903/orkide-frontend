@@ -3,20 +3,18 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite --host 0.0.0.0",
-    "build": "vite build ",
-    "preview": "vite preview"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
     "@heroicons/vue": "^1.0.6",
-    "gsap": "^3.10.4",
-    "vue": "^3.2.25"
+    "@nuxtjs/tailwindcss": "^5.3.2",
+    "gsap": "^3.10.4"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^2.3.3",
-    "autoprefixer": "^10.4.7",
-    "postcss": "^8.4.14",
-    "tailwindcss": "^3.1.4",
-    "vite": "^2.9.9"
+    "nuxt": "3.0.0-rc.8"
   }
 }

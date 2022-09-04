@@ -15,11 +15,7 @@
 </template>
 
 <script setup>
-import { ref } from '@vue/reactivity';
-import PageHeading from './PageHeading.vue';
-import ProjectCard from './ProjectCard.vue';
-import ProjectTicket from './ProjectTicket.vue';
-import BlinkSmiley from './BlinkSmiley.vue'
+import { ref } from 'vue';
 const musicVideos = ref([
     {
         id:0, youtubeId:"", name: 'ITALIA', description: '', artist: 'Undergrunn', length: 0, year: 2022, isNew: true,
@@ -42,5 +38,4 @@ const musicVideos = ref([
         clips: []
     },
 ])
-
 </script>

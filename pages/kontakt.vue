@@ -10,6 +10,3 @@
     </main>
 </template>
 
-<script setup>
-import PageHeading from './PageHeading.vue';
-</script>

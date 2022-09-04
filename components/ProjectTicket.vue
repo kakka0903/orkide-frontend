@@ -70,11 +70,6 @@
 </template>
 
 <script setup>
-import BoxButton from './BoxButton.vue'
-import BoxModal from './BoxModal.vue'
-import VideoModal from './VideoModal.vue'
-import SpikeBadge from './SpikeBadge.vue'
-import { PlayIcon, PlusIcon } from '@heroicons/vue/solid'
 import { ref, getCurrentInstance } from 'vue';
 
 const instance = getCurrentInstance();

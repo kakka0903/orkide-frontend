@@ -14,8 +14,6 @@
 </template>
 
 <script setup>
-import SentencePoll from './SentencePoll.vue';
-import BlinkSmiley from './BlinkSmiley.vue';
 import { computed, ref } from 'vue';
 
 const props = defineProps({
