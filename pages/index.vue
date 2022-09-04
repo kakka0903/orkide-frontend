@@ -36,8 +36,12 @@
                 enter-to-class="scale-100 translate-x-0 opacity-100"
             >
             <div class="flex items-end text-2xl font-bold gap-x-4 text-primary">
-                <BoxButton :width="3" @click="$emit('navigate', 'kontakt')" >social</BoxButton>
-                <BoxButton :width="3" @click="$emit('navigate', 'prosjekter')" type="primary">projects~</BoxButton>
+                <NuxtLink to="/kontakt">
+                    <BoxButton :width="3">social</BoxButton>
+                </NuxtLink>
+                <NuxtLink to="/prosjekter">
+                    <BoxButton :width="3" @click="$emit('navigate', 'prosjekter')" type="primary">projects~</BoxButton>
+                </NuxtLink>
             </div>
             </transition>
         </div>
