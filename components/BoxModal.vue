@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-
+import { XIcon } from '@heroicons/vue/solid/index.js';
 const emit = defineEmits(['close'])
 defineProps({
     isOpen:Boolean

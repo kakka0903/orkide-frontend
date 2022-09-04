@@ -30,6 +30,7 @@
 
 <script setup>
 import { onMounted, ref } from "vue";
+import { CheckCircleIcon , ExclamationIcon } from '@heroicons/vue/outline/index.js'
 
 defineProps({
     level:{

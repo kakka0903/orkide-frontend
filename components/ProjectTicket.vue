@@ -71,6 +71,7 @@
 
 <script setup>
 import { ref, getCurrentInstance } from 'vue';
+import { PlayIcon, PlusIcon } from '@heroicons/vue/solid/index.js';
 
 const instance = getCurrentInstance();
 const isFlipped = ref(false);
