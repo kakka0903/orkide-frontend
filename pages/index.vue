@@ -56,4 +56,8 @@ const polls = ref([
     {sentence:'en dag skal jeg %o', options:['smile','ha sex','dø']},
     {sentence:'livet er et %o', options:['mareritt','hull','fly']}
 ])
+useHead({
+    title: 'Orkidé',
+    meta: [{ name: 'description', content: ''}]
+});
 </script>
