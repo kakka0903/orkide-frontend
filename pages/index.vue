@@ -5,9 +5,9 @@
             enter-from-class="translate-x-10 opacity-0"
             enter-to-class="scale-100 translate-x-0 opacity-100"
         >
-            <a href="/">
+            <NuxtLink to="/">
                 <h1 class="mt-2 font-bold leading-none text-7xl text-primary">orkidé<br>.world</h1>
-            </a>
+            </NuxtLink>
         </transition>
 
         <div class="flex items-center justify-center flex-grow my-20 text-xl sm:text-2xl">
