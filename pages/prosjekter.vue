@@ -1,5 +1,5 @@
 <template>
-    <main class="flex flex-col font-bold">
+    <main class="flex flex-col flex-grow font-bold">
         <PageHeading
             title="ORKIDÉ KINO"
             description="Videoer laget av Orkidé"

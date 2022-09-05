@@ -1,5 +1,5 @@
 <template>
-    <main class="flex flex-col">
+    <main class="flex flex-col flex-grow">
         <div class="h-56">
             <NuxtLink to="/">
                 <Transition

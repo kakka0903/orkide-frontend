@@ -1,5 +1,5 @@
 <template>
-    <main class="flex flex-col">
+    <main class="flex flex-col flex-grow">
         <PageHeading title="ORKIDÉ LIFE" description="Oppdater deg på alt Orkidé & UG"/>
         <div class="flex flex-col items-center mt-12 mb-24 font-mono font-bold text-secondary text-7xl sm:text-8xl">
             <a class="bg-white text-primary hover:bg-primary active:text-secondary hover:text-white" href="https://www.instagram.com/orkide.world/">INSTA</a>
