@@ -13,6 +13,5 @@
 <script setup>
 useHead({
     title: 'Orkidé - Kontakt',
-    meta: [{ name: 'description', content: ''}]
 });
 </script>

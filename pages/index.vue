@@ -56,6 +56,5 @@ const polls = ref([
 ])
 useHead({
     title: 'Orkidé',
-    meta: [{ name: 'description', content: ''}]
 });
 </script>

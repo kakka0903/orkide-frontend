@@ -39,6 +39,5 @@ const musicVideos = ref([
 ])
 useHead({
     title: 'Orkidé - Prosjekter',
-    meta: [{ name: 'description', content: ''}]
 });
 </script>

@@ -16,6 +16,9 @@ useHead({
   script:[
     { defer:'defer', src:'https://plausible.kakk.dev/js/plausible.js', 'data-domain':'orkide.world'}
   ],
+  meta: {
+    meta: [{ name: 'description', content: 'UNDERGRUNN musikkvideoer regissert, filmet og redigert av Orkidé. Se også eksklusive videoklipp fra innspillingen av UG musikkvideoer som ITALIA.'}]
+  }
 })
 
 </script>
