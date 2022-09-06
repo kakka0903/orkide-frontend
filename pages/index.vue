@@ -12,7 +12,7 @@
             </NuxtLink>
         </div>
 
-        <div class="flex justify-center mb-10 h-28">
+        <div class="flex justify-center my-10 h-28">
             <Transition
                 enter-active-class="transition duration-500 delay-150 transform-gpu"
                 enter-from-class="translate-x-10 opacity-0"
