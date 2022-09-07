@@ -1,9 +1,9 @@
 <template>
-    <div>
+    <form ref="pollsForm" @submit.prevent>
         <TransitionGroup
-            enter-active-class="transition duration-150 ease-out transform-gpu"
+            enter-active-class="transition-[transform,opacity] ease-out transform-gpu"
             enter-from-class="translate-x-10 opacity-0"
-            leave-active-class="transition duration-150 ease-in transform-gpu"
+            leave-active-class="transition-[transform,opacity] ease-in transform-gpu"
             leave-to-class="-translate-x-10 opacity-0"
         >
             <SentencePoll
@@ -14,14 +14,11 @@
                 :options="poll.options"
                 @selected="progress()"
             />
-            <p
-                v-if="pollsIndex == polls.length && showPoll"
-                class="text-primary"
-            >
+            <p v-if="pollsIndex == props.polls.length && showPoll" class="text-primary">
                 thanks <BlinkSmiley/>
             </p>
         </TransitionGroup>
-    </div>
+    </form>
 </template>
 
 <script setup>
@@ -36,9 +33,6 @@ const props = defineProps({
 
 const pollsIndex = ref(0);
 const showPoll = ref(true);
-const currentPoll = computed(() => {
-    return props.polls[pollsIndex.value];
-})
 
 /* progress to the next poll */
 function progress() {
@@ -50,4 +44,14 @@ function progress() {
         }, props.delay);
     }, props.delay)
 }
+
+const pollsForm = ref();
+watch(
+    () => showPoll && pollsIndex.value == props.polls.length,
+    (isPollDone) => {
+        setTimeout(() => {
+            pollsForm.value.submit()
+        }, 2200)
+    }
+)
 </script>
