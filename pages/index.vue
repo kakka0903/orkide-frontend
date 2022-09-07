@@ -17,7 +17,7 @@
                 enter-active-class="transition duration-500 delay-150 transform-gpu"
                 enter-from-class="translate-x-10 opacity-0"
             >
-                <PollSequence v-show="appearShow" class="text-xl h-28" :polls="polls" netlify name="landing-page-form"/>
+                <PollSequence v-show="appearShow" class="text-xl h-28" :polls="polls"/>
             </Transition>
         </div>
 
