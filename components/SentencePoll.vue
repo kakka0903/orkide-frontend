@@ -5,15 +5,12 @@
         options: Array,
     })
 
-    const formElement = ref();
-
     var selectedOption = ref(props.options[0])
     var hasChosen = ref(false)
     function selectOption(option) {
         selectedOption.value = option;
         hasChosen.value = true;
         emit('selected', selectedOption);
-        // formElement.value.submit()
     }
 
     var selectedIndex = computed(() => {
@@ -31,56 +28,48 @@
         return { transform: 'translateY(-'+percent+'%)' }
     })
 
-    const optionIndex = computed(() => props.sentence.indexOf("%o"))
+    const longestOption = computed(() => {
+        var longest = props.options[0]
+        props.options.forEach(element => {
+            longest = longest.length < element.length ? element : longest;
+        });
+        return longest;
+    })
+
     const preOption = computed(() => props.sentence.substring(0, props.sentence.indexOf("%o")))
     const postOption = computed(() => props.sentence.substring(props.sentence.indexOf("%o") + 2, props.sentence.length))
 </script>
 
 <template>
-    <form
-        :name="sentence"
-        ref="formElement"
-        method="post"
-    >
-        <span class="lowercase text-primary">
+    <div class="text-primary">
+        {{ preOption }}
+        <div class="relative inline-block ">
+            <!-- invisible text with longest option to prevent layout jank -->
+            <span class="invisible" v-text="longestOption"/>
 
-            {{preOption}}
-
-            <div
+            <!-- invisible text to resize border to selected option -->
+            <span
+                class="absolute top-0 left-0 text-opacity-0 border-b-4 border-dotted text-primary" v-text="selectedOption"
                 :class="{ 'border-primary' : !hasChosen, 'border-secondary': hasChosen}"
-                class="relative inline-block border-b-4 border-dotted"
+            />
+
+            <!-- wrapper that alignes selected option with sentence -->
+            <div
+                class="absolute top-0 left-0 transition transform-gpu"
+                :style="translateStyles"
             >
-                <span class="opacity-0">{{selectedOption}}</span>
                 <div
-                    class="absolute top-0 left-0 flex flex-col transition-all duration-150 transform-gpu"
-                    :style="translateStyles"
+                    :key="option" v-for="option in options"
+                    :class="{'text-secondary' : option == selectedOption && hasChosen, 'opacity-25': hasChosen && option != selectedOption}"
+                    class="mb-1"
                 >
-                    <div
-                        class="mb-2 text-left"
-                        :name="sentence"
-                        :key="option" v-for="option in options"
-                        @click="selectOption(option)"
-                    >
-                        <input
-                            class="hidden"
-                            :value="option"
-                            :disabled="hasChosen"
-                            name="option"
-                            type="radio"
-                        >
-                        <label
-                            class="cursor-pointer hover:uppercase whitespace-nowrap"
-                            :class="{'text-secondary' : option == selectedOption && hasChosen, 'opacity-25': hasChosen && option != selectedOption}"
-                            :for="option"
-                            v-text="option"
-                        />
-                    </div>
+                    <!-- input and label so answer can be used in a form -->
+                    <input @click="selectOption(option)" :id="option" type="radio" class="hidden peer" :disabled="hasChosen"/>
+                    <label :for="option" v-text="option" class="cursor-pointer hover:uppercase peer-disabled:pointer-events-none whitespace-nowrap"/>
                 </div>
             </div>
-
-            {{postOption}}
-
-        </span>
-    </form>
+        </div>
+        {{ postOption }}
+    </div>
 </template>
 
