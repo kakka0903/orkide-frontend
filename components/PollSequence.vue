@@ -1,5 +1,5 @@
 <template>
-    <form ref="pollsForm" @submit.prevent>
+    <form ref="pollsForm" action="/">
         <SentencePoll
             v-for="poll in polls"
             :key="polls.indexOf(poll)"
