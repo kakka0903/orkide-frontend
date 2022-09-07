@@ -1,5 +1,7 @@
 <template>
-    <span><span class="hidden sm:inline-flex ">{{timezoneText}}</span> {{clockText}}</span>
+    <ClientOnly>
+        <span><span class="hidden sm:inline-flex ">{{timezoneText}}</span> {{clockText}}</span>
+    </ClientOnly>
 </template>
 
 <script>
