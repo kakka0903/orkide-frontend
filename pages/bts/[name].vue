@@ -15,6 +15,14 @@
                         :data-index="clip.number"
                     />
                 </TransitionGroup>
+                <div v-if="musicVideo.clips.length == 0" class="p-5 border-4 col-span-full border-primary">
+                    <p class="mb-5 col-span-full" >Det finnes ikke behind the scenes innhold for <span class="italic">{{musicVideo.name}}</span> enda :(</p>
+                    <div class="flex justify-end">
+                        <NuxtLink class="flex items-center" to="/prosjekter">
+                            <ArrowLeftIcon class="w-4 h-4 mr-1"/> PROSJEKTER
+                        </NuxtLink>
+                    </div>
+                </div>
             </ClientOnly>
         </div>
     </div>
