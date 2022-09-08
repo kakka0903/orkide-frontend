@@ -20,10 +20,12 @@ const classes = computed(() => {
         'text-white' : props.type == 'primary',
         'bg-primary' : props.type == 'primary',
         'active:bg-secondary' : props.type == 'primary',
+        'disabled:bg-primary-dark' : props.type == 'primary',
 
         'text-primary' : props.type == 'secondary',
         'bg-white' : props.type == 'secondary',
         'active:text-secondary' : props.type == 'secondary',
+        'disabled:text-primary-dark' : props.type == 'secondary',
     }
 })
 
@@ -33,7 +35,7 @@ const classes = computed(() => {
     <button
         :style="{ width: `${width+0.01}ch`}"
         :class="classes"
-        class="box-content p-4 font-bold text-left uppercase break-all border border-primary active:border-secondary hover:lowercase focus:outline-none focus:border-secondary disabled:text-primary-dark disabled:border-primary-dark disabled:hover:uppercase"
+        class="box-content p-4 font-bold text-left uppercase break-all border border-primary active:border-secondary hover:lowercase focus:outline-none focus:border-secondary disabled:border-primary-dark disabled:hover:uppercase"
     >
         <slot></slot>
     </button>
