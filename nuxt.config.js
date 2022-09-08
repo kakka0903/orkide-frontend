@@ -3,7 +3,7 @@ import { defineNuxtConfig } from 'nuxt'
 import projects from './data/projects';
 const dynamicRoutes = []
 projects.forEach((project) => {
-    dynamicRoutes.push('/bts/'+project.name);
+    dynamicRoutes.push('/bts/'+project.id);
 })
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config

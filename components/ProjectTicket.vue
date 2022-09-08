@@ -44,7 +44,7 @@
                         >
                             <PlayIcon/>
                         </BoxButton>
-                        <NuxtLink :disabled="musicVideo.clips.length == 0" :to="'/bts/'+musicVideo.name">
+                        <NuxtLink :disabled="musicVideo.clips.length == 0" :to="'/bts/'+musicVideo.id">
                             <BoxButton
                                 @click.stop="showBts"
                                 type="secondary"
