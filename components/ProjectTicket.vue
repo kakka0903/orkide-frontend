@@ -38,7 +38,7 @@
                     </div>
                     <div class="absolute top-0 right-0 flex flex-col text-xs ">
                         <BoxButton
-                            @click.stop="showVideoModal = true"
+                            @click.stop="watchVideo"
                             type="primary" :width="4"
                             class="h-[27px]"
                         >
@@ -46,7 +46,6 @@
                         </BoxButton>
                         <NuxtLink :disabled="musicVideo.clips.length == 0" :to="'/bts/'+musicVideo.id">
                             <BoxButton
-                                @click.stop="showBts"
                                 type="secondary"
                                 :width="4"
                                 class="h-[28px]"
@@ -59,27 +58,13 @@
                 </div>
             </transition>
         </div>
-        <BoxModal @close="showNoBTSModal = false" :isOpen="showNoBTSModal">
-            <div class="max-w-xs px-4 py-4 space-y-4 text-primary-dark">
-                <p>Det finnes ikke behind the scenes innhold for <span class="italic">{{musicVideo.name}}</span> enda :(</p>
-            </div>
-        </BoxModal>
-        <VideoModal
-            v-if="showVideoModal"
-            @close="showVideoModal = false"
-            :musicVideo="musicVideo"
-        />
     </button>
 </template>
 
 <script setup>
-import { ref, getCurrentInstance } from 'vue';
 import { PlayIcon, PlusIcon } from '@heroicons/vue/solid/index.js';
 
-const instance = getCurrentInstance();
 const isFlipped = ref(false);
-const showVideoModal = ref(false);
-const showNoBTSModal = ref(false);
 
 const props = defineProps({
     musicVideo: {
@@ -88,11 +73,8 @@ const props = defineProps({
     }
 })
 
-function showBts() {
-    if (props.musicVideo.clips.length) {
-        instance.parent.emit('bts', props.musicVideo);
-    } else {
-        showNoBTSModal.value = true;
-    }
+const emit = defineEmits(['watch']);
+function watchVideo() {
+    emit('watch');
 }
 </script>
