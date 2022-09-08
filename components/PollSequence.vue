@@ -1,23 +1,24 @@
 <template>
     <form ref="pollsForm" action="/">
-        <TransitionGroup
+        <Transition
+            v-for="poll in polls"
+            :key="polls.indexOf(poll)"
             enter-active-class="transition-[transform,opacity] ease-out transform-gpu"
             enter-from-class="translate-x-10 opacity-0"
             leave-active-class="transition-[transform,opacity] ease-in transform-gpu"
             leave-to-class="-translate-x-10 opacity-0"
         >
             <SentencePoll
-                v-for="poll in polls"
-                :key="polls.indexOf(poll)"
+
                 v-show="pollsIndex == polls.indexOf(poll) && showPoll"
                 :sentence="poll.sentence"
                 :options="poll.options"
                 @selected="progress()"
             />
-            <p v-if="pollsIndex == props.polls.length && showPoll" class="text-primary">
-                thanks <BlinkSmiley/>
-            </p>
-        </TransitionGroup>
+        </Transition>
+        <p v-if="pollsIndex == props.polls.length && showPoll" class="text-primary">
+            thanks <BlinkSmiley/>
+        </p>
     </form>
 </template>
 
