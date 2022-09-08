@@ -12,23 +12,15 @@
                 :key="musicVideo.id"
             />
         </div>
-        <VideoModal
-            v-if="showVideoModal"
-            @close="showVideoModal = false"
-            :musicVideo="videoToWatch"
-        />
+        <NuxtChild/>
     </main>
 </template>
 
 <script setup>
 import projects from '../data/projects'
 
-const showVideoModal = ref(false);
-const videoToWatch = ref(projects[0]);
-
 function watchVideo(musicVideo) {
-    videoToWatch.value = musicVideo;
-    showVideoModal.value = true;
+    navigateTo('/prosjekter/'+musicVideo.id)
 }
 
 useHead({
