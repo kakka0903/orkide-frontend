@@ -64,7 +64,7 @@
                     class="mb-1"
                 >
                     <!-- input and label so answer can be used in a form -->
-                    <input @click="selectOption(option)" :id="option" :name="sentence" :value="option" type="radio" class="hidden peer" :disabled="hasChosen"/>
+                    <input @click="selectOption(option)" :id="option" :name="sentence" :value="option" type="radio" class="hidden peer"/>
                     <label :for="option" v-text="option" class="cursor-pointer hover:uppercase peer-disabled:pointer-events-none whitespace-nowrap"/>
                 </div>
             </div>
