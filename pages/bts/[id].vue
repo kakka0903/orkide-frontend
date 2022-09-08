@@ -36,7 +36,7 @@ import { ArrowLeftIcon } from '@heroicons/vue/solid/index.js'
 // get the relevant project data
 const route = useRoute();
 const musicVideo = computed(() => {
-    return projects.find((project) => { return project.name == route.params.name })
+    return projects.find((project) => { return project.id == route.params.id })
 })
 
 // animate staggered entry of BTSClips
