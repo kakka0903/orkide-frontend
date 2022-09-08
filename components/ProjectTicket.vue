@@ -44,14 +44,17 @@
                         >
                             <PlayIcon/>
                         </BoxButton>
-                        <BoxButton
-                            @click.stop="showBts"
-                            type="secondary"
-                            :width="4"
-                            class="h-[28px]"
-                        >
-                            <PlusIcon/>
-                        </BoxButton>
+                        <NuxtLink :disabled="musicVideo.clips.length == 0" :to="'/bts/'+musicVideo.name">
+                            <BoxButton
+                                @click.stop="showBts"
+                                type="secondary"
+                                :width="4"
+                                class="h-[28px]"
+                                :disabled="musicVideo.clips.length == 0"
+                            >
+                                <PlusIcon/>
+                            </BoxButton>
+                        </NuxtLink>
                     </div>
                 </div>
             </transition>
