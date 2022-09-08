@@ -1,5 +1,5 @@
 <template>
-    <form ref="pollsForm" action="/">
+    <form ref="pollsForm" action="/prosjekter" method="POST">
         <Transition
             v-for="poll in polls"
             :key="polls.indexOf(poll)"
