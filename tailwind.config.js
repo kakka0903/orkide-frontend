@@ -9,6 +9,10 @@ module.exports = {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
+    screens:{
+      'xs':'385px',
+      ...defaultTheme.screens,
+    },
     extend: {
       colors: {
         primary: "#0011FF",
@@ -19,9 +23,6 @@ module.exports = {
       fontFamily: {
         'mono': ['DejaVuSansMono', ...defaultTheme.fontFamily.mono],
       },
-      screens:{
-        'xs':'385px',
-      }
     }
   },
   plugins: [],
