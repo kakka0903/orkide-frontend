@@ -4,7 +4,7 @@
             title="ORKIDÉ KINO"
             description="Videoer laget av Orkidé"
         />
-        <div class="flex flex-col content-start flex-grow gap-2 mb-2 sm:gap-y-3 sm:justify-center sm:items-start sm:flex-wrap sm:flex-row">
+        <div class="flex flex-col content-start flex-grow gap-2 mb-2 gap-y-3 sm:flex-wrap sm:flex-row">
             <ProjectTicket
                 v-for="musicVideo in projects"
                 @watch="watchVideo(musicVideo)"
