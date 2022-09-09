@@ -53,4 +53,8 @@ function onEnter(el, done) {
         onComplete: done,
     })
 }
+
+useHead({
+    title: 'Orkidé - BTS '+musicVideo.value.name
+})
 </script>
