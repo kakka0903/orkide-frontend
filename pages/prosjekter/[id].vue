@@ -13,4 +13,7 @@ const route = useRoute();
 const musicVideo = computed(() => {
     return projects.find((el) => { return el.id == route.params.id });
 })
+useHead({
+    title:'Orkidé - '+musicVideo.value.name
+})
 </script>
