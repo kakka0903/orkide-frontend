@@ -21,23 +21,18 @@
         }
     })
 
-    var selectedOption = ref(options[0])
-    var hasChosen = ref(false)
+    const selectedOption = computed(() => {
+        return options.value[selectedIndex.value]
+    })
+
+    const hasChosen = ref(false)
+    const selectedIndex = ref(0)
     function selectOption(option) {
-        selectedOption.value = option;
+        selectedIndex.value = options.value.indexOf(option);
         hasChosen.value = true;
         emit('selected', selectedOption);
     }
 
-    var selectedIndex = computed(() => {
-        for(var i = 0; i < options.value.length; i++ ) {
-            if (selectedOption.value == options.value[i]) {
-                return i;
-            }
-        }
-        return -1;
-    })
-   
     /* styles to align selected option with sentence */
     const translateStyles = computed(() => {
         let percent = 100/(options.value.length)*selectedIndex.value;
