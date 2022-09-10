@@ -10,8 +10,11 @@ projects.forEach((project) => {
 export default defineNuxtConfig({
     target: 'static',
     mode: 'universal',
-    buildModules: ['@nuxtjs/tailwindcss'],
+    buildModules: ['@nuxtjs/tailwindcss', '@nuxtjs/strapi'],
     generate: {
         routes: dynamicRoutes
-    }
+    },
+    strapi: {
+        url: process.env.STRAPI_URL || 'http://localhost:1337'
+    },
 })
