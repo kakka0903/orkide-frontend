@@ -14,7 +14,7 @@
                 @selected="progress()"
             />
         </Transition>
-        <p v-if="pollsIndex == props.polls.length && showPoll" class="text-primary">
+        <p v-if="isPollsDone && showPoll" class="text-primary">
             thanks <BlinkSmiley/>
         </p>
     </form>
@@ -32,25 +32,24 @@ const props = defineProps({
 
 const pollsIndex = ref(0);
 const showPoll = ref(true);
+const isPollsDone = computed(() => {
+    return pollsIndex.value == props.polls.length;
+})
 
 /* progress to the next poll */
+const pollsForm = ref();
 function progress() {
     setTimeout(() => {
         showPoll.value = false;
         pollsIndex.value++;
         setTimeout(() => {
             showPoll.value = true;
+            if(isPollsDone.value) {
+                setTimeout(() => {
+                    pollsForm.value.submit()
+                }, 2200)
+            }
         }, props.delay);
     }, props.delay)
 }
-
-const pollsForm = ref();
-watch(
-    () => showPoll && pollsIndex.value == props.polls.length,
-    (isPollDone) => {
-        setTimeout(() => {
-            pollsForm.value.submit()
-        }, 2200)
-    }
-)
 </script>
