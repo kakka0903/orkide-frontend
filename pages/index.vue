@@ -47,13 +47,23 @@
 <script setup>
 import useAppearShow from '../composables/useAppearShow';
 const { appearShow } = useAppearShow();
+const { find } = useStrapi4();
 
-const polls = ref([
-    {sentence:'jeg liker %o', options:['nettsiden', 'jakka', 'smilet']},
-    {sentence:'mamma er %o', options:['snill', 'sint', 'streng']},
-    {sentence:'en dag skal jeg %o', options:['smile','ha sex','dø']},
-    {sentence:'livet er et %o', options:['mareritt','hull','fly']}
-])
+const showPolls = ref(false); 
+const polls = ref([]);
+
+onMounted(async () => {
+    try {
+        polls.value = await find('polls')
+        polls.value = polls.value["data"]
+        showPolls.value = true;
+        console.log("loaded polls from strapi:")
+        console.log(polls.value)
+    } catch (e) {
+        console.log("failed loading strapi polls: "+e)
+     }
+})
+
 useHead({
     title: 'Orkidé',
 });
