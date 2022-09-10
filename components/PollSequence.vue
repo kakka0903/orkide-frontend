@@ -2,17 +2,15 @@
     <form ref="pollsForm" action="/" method="POST">
         <Transition
             v-for="poll in polls"
-            :key="polls.indexOf(poll)"
+            :key="poll.id"
             enter-active-class="transition-[transform,opacity] ease-out transform-gpu"
             enter-from-class="translate-x-10 opacity-0"
             leave-active-class="transition-[transform,opacity] ease-in transform-gpu"
             leave-to-class="-translate-x-10 opacity-0"
         >
             <SentencePoll
-
                 v-show="pollsIndex == polls.indexOf(poll) && showPoll"
-                :sentence="poll.sentence"
-                :options="poll.options"
+                :poll="poll"
                 @selected="progress()"
             />
         </Transition>
