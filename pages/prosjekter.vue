@@ -17,7 +17,14 @@
 </template>
 
 <script setup>
-import projects from '../data/projects'
+const projects = ref([]);
+const { find } = useStrapi4();
+onMounted(async () => {
+    try {
+        var response = await find('projects', {populate:['bts_clips']});
+        projects.value = response["data"]
+    } catch (e) {}
+})
 
 function watchVideo(musicVideo) {
     navigateTo('/prosjekter/'+musicVideo.id)
