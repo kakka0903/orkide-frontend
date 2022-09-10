@@ -1,11 +1,27 @@
 <script setup>
     const emit = defineEmits(['selected'])
     const props = defineProps({
-        sentence: String,
-        options: Array,
+        poll: Object,
     })
 
-    var selectedOption = ref(props.options[0])
+    const options = computed(() => {
+        if(props.poll.attributes) {
+            var p = props.poll.attributes
+            return [p.option1, p.option2, p.option3]
+        } else {
+            return []
+        }
+    })
+
+    const sentence = computed(() => {
+        if(props.poll.attributes) {
+            return props.poll.attributes.sentence;
+        }  else {
+            return "%o"
+        }
+    })
+
+    var selectedOption = ref(options[0])
     var hasChosen = ref(false)
     function selectOption(option) {
         selectedOption.value = option;
@@ -14,30 +30,30 @@
     }
 
     var selectedIndex = computed(() => {
-        for(var i = 0; i < props.options.length; i++ ) {
-            if (selectedOption.value == props.options[i]) {
+        for(var i = 0; i < options.value.length; i++ ) {
+            if (selectedOption.value == options.value[i]) {
                 return i;
             }
         }
         return -1;
     })
-
+   
     /* styles to align selected option with sentence */
     const translateStyles = computed(() => {
-        let percent = 100/(props.options.length)*selectedIndex.value;
+        let percent = 100/(options.value.length)*selectedIndex.value;
         return { transform: 'translateY(-'+percent+'%)' }
     })
 
     const longestOption = computed(() => {
-        var longest = props.options[0]
-        props.options.forEach(element => {
+        var longest = options.value[0]
+        options.value.forEach(element => {
             longest = longest.length < element.length ? element : longest;
         });
         return longest;
     })
 
-    const preOption = computed(() => props.sentence.substring(0, props.sentence.indexOf("%o")))
-    const postOption = computed(() => props.sentence.substring(props.sentence.indexOf("%o") + 2, props.sentence.length))
+    const preOption = computed(() => sentence.value.substring(0, sentence.value.indexOf("%o")))
+    const postOption = computed(() => sentence.value.substring(sentence.value.indexOf("%o") + 2, sentence.value.length))
 </script>
 
 <template>
