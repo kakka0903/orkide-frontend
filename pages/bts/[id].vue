@@ -10,13 +10,13 @@
                 >
                     <BTSCard
                         :clip="clip"
-                        v-for="clip in musicVideo.clips"
-                        :key="clip.number"
+                        v-for="clip in clips"
+                        :key="clip.id"
                         :data-index="clip.number"
                     />
                 </TransitionGroup>
-                <div v-if="musicVideo.clips.length == 0" class="max-w-md p-5 border-4 col-span-full border-primary">
-                    <p class="mb-5 col-span-full" >Det finnes ikke behind the scenes innhold for <span class="italic">{{musicVideo.name}}</span> enda :(</p>
+                <div v-if="clips.length == 0  && musicVideo" class="max-w-md p-5 border-4 col-span-full border-primary">
+                    <p class="mb-5 col-span-full" >Det finnes ikke behind the scenes innhold for <span class="italic">{{musicVideo.attributes.name}}</span> enda :(</p>
                     <div class="flex justify-end">
                         <NuxtLink class="flex items-center" to="/prosjekter">
                             <ArrowLeftIcon class="w-4 h-4 mr-1"/> PROSJEKTER
@@ -30,13 +30,22 @@
 
 <script setup>
 import gsap from 'gsap';
-import projects  from '../../data/projects';
 import { ArrowLeftIcon } from '@heroicons/vue/solid/index.js'
 
-// get the relevant project data
+// load clips from CMS
+const clips = ref([])
+const musicVideo = ref(undefined)
 const route = useRoute();
-const musicVideo = computed(() => {
-    return projects.find((project) => { return project.id == route.params.id })
+const { findOne } = useStrapi4();
+onMounted(async () => {
+    try {
+        const response = await findOne('projects', route.params.id, {populate:'bts_clips'})
+        musicVideo.value = response.data;
+        clips.value = response.data.attributes.bts_clips.data;
+        useHead({title: 'Orkidé - BTS '+musicVideo.value.attributes.name})
+    } catch (e) { 
+        console.log("loading clips failed: "+e)
+    }
 })
 
 // animate staggered entry of BTSClips
@@ -54,7 +63,5 @@ function onEnter(el, done) {
     })
 }
 
-useHead({
-    title: 'Orkidé - BTS '+musicVideo.value.name
-})
+useHead({title: 'Orkidé - BTS'})
 </script>
