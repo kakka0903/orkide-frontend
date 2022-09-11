@@ -1,10 +1,11 @@
 <template>
     <div >
         <VideoModal 
-            v-if="clip"
+            v-if="clip && musicVideo"
             @close="close"
             :youtubeId="clip.attributes.youtubeId" 
             :description="+clip.attributes.description"
+            :title="musicVideo.attributes.name+' BTS#'+clips.indexOf(clip)"
             isOpen
         />
     </div>
@@ -13,6 +14,7 @@
 <script setup>
 const props = defineProps({
     clips: Array,
+    musicVideo: Object,
 })
 
 const route = useRoute();

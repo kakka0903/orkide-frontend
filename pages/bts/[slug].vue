@@ -31,7 +31,7 @@
                 </div>
             </div>
         </LoadingSection>
-        <NuxtPage :clips="clips"/>
+        <NuxtPage :clips="clips" :musicVideo="musicVideo"/>
     </main>
 </template>
 
