@@ -4,8 +4,8 @@
             v-if="clip && musicVideo"
             @close="close"
             :youtubeId="clip.attributes.youtubeId" 
-            :description="+clip.attributes.description"
             :title="musicVideo.attributes.name+' BTS#'+clips.indexOf(clip)"
+            :description="clip.attributes.description"
             isOpen
         />
     </div>
