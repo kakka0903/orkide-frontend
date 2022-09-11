@@ -16,7 +16,7 @@ const props = defineProps({
 const route = useRoute();
 
 const musicVideo = computed(() => {
-    return props.projects.find((el) => { return el.id == route.params.id });
+    return props.projects.find((el) => { return el.attributes.slug == route.params.slug });
 })
 
 computed(() => {

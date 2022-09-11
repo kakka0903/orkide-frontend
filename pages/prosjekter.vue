@@ -18,7 +18,7 @@
 
 <script setup>
 function watchVideo(musicVideo) {
-    navigateTo('/prosjekter/'+musicVideo.id)
+    navigateTo('/prosjekter/'+musicVideo.attributes.slug)
 }
 
 useHead({
