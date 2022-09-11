@@ -10,8 +10,8 @@
                 enter-from-class="-translate-y-6 opacity-0"
                 enter-to-class="translate-y-0 opacity-100"
             >
-                <article @click.stop class="relative bg-white border-4 border-secondary">
-                    <button @click="close" class="absolute lowercase top-2 right-2 text-primary hover:text-primary-dark active:text-secondary-dark">
+                <article @click.stop class="relative bg-white border-4 border-primary">
+                    <button @click="close" class="absolute lowercase top-2 right-2 text-secondary hover:text-secondary-dark active:text-primary-dark">
                         <XIcon class="w-6 h-6"/>
                     </button>
                     <slot></slot>
