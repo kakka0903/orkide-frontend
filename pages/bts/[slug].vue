@@ -1,33 +1,33 @@
 <template>
-    <div class="flex-grow">
-        <div class="grid grid-cols-4 gap-2 sm:grid-cols-5 lg:grid-cols-7 xl:grid-cols-8 text-primary">
-            <ClientOnly>
-                <TransitionGroup
-                    :css="false"
-                    @before-enter="onBeforeEnter"
-                    @enter="onEnter"
-                    appear
-                >
-                    <BTSCard
-                        :clip="clip"
-                        :number="clips.indexOf(clip)"
-                        v-for="clip in clips"
-                        :key="clip.id"
-                        :data-index="clip.number"
-                    />
-                </TransitionGroup>
-                <div v-if="clips.length == 0" class="max-w-md p-5 space-y-3 border-4 col-span-full border-primary">
-                    <p v-if="!musicVideo">Could not find "{{route.params.slug}}" project.</p>
-                    <p v-else>Det finnes ikke behind the scenes innhold for <span class="italic">{{musicVideo.attributes.name}}</span> enda :(</p>
-                    <div class="flex justify-end">
-                        <NuxtLink class="flex items-center" to="/prosjekter">
-                            <ArrowLeftIcon class="w-4 h-4 mr-1"/> PROSJEKTER
-                        </NuxtLink>
-                    </div>
+    <main class="flex-grow">
+        <LoadingSection :isLoading="isLoading">
+            <TransitionGroup
+                :css="false"
+                @before-enter="onBeforeEnter"
+                @enter="onEnter"
+                appear
+                tag="div"
+                class="grid grid-cols-4 gap-2 sm:grid-cols-5 lg:grid-cols-7 xl:grid-cols-8 text-primary"
+            >
+                <BTSCard
+                    :clip="clip"
+                    :number="clips.indexOf(clip)"
+                    v-for="clip in clips"
+                    :key="clip.id"
+                    :data-index="clips.indexOf(clip)"
+                />
+            </TransitionGroup>
+            <div v-if="clips.length == 0" class="max-w-md p-5 space-y-3 border-4 col-span-full border-primary">
+                <p v-if="!musicVideo">Could not find "{{route.params.slug}}" project.</p>
+                <p v-else>Det finnes ikke behind the scenes innhold for <span class="italic">{{musicVideo.attributes.name}}</span> enda :(</p>
+                <div class="flex justify-end">
+                    <NuxtLink class="flex items-center" to="/prosjekter">
+                        <ArrowLeftIcon class="w-4 h-4 mr-1"/> PROSJEKTER
+                    </NuxtLink>
                 </div>
-            </ClientOnly>
-        </div>
-    </div>
+            </div>
+        </LoadingSection>
+    </main>
 </template>
 
 <script setup>
@@ -37,6 +37,8 @@ import { ArrowLeftIcon } from '@heroicons/vue/solid/index.js'
 const { find } = useStrapi4();
 const route = useRoute();
 const musicVideo = ref(undefined)
+
+const isLoading = ref(true);
 
 // load clips from CMS
 async function loadProject() {
@@ -51,6 +53,7 @@ async function loadProject() {
         })
         musicVideo.value = res.data[0];
         useHead({title: 'Orkide - '+musicVideo.value.attributes.name+' BTS'})
+        isLoading.value = false;
     } catch (e) {}
 }
 
