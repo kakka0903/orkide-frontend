@@ -1,6 +1,7 @@
 <template>
     <div>
         <VideoModal
+            v-if="musicVideo"
             :musicVideo="musicVideo"
             @close="navigateTo('/prosjekter')"
         />
@@ -8,12 +9,21 @@
 </template>
 
 <script setup>
-import projects from '../../data/projects';
-const route = useRoute();
-const musicVideo = computed(() => {
-    return projects.find((el) => { return el.id == route.params.id });
+const props = defineProps({
+    projects: Object,
 })
-useHead({
-    title:'Orkidé - '+musicVideo.value.name
+
+const route = useRoute();
+
+const musicVideo = computed(() => {
+    return props.projects.find((el) => { return el.id == route.params.id });
+})
+
+computed(() => {
+    if(musicVideo.value) {
+        useHead({
+            title:'Orkidé - '+musicVideo.value.name
+        })
+    }
 })
 </script>

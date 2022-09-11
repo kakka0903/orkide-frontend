@@ -12,20 +12,11 @@
                 :key="musicVideo.id"
             />
         </div>
-        <NuxtChild/>
+        <NuxtPage :projects="projects"/>
     </main>
 </template>
 
 <script setup>
-const projects = ref([]);
-const { find } = useStrapi4();
-onMounted(async () => {
-    try {
-        var response = await find('projects', {populate:['bts_clips']});
-        projects.value = response["data"]
-    } catch (e) {}
-})
-
 function watchVideo(musicVideo) {
     navigateTo('/prosjekter/'+musicVideo.id)
 }
@@ -33,4 +24,19 @@ function watchVideo(musicVideo) {
 useHead({
     title: 'Orkidé - Prosjekter',
 });
+
+const projects = ref([]);
+
+// loads projects from CMS
+const { find } = useStrapi4();
+async function loadProjects() {
+    try {
+        const res = await find('projects', {populate: 'bts_clips'});
+        projects.value = res.data;
+    } catch (e) {
+        console.log("error loading projects from CMS:")
+        console.log(e.error)
+    }
+}
+loadProjects();
 </script>
