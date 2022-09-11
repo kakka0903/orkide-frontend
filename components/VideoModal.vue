@@ -11,7 +11,7 @@
 <script setup>
 import { computed } from '@vue/runtime-core';
 const props = defineProps({
-    youTubeId:String,
+    youtubeId:String,
     title:String,
     description:String,
 })
