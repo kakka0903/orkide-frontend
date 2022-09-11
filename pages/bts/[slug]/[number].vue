@@ -1,14 +1,10 @@
 <template>
-    <div>
-        <BoxModal
-            :isOpen="clip"
-            @close="close"
-            class="text-primary-dark"
-        >
-            <YoutubeEmbed class="w-full max-w-sm" :youtubeId="clip.attributes.youtubeId"/>
-            <p v-if="clip.attributes.description" class="p-4"> {{clip.attributes.description}}</p>
-        </BoxModal>
-    </div>
+    <VideoModal 
+        @close="close" 
+        :youtubeId="clip.attributes.youtubeId" 
+        :description="clip.attributes.description"
+        isOpen
+    />
 </template>
 
 <script setup>
