@@ -5,13 +5,13 @@
         :style="backgroundStyle"
         @click="isModalOpen = true"
     >
-        <p class="absolute bottom-2 right-3 text-secondary">#0{{clip.number}}</p>
+        <p class="absolute bottom-2 right-3 text-secondary">#0{{number}}</p>
         <BoxModal
             :isOpen="isModalOpen" @close="isModalOpen = false"
             class="text-primary-dark"
         >
-            <YoutubeEmbed class="w-full max-w-sm" :youtubeId="clip.youtubeId"/>
-            <p v-if="clip.description" class="p-4"> {{clip.description}}</p>
+            <YoutubeEmbed class="w-full max-w-sm" :youtubeId="clip.attributes.youtubeId"/>
+            <p v-if="clip.attributes.description" class="p-4"> {{clip.attributes.description}}</p>
         </BoxModal>
     </div>
 </template>
@@ -21,12 +21,13 @@ const isModalOpen = ref(false);
 
 const props = defineProps({
     clip: Object,
+    number: Number,
 })
 
 const backgroundStyle = computed(() => {
-    if(props.clip.image) {
+    if(props.clip.attributes.image) {
         return {
-            "background-image" : "url( " + props.clip.image + " )",
+            "background-image" : "url( " + props.clip.attributes.image + " )",
             'background-size': 'cover',
             'background-color':'black'
         }

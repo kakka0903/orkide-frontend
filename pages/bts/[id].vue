@@ -10,6 +10,7 @@
                 >
                     <BTSCard
                         :clip="clip"
+                        :number="clips.indexOf(clip)"
                         v-for="clip in clips"
                         :key="clip.id"
                         :data-index="clip.number"
