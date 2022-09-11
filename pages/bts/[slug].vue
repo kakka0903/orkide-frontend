@@ -9,13 +9,17 @@
                 tag="div"
                 class="grid grid-cols-4 gap-2 sm:grid-cols-5 lg:grid-cols-7 xl:grid-cols-8 text-primary"
             >
-                <BTSCard
-                    :clip="clip"
-                    :number="clips.indexOf(clip)"
-                    v-for="clip in clips"
-                    :key="clip.id"
+                <NuxtLink 
+                    v-for="clip in clips" 
+                    :key="clip.id" 
+                    :to="'/bts/'+route.params.slug+'/'+clips.indexOf(clip)" 
                     :data-index="clips.indexOf(clip)"
-                />
+                >
+                    <BTSCard
+                        :clip="clip"
+                        :number="clips.indexOf(clip)"
+                    />
+                </NuxtLink>
             </TransitionGroup>
             <div v-if="clips.length == 0" class="max-w-md p-5 space-y-3 border-4 col-span-full border-primary">
                 <p v-if="!musicVideo">Could not find "{{route.params.slug}}" project.</p>
@@ -26,6 +30,7 @@
                     </NuxtLink>
                 </div>
             </div>
+            <NuxtPage :clips="clips"/>
         </LoadingSection>
     </main>
 </template>
