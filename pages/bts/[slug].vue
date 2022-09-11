@@ -30,8 +30,8 @@
                     </NuxtLink>
                 </div>
             </div>
-            <NuxtPage :clips="clips"/>
         </LoadingSection>
+        <NuxtPage :clips="clips"/>
     </main>
 </template>
 
