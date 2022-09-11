@@ -4,14 +4,16 @@
             title="ORKIDÉ KINO"
             description="Videoer laget av Orkidé"
         />
-        <div class="flex flex-col content-start flex-grow gap-2 mb-2 gap-y-3 sm:flex-wrap sm:flex-row">
-            <ProjectTicket
-                v-for="musicVideo in projects"
-                @watch="watchVideo(musicVideo)"
-                :musicVideo="musicVideo"
-                :key="musicVideo.id"
-            />
-        </div>
+        <LoadingSection :isLoading="isLoading">
+            <div class="flex flex-col content-start flex-grow gap-2 mb-2 gap-y-3 sm:flex-wrap sm:flex-row">
+                <ProjectTicket
+                    v-for="musicVideo in projects"
+                    @watch="watchVideo(musicVideo)"
+                    :musicVideo="musicVideo"
+                    :key="musicVideo.id"
+                />
+            </div>
+        </LoadingSection>
         <NuxtPage :projects="projects"/>
     </main>
 </template>
@@ -29,6 +31,7 @@ const projects = ref([]);
 
 // loads projects from CMS
 const { find } = useStrapi4();
+const isLoading = ref(true);
 async function loadProjects() {
     try {
         const res = await find('projects', {populate: 'bts_clips'});
@@ -37,6 +40,7 @@ async function loadProjects() {
         console.log("error loading projects from CMS:")
         console.log(e.error)
     }
+    isLoading.value = false;
 }
 loadProjects();
 </script>
