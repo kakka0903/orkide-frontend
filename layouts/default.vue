@@ -5,6 +5,7 @@
     <Footer></Footer>
   </div>
 </template>
+
 <script setup>
 useHead({
   htmlAttrs: {
@@ -21,6 +22,4 @@ useHead({
     meta: [{ name: 'description', content: 'UNDERGRUNN musikkvideoer regissert, filmet og redigert av Orkidé. Se også eksklusive videoklipp fra innspillingen av UG musikkvideoer som ITALIA.'}]
   }
 })
-
 </script>
-
