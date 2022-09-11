@@ -2,7 +2,9 @@
     <div>
         <VideoModal
             v-if="musicVideo"
-            :musicVideo="musicVideo"
+            :title="musicVideo.attributes.name"
+            :description="description"
+            :youtubeId="musicVideo.attributes.youtubeId"
             @close="navigateTo('/prosjekter')"
         />
     </div>
@@ -17,6 +19,11 @@ const route = useRoute();
 
 const musicVideo = computed(() => {
     return props.projects.find((el) => { return el.attributes.slug == route.params.slug });
+})
+
+const description = computed(() => {
+    var mvid = musicVideo.value.attributes;
+    return mvid.artist + ' ' + mvid.year + '. ' + mvid.description
 })
 
 computed(() => {
