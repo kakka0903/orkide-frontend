@@ -40,38 +40,7 @@
 import gsap from 'gsap';
 import { ArrowLeftIcon } from '@heroicons/vue/solid/index.js'
 
-const { find } = useStrapi4();
-const route = useRoute();
-const musicVideo = ref(undefined)
-
-const isLoading = ref(true);
-
-// load clips from CMS
-async function loadProject() {
-    try {
-        const res = await find('projects', {
-            filters: {
-                slug: {
-                    '$eq': route.params.slug
-                }
-            },
-            populate: {
-                bts_clips: {
-                    populate:'thumbnail'
-                }
-            }
-        })
-        musicVideo.value = res.data[0];
-        useHead({title: 'Orkide - '+musicVideo.value.attributes.name+' BTS'})
-        isLoading.value = false;
-    } catch (e) {}
-}
-
-const clips = computed(() => {
-    return musicVideo.value ? musicVideo.value.attributes.bts_clips.data : [];
-})
-
-loadProject();
+useHead({title: 'Orkidé - BTS'})
 
 // animate staggered entry of BTSClips
 function onBeforeEnter(el) {
@@ -88,5 +57,31 @@ function onEnter(el, done) {
     })
 }
 
-useHead({title: 'Orkidé - BTS'})
+const musicVideo = ref(undefined)
+const clips = computed(() => {
+    return musicVideo.value ? musicVideo.value.attributes.bts_clips.data : [];
+})
+const { find } = useStrapi4();
+const route = useRoute();
+const isLoading = ref(true);
+try {
+    const res = await find('projects', {
+        filters: {
+            slug: {
+                '$eq': route.params.slug
+            }
+        },
+        populate: {
+            bts_clips: {
+                populate:'thumbnail'
+            }
+        }
+    })
+    musicVideo.value = res.data[0];
+    useHead({title: 'Orkide - '+musicVideo.value.attributes.name+' BTS'})
+    isLoading.value = false;
+} catch (e) {
+    console.log('could not load clips from CMS');
+    console.log(e.error);
+}
 </script>

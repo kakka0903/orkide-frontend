@@ -21,9 +21,6 @@
             </Transition>
         </div>
 
-
-
-
         <div class="flex items-end justify-between flex-grow">
             <div class="flex items-end text-2xl font-bold text-secondary ">
                 <p style="text-orientation: upright; writing-mode: vertical-rl;">PRINTS&nbsp;&nbsp;</p>
@@ -44,27 +41,24 @@
     </main>
 </template>
 
-<script setup>
+<script async setup>
 import useAppearShow from '../composables/useAppearShow';
 const { appearShow } = useAppearShow();
 const { find } = useStrapi4();
 
-const showPolls = ref(false); 
+const showPolls = ref(false);
 const polls = ref([]);
-
-onMounted(async () => {
-    try {
-        polls.value = await find('polls')
-        polls.value = polls.value["data"]
-        showPolls.value = true;
-        console.log("loaded polls from strapi:")
-        console.log(polls.value)
-    } catch (e) {
-        console.log("failed loading strapi polls: "+e)
-     }
-})
 
 useHead({
     title: 'Orkidé',
 });
+
+try {
+    polls.value = await find('polls')
+    polls.value = polls.value["data"]
+    showPolls.value = true;
+} catch (e) {
+    console.log("failed loading strapi polls:")
+    console.log(e.error)
+}
 </script>

@@ -18,7 +18,7 @@
     </main>
 </template>
 
-<script setup>
+<script async setup>
 function watchVideo(musicVideo) {
     navigateTo('/prosjekter/'+musicVideo.attributes.slug)
 }
@@ -28,22 +28,18 @@ useHead({
 });
 
 const projects = ref([]);
-
-// loads projects from CMS
 const { find } = useStrapi4();
 const isLoading = ref(true);
-async function loadProjects() {
-    try {
-        const res = await find('projects', {
-            populate: 'bts_clips',
-            sort: 'year:desc'
-        });
-        projects.value = res.data;
-    } catch (e) {
-        console.log("error loading projects from CMS:")
-        console.log(e.error)
-    }
+
+try {
+    const res = await find('projects', {
+        populate: 'bts_clips',
+        sort: 'year:desc'
+    });
+    projects.value = res.data;
     isLoading.value = false;
+} catch (e) {
+    console.log("error loading projects from CMS:")
+    console.log(e.error)
 }
-loadProjects();
 </script>
