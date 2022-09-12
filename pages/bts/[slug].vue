@@ -9,10 +9,10 @@
                 tag="div"
                 class="grid grid-cols-4 gap-2 sm:grid-cols-5 lg:grid-cols-7 xl:grid-cols-8 text-primary"
             >
-                <NuxtLink 
-                    v-for="clip in clips" 
-                    :key="clip.id" 
-                    :to="'/bts/'+route.params.slug+'/'+clips.indexOf(clip)" 
+                <NuxtLink
+                    v-for="clip in clips"
+                    :key="clip.id"
+                    :to="'/bts/'+route.params.slug+'/'+clips.indexOf(clip)"
                     :data-index="clips.indexOf(clip)"
                 >
                     <BTSCard
