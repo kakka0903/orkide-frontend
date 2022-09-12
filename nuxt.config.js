@@ -9,6 +9,11 @@ export default defineNuxtConfig({
     strapi: {
         url: process.env.STRAPI_URL || 'http://localhost:1337'
     },
+    runtimeConfig: {
+      public: {
+        STRAPI_URL: process.env.STRAPI_URL || 'http://localhost:1337',
+      }
+    },
     hooks: {
       async 'nitro:config' (nitroConfig) {
         if (nitroConfig.dev) { return }
