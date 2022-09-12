@@ -15,10 +15,16 @@ const props = defineProps({
     number: Number,
 })
 
+const config = useRuntimeConfig();
+const thumbnailUrl = computed(() => {
+    const thumbnail = props.clip.attributes.thumbnail.data
+    return thumbnail ? config.STRAPI_URL + thumbnail.attributes.formats.thumbnail.url : undefined
+})
+
 const backgroundStyle = computed(() => {
-    if(props.clip.attributes.image) {
+    if(thumbnailUrl.value) {
         return {
-            "background-image" : "url( " + props.clip.attributes.image + " )",
+            "background-image" : "url( " + thumbnailUrl.value + " )",
             'background-size': 'cover',
             'background-color':'black'
         }

@@ -54,7 +54,11 @@ async function loadProject() {
                     '$eq': route.params.slug
                 }
             },
-            populate: ['bts_clips']
+            populate: {
+                bts_clips: {
+                    populate:'thumbnail'
+                }
+            }
         })
         musicVideo.value = res.data[0];
         useHead({title: 'Orkide - '+musicVideo.value.attributes.name+' BTS'})
