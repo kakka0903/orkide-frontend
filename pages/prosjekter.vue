@@ -34,7 +34,10 @@ const { find } = useStrapi4();
 const isLoading = ref(true);
 async function loadProjects() {
     try {
-        const res = await find('projects', {populate: 'bts_clips'});
+        const res = await find('projects', {
+            populate: 'bts_clips',
+            sort: 'year:desc'
+        });
         projects.value = res.data;
     } catch (e) {
         console.log("error loading projects from CMS:")
