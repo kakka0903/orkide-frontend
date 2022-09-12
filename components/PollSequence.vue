@@ -44,11 +44,6 @@ function progress() {
         pollsIndex.value++;
         setTimeout(() => {
             showPoll.value = true;
-            if(isPollsDone.value) {
-                setTimeout(() => {
-                    pollsForm.value.submit()
-                }, 2200)
-            }
         }, props.delay);
     }, props.delay)
 }
