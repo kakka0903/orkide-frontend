@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col min-h-screen mx-6 font-mono xs:mx-10">
-    <Navigation :paths="['/kontakt/', '/prosjekter/']"/>
+    <Navigation :paths="['/kontakt', '/prosjekter']"/>
     <NuxtPage/>
     <Footer></Footer>
   </div>

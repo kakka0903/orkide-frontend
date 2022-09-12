@@ -13,7 +13,7 @@
                 <NuxtLink
                     v-for="clip in clips"
                     :key="clip.id"
-                    :to="'/bts/'+route.params.slug+'/'+clips.indexOf(clip)+'/'"
+                    :to="'/bts/'+route.params.slug+'/'+clips.indexOf(clip)"
                     :data-index="clips.indexOf(clip)"
                 >
                     <BTSCard
@@ -26,7 +26,7 @@
                 <p v-if="!musicVideo">Could not find "{{route.params.slug}}" project.</p>
                 <p v-else>Det finnes ikke behind the scenes innhold for <span class="italic">{{musicVideo.attributes.name}}</span> enda :(</p>
                 <div class="flex justify-end">
-                    <NuxtLink class="flex items-center text-primary" to="/prosjekter/">
+                    <NuxtLink class="flex items-center text-primary" to="/prosjekter">
                         <ArrowLeftIcon class="w-4 h-4 mr-1"/> PROSJEKTER
                     </NuxtLink>
                 </div>
