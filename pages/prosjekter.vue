@@ -4,6 +4,7 @@
             title="ORKIDÉ KINO"
             description="Videoer laget av Orkidé"
         />
+        <NuxtPage :projects="projects"/>
         <LoadingSection :isLoading="isLoading">
             <div class="flex flex-col content-start flex-grow gap-2 mb-2 gap-y-3 sm:flex-wrap sm:flex-row">
                 <ProjectTicket
@@ -14,7 +15,6 @@
                 />
             </div>
         </LoadingSection>
-        <NuxtPage :projects="projects"/>
     </main>
 </template>
 
