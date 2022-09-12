@@ -1,5 +1,6 @@
 <template>
-    <main class="flex-grow">
+    <main class="flex-grow space-y-5">
+        <h1 class="text-xl text-primary" v-if="musicVideo">BTS: {{musicVideo.attributes.name}}</h1>
         <LoadingSection :isLoading="isLoading">
             <TransitionGroup
                 :css="false"
@@ -21,15 +22,15 @@
                     />
                 </NuxtLink>
             </TransitionGroup>
-            <div v-if="clips.length == 0" class="max-w-md p-5 space-y-3 border-4 col-span-full border-primary">
+            <BoxNotice v-if="clips.length == 0">
                 <p v-if="!musicVideo">Could not find "{{route.params.slug}}" project.</p>
                 <p v-else>Det finnes ikke behind the scenes innhold for <span class="italic">{{musicVideo.attributes.name}}</span> enda :(</p>
                 <div class="flex justify-end">
-                    <NuxtLink class="flex items-center" to="/prosjekter">
+                    <NuxtLink class="flex items-center text-primary" to="/prosjekter">
                         <ArrowLeftIcon class="w-4 h-4 mr-1"/> PROSJEKTER
                     </NuxtLink>
                 </div>
-            </div>
+            </BoxNotice>
         </LoadingSection>
         <NuxtPage :clips="clips" :musicVideo="musicVideo"/>
     </main>
