@@ -33,8 +33,8 @@
                 enter-to-class="scale-100 translate-x-0 opacity-100"
             >
                 <div v-show="appearShow" class="flex items-end text-2xl font-bold gap-x-4 text-primary">
-                    <NuxtLink to="/kontakt"><BoxButton :width="3">social</BoxButton></NuxtLink>
-                    <NuxtLink to="/prosjekter"><BoxButton :width="3" type="primary">projects~</BoxButton></NuxtLink>
+                    <NuxtLink to="/kontakt/"><BoxButton :width="3">social</BoxButton></NuxtLink>
+                    <NuxtLink to="/prosjekter/"><BoxButton :width="3" type="primary">projects~</BoxButton></NuxtLink>
                 </div>
             </Transition>
         </div>
