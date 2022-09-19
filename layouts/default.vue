@@ -1,12 +1,18 @@
 <template>
   <div class="flex flex-col min-h-screen mx-6 font-mono xs:mx-10">
-    <Navigation :paths="['/kontakt/', '/prosjekter/']"/>
+    <Navigation :links="navLinks"/>
     <NuxtPage/>
     <Footer></Footer>
   </div>
 </template>
 
 <script setup>
+const navLinks = ref([
+  {display:'orkide',url:'/'},
+  {display:'prosjekter',url:'/prosjekter'},
+  {display:'kontakt',url:'/kontakt'},
+])
+
 useHead({
   htmlAttrs: {
     lang: 'no'
