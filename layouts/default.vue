@@ -9,8 +9,8 @@
 <script setup>
 const navLinks = ref([
   {display:'orkide',url:'/'},
-  {display:'prosjekter',url:'/prosjekter'},
-  {display:'kontakt',url:'/kontakt'},
+  {display:'prosjekter',url:'/prosjekter/'},
+  {display:'kontakt',url:'/kontakt/'},
 ])
 
 useHead({

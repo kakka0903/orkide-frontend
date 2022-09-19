@@ -1,9 +1,9 @@
 <template>
     <div >
-        <VideoModal 
+        <VideoModal
             v-if="clip && musicVideo"
             @close="close"
-            :youtubeId="clip.attributes.youtubeId" 
+            :youtubeId="clip.attributes.youtubeId"
             :title="musicVideo.attributes.name+' BTS#'+clips.indexOf(clip)"
             :description="clip.attributes.description"
             isOpen
@@ -23,6 +23,6 @@ const clip = computed(() => {
 })
 
 function close() {
-    navigateTo('/bts/'+route.params.slug);
+    navigateTo('/bts/'+route.params.slug+'/');
 }
 </script>

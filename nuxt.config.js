@@ -20,11 +20,11 @@ export default defineNuxtConfig({
         const res = await axios.get(process.env.STRAPI_URL+'/api/projects?populate[0]=bts_clips');
         res.data.data.forEach((project) => {
             const slug = project.attributes.slug;
-            nitroConfig.prerender.routes.push('/prosjekter/'+slug)
-            nitroConfig.prerender.routes.push('/bts/'+slug)
+            nitroConfig.prerender.routes.push('/prosjekter/'+slug+'/')
+            nitroConfig.prerender.routes.push('/bts/'+slug+'/')
             const clips = project.attributes.bts_clips.data;
             clips.forEach((clip) => {
-                nitroConfig.prerender.routes.push('/bts/'+slug+'/'+clips.indexOf(clip))
+                nitroConfig.prerender.routes.push('/bts/'+slug+'/'+clips.indexOf(clip)+'/')
             })
         })
       }

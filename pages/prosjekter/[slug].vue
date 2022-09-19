@@ -5,7 +5,7 @@
             :title="musicVideo.attributes.name"
             :description="description"
             :youtubeId="musicVideo.attributes.youtubeId"
-            @close="navigateTo('/prosjekter')"
+            @close="navigateTo('/prosjekter/')"
         />
     </div>
 </template>

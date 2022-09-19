@@ -20,7 +20,7 @@
 
 <script async setup>
 function watchVideo(musicVideo) {
-    navigateTo('/prosjekter/'+musicVideo.attributes.slug)
+    navigateTo('/prosjekter/'+musicVideo.attributes.slug+'/')
 }
 
 useHead({
