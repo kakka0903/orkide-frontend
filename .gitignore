@@ -26,3 +26,4 @@ dist-ssr
 .output
 .env
 package-lock.json
+data
