@@ -1,5 +1,14 @@
 import { defineNuxtConfig } from 'nuxt'
 import axios from 'axios'
+var fs = require('fs');
+
+async function saveCMSData(url, filename) {
+  fs.mkdir('./data', {recursive:true}, (err) => { if (err) {throw err}});
+  console.log('Caching CMS data in: '+filename+'.json')
+  const res = await axios.get(url);
+  const data = JSON.stringify(res.data);
+  fs.writeFile('data/'+filename+'.json', data, (err) => {if (err) {throw err}});
+}
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
@@ -17,6 +26,11 @@ export default defineNuxtConfig({
     hooks: {
       async 'nitro:config' (nitroConfig) {
         if (nitroConfig.dev) { return }
+
+        saveCMSData(process.env.STRAPI_URL+'/api/projects?populate=bts_clips', 'projects');
+        saveCMSData(process.env.STRAPI_URL+'/api/polls', 'polls');
+        saveCMSData(process.env.STRAPI_URL+'/api/bts-clips', 'bts-clips');
+
         const res = await axios.get(process.env.STRAPI_URL+'/api/projects?populate[0]=bts_clips');
         res.data.data.forEach((project) => {
             const slug = project.attributes.slug;
