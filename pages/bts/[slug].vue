@@ -1,7 +1,7 @@
 <template>
     <main class="flex-grow space-y-5">
-        <h1 class="text-xl text-primary" v-if="musicVideo">BTS: {{musicVideo.attributes.name}}</h1>
-        <LoadingSection :isLoading="isLoading">
+        <h1 class="text-xl text-primary" v-if="musicVideo">{{musicVideo.attributes.name}} BTS</h1>
+        <LoadingSection :isLoading="false">
             <TransitionGroup
                 :css="false"
                 @before-enter="onBeforeEnter"
@@ -39,8 +39,19 @@
 <script setup>
 import gsap from 'gsap';
 import { ArrowLeftIcon } from '@heroicons/vue/solid/index.js'
+import projects from '/data/projects.json'
 
-useHead({title: 'Orkidé - BTS'})
+const route = useRoute();
+const musicVideo = computed(() => {
+    return projects.data.find((project) => {
+        return project.attributes.slug == route.params.slug
+    })
+})
+const clips = computed(() => {
+    return musicVideo.length ? musicVideo.value.attributes.bts_clips.data : []
+})
+
+useHead({title:'Orkide - '+musicVideo.value.attributes.name+' BTS'})
 
 // animate staggered entry of BTSClips
 function onBeforeEnter(el) {
@@ -55,33 +66,5 @@ function onEnter(el, done) {
         duration: 2,
         onComplete: done,
     })
-}
-
-const musicVideo = ref(undefined)
-const clips = computed(() => {
-    return musicVideo.value ? musicVideo.value.attributes.bts_clips.data : [];
-})
-const { find } = useStrapi4();
-const route = useRoute();
-const isLoading = ref(true);
-try {
-    const res = await find('projects', {
-        filters: {
-            slug: {
-                '$eq': route.params.slug
-            }
-        },
-        populate: {
-            bts_clips: {
-                populate:'thumbnail'
-            }
-        }
-    })
-    musicVideo.value = res.data[0];
-    useHead({title: 'Orkide - '+musicVideo.value.attributes.name+' BTS'})
-    isLoading.value = false;
-} catch (e) {
-    console.log('could not load clips from CMS');
-    console.log(e.error);
 }
 </script>
