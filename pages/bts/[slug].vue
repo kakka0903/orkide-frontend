@@ -48,7 +48,7 @@ const musicVideo = computed(() => {
     })
 })
 const clips = computed(() => {
-    return musicVideo.length ? musicVideo.value.attributes.bts_clips.data : []
+    return musicVideo.value.attributes.bts_clips.data;
 })
 
 useHead({title:'Orkide - '+musicVideo.value.attributes.name+' BTS'})
