@@ -25,7 +25,7 @@ useHead({
     { defer:'defer', src:'https://plausible.kakk.dev/js/plausible.js', 'data-domain':'orkide.world'}
   ],
   meta: [
-    { name: 'description', content: 'UNDERGRUNN musikkvideoer regissert, filmet og redigert av Orkidé. Se også eksklusive videoklipp fra innspillingen av UG musikkvideoer som ITALIA.'}
+    { name: 'description', content: 'Orkidé lager video for norkse artister som Undergrunn. Alt er regissert, filmet og redigert av Orkidé. Nettsiden inneholder også eksklusive BTS videoklipp.'}
   ]
 
 })
