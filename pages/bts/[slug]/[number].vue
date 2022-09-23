@@ -3,7 +3,7 @@
         <VideoModal
             @close="close"
             :youtubeId="clip.attributes.youtubeId"
-            :title="musicVideo.attributes.name+' BTS#'+clips.indexOf(clip)"
+            :title="musicVideo.attributes.name+' BTS #'+clips.indexOf(clip)"
             :description="clip.attributes.description"
             isOpen
         />
