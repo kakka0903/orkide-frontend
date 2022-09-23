@@ -1,7 +1,6 @@
 <template>
     <div >
         <VideoModal
-            v-if="clip && musicVideo"
             @close="close"
             :youtubeId="clip.attributes.youtubeId"
             :title="musicVideo.attributes.name+' BTS#'+clips.indexOf(clip)"
@@ -19,7 +18,7 @@ const props = defineProps({
 
 const route = useRoute();
 const clip = computed(() => {
-    return props.clips && props.clips.length > 0? props.clips[route.params.number] : undefined;
+    return props.clips[route.params.number];
 })
 
 function close() {
