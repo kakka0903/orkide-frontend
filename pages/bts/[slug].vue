@@ -51,7 +51,16 @@ const clips = computed(() => {
     return musicVideo.value.attributes.bts_clips.data;
 })
 
-useHead({title:'Orkide - '+musicVideo.value.attributes.name+' BTS'})
+const metaDescription = computed(() => {
+    var vid = musicVideo.value.attributes;
+    var c = clips.value
+    return 'Se ' + c.length + ' eksklusive BTS klipp fra musikkvideoen ' + vid.name + ', fremført av '+ vid.artist +' og produsert av Orkidé.';
+})
+
+useHead({
+    title:'Orkide - '+musicVideo.value.attributes.name+' BTS',
+    meta:[{name:'description', content:metaDescription.value}]
+})
 
 // animate staggered entry of BTSClips
 function onBeforeEnter(el) {

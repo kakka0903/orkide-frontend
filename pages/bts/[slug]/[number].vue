@@ -24,4 +24,15 @@ const clip = computed(() => {
 function close() {
     navigateTo('/bts/'+route.params.slug+'/');
 }
+
+const metaDescription = computed(() => {
+    var c = clip.value.attributes
+    var vid = props.musicVideo.attributes
+    return 'Behind the scenes klipp #'+ route.params.number + ' fra innspillingen av ' + vid.artist + ' videoen '+ vid.name + '.';
+})
+
+useHead({
+    title:'Orkide - '+props.musicVideo.attributes.name+' BTS #'+route.params.number,
+    meta: [{name:'description', content:metaDescription.value}]
+})
 </script>

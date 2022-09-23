@@ -23,5 +23,9 @@ const description = computed(() => {
     var mvid = musicVideo.value.attributes;
     return mvid.artist + ' ' + mvid.year + '. ' + mvid.description
 })
-useHead({ title:'Orkidé - '+musicVideo.value.attributes.name })
+
+useHead({
+    title:'Orkidé - '+musicVideo.value.attributes.name ,
+    meta: [{name:'description', content:description}]
+})
 </script>
