@@ -27,7 +27,7 @@ export default defineNuxtConfig({
       async 'nitro:config' (nitroConfig) {
         if (nitroConfig.dev) { return }
 
-        saveCMSData(process.env.STRAPI_URL+'/api/projects?populate=bts_clips', 'projects');
+        saveCMSData(process.env.STRAPI_URL+'/api/projects?populate[bts_clips][populate][0]=thumbnail', 'projects');
         saveCMSData(process.env.STRAPI_URL+'/api/polls', 'polls');
         saveCMSData(process.env.STRAPI_URL+'/api/bts-clips', 'bts-clips');
 
