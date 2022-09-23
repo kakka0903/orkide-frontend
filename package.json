@@ -16,7 +16,6 @@
     "gsap": "^3.10.4"
   },
   "devDependencies": {
-    "@nuxtjs/strapi": "^1.5.1",
     "nuxt": "3.0.0-rc.9"
   }
 }
