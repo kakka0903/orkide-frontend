@@ -43,7 +43,7 @@
 
 <script async setup>
 import useAppearShow from '../composables/useAppearShow';
-import polls from 'data/polls.vue'
+import polls from '/data/polls.json'
 const { appearShow } = useAppearShow();
 
 useHead({
