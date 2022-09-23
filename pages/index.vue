@@ -17,7 +17,7 @@
                 enter-active-class="transition duration-500 delay-150 transform-gpu"
                 enter-from-class="translate-x-10 opacity-0"
             >
-                <PollSequence v-show="appearShow" class="text-xl h-28" :polls="polls" netlify name="landing-page-form"/>
+                <PollSequence v-show="appearShow" class="text-xl h-28" :polls="polls.data" netlify name="landing-page-form"/>
             </Transition>
         </div>
 
@@ -43,22 +43,10 @@
 
 <script async setup>
 import useAppearShow from '../composables/useAppearShow';
+import polls from 'data/polls.vue'
 const { appearShow } = useAppearShow();
-const { find } = useStrapi4();
-
-const showPolls = ref(false);
-const polls = ref([]);
 
 useHead({
     title: 'Orkidé',
 });
-
-try {
-    polls.value = await find('polls')
-    polls.value = polls.value["data"]
-    showPolls.value = true;
-} catch (e) {
-    console.log("failed loading strapi polls:")
-    console.log(e.error)
-}
 </script>
