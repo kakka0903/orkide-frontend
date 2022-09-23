@@ -9,8 +9,8 @@
                 leave-from-class="translate-x-0 opacity-100"
                 leave-to-class="-translate-x-16 opacity-0"
             >
-                <ProjectTicketFront :musicVideo="musicVideo" class="absolute top-0 left-0" v-if="!isFlipped" key="front"/>
-                <ProjectTicketBack  :musicVideo="musicVideo" class="absolute top-0 left-0" v-if="isFlipped"  key="back" @watch="$emit('watch')"/>
+                <ProjectTicketFront :musicVideo="musicVideo" class="absolute top-0 left-0" v-show="!isFlipped" key="front"/>
+                <ProjectTicketBack  :musicVideo="musicVideo" class="absolute top-0 left-0" v-show="isFlipped"  key="back" @watch="$emit('watch')"/>
             </TransitionGroup>
         </div>
     </div>
