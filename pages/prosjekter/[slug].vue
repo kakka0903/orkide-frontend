@@ -11,26 +11,17 @@
 </template>
 
 <script setup>
-const props = defineProps({
-    projects: Object,
-})
+import projects from '/data/projects.json'
 
 const route = useRoute();
-
 const musicVideo = computed(() => {
-    return props.projects.find((el) => { return el.attributes.slug == route.params.slug });
+    return projects.data.find((project) => {
+        return project.attributes.slug == route.params.slug
+    });
 })
-
 const description = computed(() => {
     var mvid = musicVideo.value.attributes;
     return mvid.artist + ' ' + mvid.year + '. ' + mvid.description
 })
-
-computed(() => {
-    if(musicVideo.value) {
-        useHead({
-            title:'Orkidé - '+musicVideo.value.name
-        })
-    }
-})
+useHead({ title:'Orkidé - '+musicVideo.value.attributes.name })
 </script>
