@@ -10,7 +10,7 @@
                 leave-to-class="-translate-x-16 opacity-0"
             >
                 <ProjectTicketFront :musicVideo="musicVideo" class="absolute top-0 left-0" v-show="!isFlipped" key="front"/>
-                <ProjectTicketBack  :musicVideo="musicVideo" class="absolute top-0 left-0" v-show="isFlipped"  key="back" @watch="$emit('watch')"/>
+                <ProjectTicketBack  :musicVideo="musicVideo" class="absolute top-0 left-0" v-show="isFlipped"  key="back"/>
             </TransitionGroup>
         </div>
     </div>
@@ -27,5 +27,4 @@ const props = defineProps({
 const hasClips = computed(() => {
     return props.musicVideo.attributes.bts_clips.data.length > 0
 })
-const emit = defineEmits(['watch']);
 </script>

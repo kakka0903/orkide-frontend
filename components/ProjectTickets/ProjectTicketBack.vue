@@ -7,13 +7,14 @@
             </p>
         </div>
         <div class="absolute top-0 right-0 flex flex-col text-xs ">
-            <BoxButton
-                @click.stop="$emit('watch')"
-                type="primary" :width="4"
-                class="h-[27px]"
-            >
-                <PlayIcon/>
-            </BoxButton>
+            <NuxtLink @click.stop :to="'/prosjekter/'+musicVideo.attributes.slug+'/'" >
+                <BoxButton
+                    type="primary" :width="4"
+                    class="h-[27px]"
+                >
+                    <PlayIcon/>
+                </BoxButton>
+            </NuxtLink>
             <NuxtLink @click.stop :to="'/bts/'+musicVideo.attributes.slug+'/'">
                 <BoxButton
                     type="secondary"
