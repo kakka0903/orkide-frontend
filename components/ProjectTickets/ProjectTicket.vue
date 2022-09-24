@@ -2,10 +2,10 @@
     <div @click="isFlipped = !isFlipped" class="relative max-w-xs h-[123px] w-full">
         <div class="relative w-full h-full text-left">
             <TransitionGroup
-                enter-active-class="transition duration-300"
+                enter-active-class="transition-[opacity,transform] duration-300"
                 enter-from-class="translate-x-16 opacity-0"
                 enter-to-class="translate-x-0 opacity-100"
-                leave-active-class="transition duration-300"
+                leave-active-class="transition-[opacity,transform] duration-300"
                 leave-from-class="translate-x-0 opacity-100"
                 leave-to-class="-translate-x-16 opacity-0"
             >
