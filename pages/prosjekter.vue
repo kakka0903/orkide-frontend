@@ -8,7 +8,6 @@
         <div class="flex flex-col content-start flex-grow gap-2 mb-2 gap-y-3 sm:flex-wrap sm:flex-row">
             <ProjectTicket
                 v-for="musicVideo in projects.data"
-                @watch="watchVideo(musicVideo)"
                 :musicVideo="musicVideo"
                 :key="musicVideo.id"
             />
@@ -18,9 +17,5 @@
 
 <script setup>
 import projects from '/data/projects.json'
-
-function watchVideo(musicVideo) {
-    navigateTo('/prosjekter/'+musicVideo.attributes.slug+'/')
-}
 useHead({title: 'Orkidé - Prosjekter'});
 </script>
