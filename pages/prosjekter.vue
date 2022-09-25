@@ -19,6 +19,6 @@
 import projects from '/data/projects.json'
 useHead({
     title: 'Orkidé - Prosjekter',
-    meta:[{name:'description', content:'Se de nye video Orkidé prosjektene på Orkidé Kino. Alt er produsert, filmet og redigert av Orkidé. Se Undergrunn hits som ITALIA, DR.PLAZA og TRAPMOBILE.'}]
+    meta:[{name:'description', content:'Se de nye Undergrunn videoene på Orkidé Kino. Alle videoer er produsert, filmet og redigert av Orkidé. Sjekk ut hits som ITALIA, DR.PLAZA og TRAPMOBILE.'}]
 });
 </script>
