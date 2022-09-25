@@ -25,7 +25,7 @@ const description = computed(() => {
 })
 
 useHead({
-    title:'Orkidé - '+musicVideo.value.attributes.name ,
+    title:'Orkidé - Prosjekter '+musicVideo.value.attributes.name ,
     meta: [{name:'description', content:description}]
 })
 </script>
