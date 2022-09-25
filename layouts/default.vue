@@ -25,7 +25,8 @@ useHead({
     { defer:'defer', src:'https://plausible.kakk.dev/js/plausible.js', 'data-domain':'orkide.world'}
   ],
   meta: [
-    { name: 'description', content: 'Orkidé lager video for norkse artister som Undergrunn. Alt er regissert, filmet og redigert av Orkidé. Nettsiden inneholder også eksklusive BTS videoklipp.'}
+    { name: 'description', content: 'Orkidé lager video for norkse artister som Undergrunn. Alt er regissert, filmet og redigert av Orkidé. Nettsiden inneholder også eksklusive BTS videoklipp.'},
+    { name: 'theme-color', media:'(prefers-color-scheme: dark)', content:'#0011FF'}
   ]
 
 })
