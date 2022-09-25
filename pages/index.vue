@@ -2,19 +2,13 @@
     <main class="flex flex-col flex-grow">
         <div class="h-56">
             <NuxtLink to="/">
-                <Transition
-                    enter-active-class="transition duration-500 ease-out transform-gpu"
-                    enter-from-class="translate-x-10 opacity-0"
-                    enter-to-class="scale-100 translate-x-0 opacity-100"
-                >
-                    <h1 v-show="appearShow" class="mt-2 font-bold leading-none text-7xl text-primary">orkidé<br>.world</h1>
-                </Transition>
+                <h1 v-show="true" class="mt-2 font-bold leading-none text-7xl text-primary">orkidé<br>.world</h1>
             </NuxtLink>
         </div>
 
         <div class="flex justify-center my-10 h-28">
             <Transition
-                enter-active-class="transition duration-500 delay-150 transform-gpu"
+                enter-active-class="transition duration-500 ease-out delay-150 transform-gpu"
                 enter-from-class="translate-x-10 opacity-0"
             >
                 <PollSequence v-show="appearShow" class="text-xl h-28" :polls="polls.data" netlify name="landing-page-form"/>
@@ -28,7 +22,7 @@
                 <p style="text-orientation: upright; writing-mode: vertical-rl;">SOON</p>
             </div>
             <Transition
-                enter-active-class="transition duration-300 ease-out delay-300 transform-gpu"
+                enter-active-class="transition duration-500 ease-out delay-300 transform-gpu"
                 enter-from-class="translate-x-10 opacity-0"
                 enter-to-class="scale-100 translate-x-0 opacity-100"
             >
