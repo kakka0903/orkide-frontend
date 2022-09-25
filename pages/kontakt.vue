@@ -13,6 +13,9 @@
 <script setup>
 useHead({
     title: 'Orkidé - Kontakt',
-    meta: [{name:'description',content:'Spent på nye Orkidé og Undergrunn prosjekter? Hold deg oppdatert gjennom Youtube, Instagram og TikTok. Gira på å gjøre et sammarbeid? Send oss en epost.'}]
+    meta: [{name:'description',content:'Hold deg oppdatert på alt Orkidé og Undergrunn. Sjekk ut ekslusivt materiale på Instagram, Youtube og TikTok. Gira på samarbeid? Linkene finner du her.'}]
 });
 </script>
+
+
+
