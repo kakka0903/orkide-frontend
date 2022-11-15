@@ -15,7 +15,7 @@ The application is built on [Nuxt3](https://github.com/nuxt/framework) ([vuejs](
 ### Build/Run
 To build and run the application a `.env` file needs to be created setting `STRAPI_URL` to the url of a (including transport protocol) strapi instance.
 
-> At the time of writing the live strapi instance is available at `https://strapi.kakka.dev`.
+> At the time of writing the live strapi instance is available at `https://strapi.kakk.dev`.
 
 Once the `.env` file has been create the application can be build with `npm run generate` and then previewed with `npm run preview`.
 
