@@ -14,7 +14,7 @@ async function saveCMSData(url, filename) {
 export default defineNuxtConfig({
     target: 'static',
     mode: 'universal',
-    buildModules: ['@nuxtjs/tailwindcss', '@nuxtjs/strapi'],
+    buildModules: ['@nuxtjs/tailwindcss'],
     strapi: {
         url: process.env.STRAPI_URL || 'http://localhost:1337'
     },
