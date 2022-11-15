@@ -1,4 +1,3 @@
-import { defineNuxtConfig } from 'nuxt'
 import axios from 'axios'
 var fs = require('fs');
 
