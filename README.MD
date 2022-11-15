@@ -2,8 +2,9 @@
 A front-end application written for [Orkidé](https://www.instagram.com/orkide.world/) as a freelance project by *Kasper Johannes Hopen Alfarnes*.
 
 ### Tech Stack
-The application is built on [Nuxt3](https://github.com/nuxt/framework) ([vuejs](https://github.com/vuejs/core) metaframework), styled with [Tailwind](https://tailwindcss.com/) and is hosted on [Netlify](https://www.netlify.com/) at https://orkide.world. Application data is loaded from a [Strapi](https://strapi.io/) instance (open source self-hosted cms), and is loaded at build time.
+The application is built on [Nuxt3](https://github.com/nuxt/framework) ([vuejs](https://github.com/vuejs/core) metaframework), styled with [Tailwind](https://tailwindcss.com/) and is hosted on [Netlify](https://www.netlify.com/). Application data is loaded from a [Strapi](https://strapi.io/) instance (open source self-hosted cms), and the data is loaded at build time.
 
+> At the time of writing the project is live at https://orkide.world. Check it out!
 
 ### Installation
  1. clone the repo
