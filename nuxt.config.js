@@ -31,7 +31,7 @@ export default defineNuxtConfig({
           throw new ReferenceError("Missing 'STRAPI_URL' key.")
         }
 
-        saveCMSData(process.env.STRAPI_URL+'/api/projects?populate[bts_clips][populate][0]=thumbnail', 'projects');
+        saveCMSData(process.env.STRAPI_URL+'/api/projects?sort[0]=release_date:desc&populate[bts_clips][populate][0]=thumbnail', 'projects');
         saveCMSData(process.env.STRAPI_URL+'/api/polls', 'polls');
         saveCMSData(process.env.STRAPI_URL+'/api/bts-clips', 'bts-clips');
 
