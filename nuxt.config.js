@@ -34,6 +34,7 @@ export default defineNuxtConfig({
         saveCMSData(process.env.STRAPI_URL+'/api/projects?sort[0]=release_date:desc&populate[bts_clips][populate][0]=thumbnail', 'projects');
         saveCMSData(process.env.STRAPI_URL+'/api/polls', 'polls');
         saveCMSData(process.env.STRAPI_URL+'/api/bts-clips', 'bts-clips');
+        saveCMSData(process.env.STRAPI_URL+'/api/kontakt', 'contact');
 
         const res = await axios.get(process.env.STRAPI_URL+'/api/projects?populate[0]=bts_clips');
         res.data.data.forEach((project) => {
