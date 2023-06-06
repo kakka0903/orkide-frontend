@@ -19,7 +19,7 @@ useHead({
   },
   link: [
     { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-    { rel: 'preload', as: 'stylesheet', type: 'text/css', href: '/fonts/dejavu-font.css'},
+    { rel: 'preload', as: 'style', type: 'text/css', href: '/fonts/dejavu-font.css'},
   ],
   script:[
     { defer:'defer', src:'https://plausible.kakk.dev/js/plausible.js', 'data-domain':'orkide.world'}
