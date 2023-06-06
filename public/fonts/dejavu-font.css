@@ -1,13 +1,13 @@
 @font-face {
     font-family: "DejaVuSansMono";
-    src: url("/DejaVuSansMono-Bold.ttf");
+    src: url("/fonts/DejaVuSansMono-Bold.woff");
     font-weight: 800;
     font-display: swap;
 }
 
 @font-face {
     font-family: "DejaVuSansMono";
-    src: url("/DejaVuSansMono-BoldOblique.ttf");
+    src: url("/fonts/DejaVuSansMono-BoldOblique.woff");
     font-weight: 800;
     font-style: oblique;
     font-display: swap;
@@ -15,14 +15,14 @@
 
 @font-face {
     font-family: "DejaVuSansMono";
-    src: url("/DejaVuSansMono.ttf");
+    src: url("/fonts/DejaVuSansMono.woff");
     font-weight: 600;
     font-display: swap;
 }
 
 @font-face {
     font-family: "DejaVuSansMono";
-    src: url("/DejaVuSansMono-Oblique.ttf");
+    src: url("/fonts/DejaVuSansMono-Oblique.woff");
     font-weight: 600;
     font-style: oblique;
     font-display: swap;
