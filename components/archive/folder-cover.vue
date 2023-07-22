@@ -2,6 +2,7 @@
     <button
         class="flex relative justify-center w-20 p-3 font-bold -mr-16 text-sm break-all transition ease-out bg-white border-[3px] group border-primary h-24 text-primary"
         :class="containerStyles"
+        :disabled="!(isSelected && isNavigating)"
     >
         <slot/>
         <!-- TODO: fix lagging transition -->
