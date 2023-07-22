@@ -1,9 +1,11 @@
 <template>
     <article
-        class="flex justify-center w-20 px-3 -mr-16 text-sm text-left break-all transition-all ease-out bg-white border-[3px] border-primary h-28 text-primary"
+        class="flex relative justify-center w-20 p-3 font-bold -mr-16 text-sm break-all transition-all ease-out bg-white border-[3px] border-primary h-28 text-primary"
         :class="moveStyles"
     >
         <slot/>
+        <!-- TODO: fix lagging transition -->
+        <div class="absolute w-2 h-5 border-[3px] bg-white border-primary group-hover:border-secondary-dark transition -top-[3px] -right-2 border-l-0 "></div>
     </article>
 </template>
 
@@ -15,8 +17,8 @@ const props = defineProps({
 })
 let moveStyles = computed(() => {
     return {
-        'underline -translate-y-5' : props.isSelected && props.isNavigating,
-        'translate-x-20' : props.isAfterSelected && props.isNavigating
+        'underline -translate-y-16' : props.isSelected && props.isNavigating,
+        '' : props.isAfterSelected && props.isNavigating,
     }
 })
 </script>
