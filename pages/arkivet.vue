@@ -27,6 +27,10 @@
 </template>
 
 <script setup>
+useHead({
+    title: 'Orkidé - Arkivet'
+})
+
 let archiveFolders = ref([
     { id: 4, name: 'mata:come'},
     { id: 5, name: 'italia'},
