@@ -1,6 +1,6 @@
 
 <template>
-    <div class="relative h-44 w-[340px]">
+    <div class="relative h-52 w-[340px]">
         <ArchiveBox class="absolute bottom-0 z-[2]" @click="clickBox()">ORKIDÉ ARCHIVE</ArchiveBox>
         <div class="absolute z-[1] flex pl-3 bottom-10 transition">
             <ArchiveFolderCover
