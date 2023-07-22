@@ -25,11 +25,4 @@ const props = defineProps({
 let selectedId = computed(() => {
     return props.folders[props.selectedIndex].id;
 })
-
-const emit = defineEmits(['openFolder']);
-let openFolder = (folderId) => {
-    if(selectedId.value == folderId) {
-        emit('openFolder', folderId);
-    }
-}
 </script>
