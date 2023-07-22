@@ -8,15 +8,15 @@
 </template>
 
 <script setup>
-defineProps({
+const props = defineProps({
     isSelected: Boolean,
     isNavigating: Boolean,
     isAfterSelected: Boolean
 })
 let moveStyles = computed(() => {
     return {
-        'underline -translate-y-5' : isSelected && isNavigating,
-        'translate-x-20' : isAfterSelected && isNavigating
+        'underline -translate-y-5' : props.isSelected && props.isNavigating,
+        'translate-x-20' : props.isAfterSelected && props.isNavigating
     }
 })
 </script>
