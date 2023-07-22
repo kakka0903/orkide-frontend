@@ -8,6 +8,7 @@
                 :isSelected="selectedId == folder.id && isNavigating"
                 :isNavigating="isNavigating"
                 :isAfterSelected="selectedIndex < folders.indexOf(folder)"
+                @click="clickFolder(folder.id)"
             >
                 {{ folder.name }}
             </ArchiveFolderCover>
@@ -25,4 +26,9 @@ const props = defineProps({
 let selectedId = computed(() => {
     return props.folders[props.selectedIndex].id;
 })
+
+const emit = defineEmits(['clickFolder'])
+let clickFolder = (folderId) => {
+    emit('clickFolder', folderId)
+}
 </script>
