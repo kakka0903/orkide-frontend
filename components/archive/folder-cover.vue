@@ -24,7 +24,7 @@ const props = defineProps({
 })
 let containerStyles = computed(() => {
     return {
-        'underline -translate-y-16 hover:border-secondary hover:text-secondary' : props.isSelected && props.isNavigating,
+        'underline -translate-y-16 hover:border-secondary-dark hover:text-secondary-dark' : props.isSelected && props.isNavigating,
         '' : props.isAfterSelected && props.isNavigating,
     }
 })
