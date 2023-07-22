@@ -15,12 +15,7 @@
             </Transition>
         </div>
 
-        <div class="flex items-end justify-between flex-grow">
-            <div class="flex items-end text-2xl font-bold text-secondary ">
-                <p style="text-orientation: upright; writing-mode: vertical-rl;">PRINTS&nbsp;&nbsp;</p>
-                <p style="text-orientation: upright; writing-mode: vertical-rl;">COMING&nbsp;</p>
-                <p style="text-orientation: upright; writing-mode: vertical-rl;">SOON</p>
-            </div>
+        <div class="flex items-end justify-end flex-grow">
             <Transition
                 enter-active-class="transition duration-500 ease-out delay-300 transform-gpu"
                 enter-from-class="translate-x-10 opacity-0"
