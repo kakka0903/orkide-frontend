@@ -1,6 +1,6 @@
 <template>
     <article
-        class="flex justify-center w-20 px-3 -mr-16 text-sm text-left break-all transition-all ease-out bg-white border-2 border-primary h-28 text-primary"
+        class="flex justify-center w-20 px-3 -mr-16 text-sm text-left break-all transition-all ease-out bg-white border-[3px] border-primary h-28 text-primary"
         :class="moveStyles"
     >
         <slot/>
