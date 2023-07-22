@@ -8,6 +8,7 @@
                 :selectedIndex="selectedIndex"
                 :isNavigating="isNavigating"
                 @clickBox="nextFolder(); hasInteracted = true"
+                @clickFolder="openFolder(folderId)"
             />
             <div class="h-10">
                 <Transition
@@ -19,6 +20,7 @@
                         v-model:selectedIndex="selectedIndex"
                         v-model:isNavigating="isNavigating"
                         :folderCount="folders.length"
+                        @openFolder="openFolder()"
                     />
                 </Transition>
             </div>
@@ -49,5 +51,10 @@ let isNavigating = ref(false);
 let hasInteracted = ref(false);
 
 let { nextFolder } = useArchiveControls(selectedIndex, isNavigating, folders.value.length);
+
+// TODO: implement this functionality
+let openFolder = () => {
+    alert("Åpner et modal som viser frem innholdet til folderen.")
+}
 </script>
 
