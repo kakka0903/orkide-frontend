@@ -5,8 +5,8 @@
         <div class="absolute z-[1] flex pl-1 bottom-3 transition">
             <ArchiveFolderCover
                 v-for="folder in folders"
-                :isSelected="selectedId == folder.id && navigateFolders"
-                :isNavigating="navigateFolders"
+                :isSelected="selectedId == folder.id && isNavigating"
+                :isNavigating="isNavigating"
                 :isAfterSelected="selectedIndex < folders.indexOf(folder)"
             >
                 {{ folder.name }}
@@ -19,7 +19,7 @@
 const props = defineProps({
     folders: Array,
     selectedIndex: Number,
-    navigateFolders: Boolean
+    isNavigating: Boolean
 })
 
 let selectedId = computed(() => {
