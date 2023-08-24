@@ -4,8 +4,8 @@
         <div class="space-y-5">
             <div v-for="coverProject in coverProjects" :key="coverProject" class="space-y-5">
                 <button class="flex items-center gap-5" @click="selectProject(coverProject.id)">
-                    <FolderIcon class="w-16 h-16"></FolderIcon>
-                    <p class="text-lg font-bold underline transition text-primary">{{ coverProject.title }}</p>
+                    <FolderIcon class="w-16 h-16 transition" :class="getProjectStyles(coverProject.id)"></FolderIcon>
+                    <p class="text-lg font-bold underline transition text-primary" :class="getProjectStyles(coverProject.id)">{{ coverProject.title }}</p>
                 </button>
                 <ProjectSlideshow
                     v-if="selectedProjectId == coverProject.id"
@@ -37,5 +37,12 @@ const selectedProjectId = ref(null);
 const selectProject = (projectId) => {
     let currentVal = selectedProjectId.value
     selectedProjectId.value = currentVal != projectId ? projectId  : null
+}
+
+const getProjectStyles = (projectId) => {
+    return {
+        'text-secondary' : projectId == selectedProjectId.value,
+        'text-primary' : projectId != selectedProjectId.value,
+    }
 }
 </script>
