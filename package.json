@@ -13,7 +13,8 @@
     "@heroicons/vue": "^1.0.6",
     "@nuxtjs/tailwindcss": "^5.3.2",
     "axios": "^0.27.2",
-    "gsap": "^3.10.4"
+    "gsap": "^3.10.4",
+    "vue3-carousel": "^0.3.1"
   },
   "devDependencies": {
     "nuxt": "3.0.0-rc.9"
