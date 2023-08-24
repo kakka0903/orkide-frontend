@@ -4,8 +4,8 @@
         <div class="space-y-5">
             <div v-for="coverProject in coverProjects" :key="coverProject" class="space-y-5">
                 <button class="flex items-center gap-5" @click="selectProject(coverProject.id)">
-                    <div class="w-10 h-10 border border-primary"></div>
-                    <p>{{ coverProject.title }}</p>
+                    <FolderIcon class="w-16 h-16"></FolderIcon>
+                    <p class="text-lg font-bold underline transition text-primary">{{ coverProject.title }}</p>
                 </button>
                 <ProjectSlideshow
                     v-if="selectedProjectId == coverProject.id"
