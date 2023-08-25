@@ -9,7 +9,7 @@
                 </button>
                 <ProjectSlideshow
                     v-if="selectedProjectId == coverProject.id"
-                    :slides="slides"
+                    :slides="coverProject.slides"
                 />
             </div>
         </div>
@@ -21,17 +21,14 @@
 // TODO: add folder graphics
 // TODO: folder selected styling
 
-const coverProjects = ref([
-    { id: 0, title: 'mata:come' },
-    { id: 1, title: 'undergrunn' },
-    { id: 2, title: 'kom og betal' }
-]);
+import albumCoverProjects from '/data/albumcover-projects.json';
 
-const slides = ref([
-    { id: 0, image: '/italia-wrapped.png', description: 'Kommentar om dette bildet. Nevner at det er endelig versjon.'},
-    { id: 1, image: '/album-sketch-one.jpg', description: 'Album Sketch BW'},
-    { id: 2, image: '/album-sketch-two.jpg', description: 'Album Sketch Colour'},
-])
+// simplify data model - merges attributes and id as the same object
+const coverProjects = ref(albumCoverProjects.data.map((project) => {
+    let newProject = project.attributes
+    newProject.id = project.id
+    return newProject
+}));
 
 const selectedProjectId = ref(null);
 const selectProject = (projectId) => {
