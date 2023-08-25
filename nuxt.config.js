@@ -5,6 +5,24 @@ import { cacheStrapiImage, cacheJson } from './cacheUtils.js'
 const strapi = new Strapi({
   url: process.env.STRAPI_URL
 })
+
+// Cache images in cover slideshows
+async function cacheSlideshows() {
+  const data = await strapi.find('albumcover-projects', {
+    populate: {
+      slides: {
+        populate: 'image'
+      }
+    },
+  });
+
+  data.data.forEach(project => {
+    project.attributes.slides.forEach(slide => {
+      cacheStrapiImage(slide.image.data.attributes)
+    })
+  });
+}
+
 // cache entity data for pages
 async function cachePageData() {
   cacheJson('albumcover-projects', await strapi.find('albumcover-projects', {
@@ -61,6 +79,7 @@ export default defineNuxtConfig({
             })
         })
         await cachePageData()
+        await cacheSlideshows()
       }
     }
 })
