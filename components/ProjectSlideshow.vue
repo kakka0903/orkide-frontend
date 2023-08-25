@@ -8,7 +8,7 @@
             <carousel class="w-full h-full">
                 <slide v-for="slide in slides" :key="slide.id" class="flex justify-center h-full">
                     <div class="w-full max-w-lg p-10 space-y-20">
-                        <img class="w-full bg-gray-500 shadow-2xl aspect-square" :src="slide.image">
+                        <img class="w-full bg-gray-500 shadow-2xl aspect-square" :src="getImageAttrs(slide).url">
                         <!-- <img :src="slide.image" style="object-fit: cover"> -->
                         <div class="px-10 py-5 mx-5 font-bold text-left bg-white shadow-2xl niceBorder text-primary">
                             <p>{{ slide.description }}</p>
@@ -45,6 +45,11 @@ import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 const props = defineProps({
     slides: Array
 })
+
+const getImageAttrs = (slide) => {
+    return slide.image.data.attributes
+}
+
 const showSlideShow = ref(false);
 
 </script>
