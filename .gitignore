@@ -26,4 +26,7 @@ dist-ssr
 .output
 .env
 package-lock.json
+
+# Cached content
 data
+public/uploads
