@@ -18,7 +18,7 @@ const props = defineProps({
 const config = useRuntimeConfig();
 const thumbnailUrl = computed(() => {
     const thumbnail = props.clip.attributes.thumbnail.data
-    return thumbnail ? config.STRAPI_URL + thumbnail.attributes.formats.thumbnail.url : undefined
+    return thumbnail ? thumbnail.attributes.url : undefined
 })
 
 const backgroundStyle = computed(() => {

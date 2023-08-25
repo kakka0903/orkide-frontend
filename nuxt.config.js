@@ -23,6 +23,19 @@ async function cacheSlideshows() {
   });
 }
 
+// Cache bts clip thumbnails
+async function cacheBTSThumbnails() {
+  const data = await strapi.find('bts-clips', {
+    populate: 'thumbnail'
+  });
+
+  data.data.forEach(clip => {
+    if (clip.attributes.thumbnail.data) {
+      cacheStrapiImage(clip.attributes.thumbnail.data.attributes);
+    }
+  })
+}
+
 // cache entity data for pages
 async function cachePageData() {
   cacheJson('albumcover-projects', await strapi.find('albumcover-projects', {
@@ -52,14 +65,6 @@ export default defineNuxtConfig({
     target: 'static',
     mode: 'universal',
     buildModules: ['@nuxtjs/tailwindcss'],
-    strapi: {
-        url: process.env.STRAPI_URL || 'http://localhost:1337'
-    },
-    runtimeConfig: {
-      public: {
-        STRAPI_URL: process.env.STRAPI_URL || 'http://localhost:1337',
-      }
-    },
     hooks: {
       async 'nitro:config' (nitroConfig) {
         if (nitroConfig.dev) { return }
@@ -68,18 +73,9 @@ export default defineNuxtConfig({
           throw new ReferenceError("Missing 'STRAPI_URL' key.")
         }
 
-        const res = await axios.get(process.env.STRAPI_URL+'/api/projects?populate[0]=bts_clips');
-        res.data.data.forEach((project) => {
-            const slug = project.attributes.slug;
-            nitroConfig.prerender.routes.push('/prosjekter/'+slug+'/')
-            nitroConfig.prerender.routes.push('/bts/'+slug+'/')
-            const clips = project.attributes.bts_clips.data;
-            clips.forEach((clip) => {
-                nitroConfig.prerender.routes.push('/bts/'+slug+'/'+clips.indexOf(clip)+'/')
-            })
-        })
         await cachePageData()
         await cacheSlideshows()
+        await cacheBTSThumbnails()
       }
     }
 })
