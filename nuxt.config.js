@@ -1,13 +1,32 @@
 import { defineNuxtConfig } from 'nuxt'
-import axios from 'axios'
-var fs = require('fs');
+import Strapi from "strapi-sdk-js"
+import { cacheStrapiImage, cacheJson } from './cacheUtils.js'
 
-async function saveCMSData(url, filename) {
-  fs.mkdir('./data', {recursive:true}, (err) => { if (err) {throw err}});
-  console.log('Caching CMS data in: '+filename+'.json')
-  const res = await axios.get(url);
-  const data = JSON.stringify(res.data);
-  fs.writeFile('data/'+filename+'.json', data, (err) => {if (err) {throw err}});
+const strapi = new Strapi({
+  url: process.env.STRAPI_URL
+})
+// cache entity data for pages
+async function cachePageData() {
+  cacheJson('albumcover-projects', await strapi.find('albumcover-projects', {
+    populate: {
+      slides: {
+        populate: 'image'
+      }
+    }
+  }));
+
+  cacheJson('projects', await strapi.find('projects', {
+    sort: 'release_date:desc',
+    populate: {
+      bts_clips: {
+        populate: 'thumbnail'
+      }
+    }
+  }));
+
+  cacheJson('polls', await strapi.find('polls'));
+  cacheJson('bts-clips', await strapi.find('bts-clips'));
+  cacheJson('contact', await strapi.find('kontakt'));
 }
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
@@ -31,12 +50,6 @@ export default defineNuxtConfig({
           throw new ReferenceError("Missing 'STRAPI_URL' key.")
         }
 
-        saveCMSData(process.env.STRAPI_URL+'/api/albumcover-projects?populate[slides][populate][0]=image', 'albumcover-projects')
-        saveCMSData(process.env.STRAPI_URL+'/api/projects?sort[0]=release_date:desc&populate[bts_clips][populate][0]=thumbnail', 'projects');
-        saveCMSData(process.env.STRAPI_URL+'/api/polls', 'polls');
-        saveCMSData(process.env.STRAPI_URL+'/api/bts-clips', 'bts-clips');
-        saveCMSData(process.env.STRAPI_URL+'/api/kontakt', 'contact');
-
         const res = await axios.get(process.env.STRAPI_URL+'/api/projects?populate[0]=bts_clips');
         res.data.data.forEach((project) => {
             const slug = project.attributes.slug;
@@ -47,6 +60,7 @@ export default defineNuxtConfig({
                 nitroConfig.prerender.routes.push('/bts/'+slug+'/'+clips.indexOf(clip)+'/')
             })
         })
+        await cachePageData()
       }
     }
 })
