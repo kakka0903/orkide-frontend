@@ -2,7 +2,7 @@
     <main>
         <page-heading title="ORKIDÉ COVERS" description="Album covers made by Orkidé"></page-heading>
         <div class="space-y-5">
-            <div v-for="coverProject in coverProjects" :key="coverProject" class="space-y-5">
+            <div v-for="coverProject in coverProjects" :key="coverProject.id" class="space-y-5">
                 <button class="flex items-center gap-5" @click="selectProject(coverProject.id)">
                     <FolderIcon class="w-16 h-16 transition" :class="getProjectStyles(coverProject.id)"></FolderIcon>
                     <p class="text-lg font-bold underline transition text-primary" :class="getProjectStyles(coverProject.id)">{{ coverProject.title }}</p>
