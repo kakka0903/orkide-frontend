@@ -15,11 +15,16 @@
                         </div>
                     </div>
                 </slide>
+
                 <template #addons>
                     <navigation/>
                     <pagination/>
                 </template>
             </carousel>
+
+            <BoxButton @click="showSlideShow=false" type="primary" class="fixed top-5 right-5" :width="2">
+                BACK
+            </BoxButton>
         </div>
     </div>
 </template>
