@@ -29,8 +29,8 @@ const coverProjects = ref([
 
 const slides = ref([
     { id: 0, image: '/italia-wrapped.png', description: 'Kommentar om dette bildet. Nevner at det er endelig versjon.'},
-    { id: 1, image: '/album.png', description: 'Paper Sketch #01'},
-    { id: 2, image: '/album.png', description: 'Paper Sketch #02'},
+    { id: 1, image: '/album-sketch-one.jpg', description: 'Album Sketch BW'},
+    { id: 2, image: '/album-sketch-two.jpg', description: 'Album Sketch Colour'},
 ])
 
 const selectedProjectId = ref(null);
