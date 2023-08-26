@@ -15,16 +15,22 @@
                     <PlayIcon/>
                 </BoxButton>
             </NuxtLink>
-            <NuxtLink @click.stop :to="'/bts/'+musicVideo.attributes.slug+'/'">
+            <NuxtLink @click.stop v-if="hasClips" :to="'/bts/'+musicVideo.attributes.slug+'/'">
                 <BoxButton
                     type="secondary"
                     :width="4"
                     class="h-[28px]"
-                    :disabled="!hasClips"
                 >
-                    <PlusIcon/>
+                    BTS!
                 </BoxButton>
             </NuxtLink>
+            <BoxButton
+                v-else
+                type="secondary"
+                :width="4"
+                class="h-[28px] w-full"
+            >
+            </BoxButton>
         </div>
     </div>
 </template>
