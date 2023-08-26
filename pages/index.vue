@@ -29,6 +29,10 @@
                 <div v-show="appearShow" class="flex items-end text-2xl font-bold gap-x-4 text-primary">
                     <NuxtLink to="/kontakt/"><BoxButton :width="3">social</BoxButton></NuxtLink>
                     <NuxtLink to="/prosjekter/"><BoxButton :width="3" type="primary">projects~</BoxButton></NuxtLink>
+                    <NuxtLink to="/covers/" class="relative">
+                        <BoxButton :width="3" type="primary">*COVERART</BoxButton>
+                        <SpikeBadge class="absolute -top-14 -right-10 text-[20px] pointer-events-none rotate-12" >NY!</SpikeBadge>
+                    </NuxtLink>
                 </div>
             </Transition>
         </div>
