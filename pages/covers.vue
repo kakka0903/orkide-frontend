@@ -1,5 +1,5 @@
 <template>
-    <main>
+    <main class="flex-grow">
         <page-heading title="ORKIDÉ COVERS" description="Discover albumart made by Orkidé"></page-heading>
         <div class="space-y-5">
             <div v-for="coverProject in coverProjects" :key="coverProject.id" class="space-y-5">
