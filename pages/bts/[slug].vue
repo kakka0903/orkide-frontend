@@ -6,7 +6,7 @@
             @before-enter="onBeforeEnter"
             @enter="onEnter"
             tag="div"
-            class="grid grid-cols-4 gap-2 sm:grid-cols-5 lg:grid-cols-7 xl:grid-cols-8 text-primary"
+            class="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 text-primary"
         >
             <NuxtLink
                 v-show="appearShow"
