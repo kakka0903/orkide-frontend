@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center mx-6 font-mono xs:mx-10">
-    <div class="w-full max-w-2xl min-h-screen">
+    <div class="w-full min-h-screen mb-5 md:max-w-xl lg:max-w-2xl xl:max-w-5xl">
       <div class="flex flex-col h-full">
         <Navigation :links="navLinks"/>
         <NuxtPage/>
