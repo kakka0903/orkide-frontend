@@ -1,6 +1,6 @@
 <template>
     <main class="flex-grow">
-        <page-heading title="ORKIDÉ COVERS" description="Discover albumart made by Orkidé"></page-heading>
+        <page-heading title="COVERART" description="Discover albumart made by Orkidé"></page-heading>
         <div class="space-y-5">
             <div v-for="coverProject in coverProjects" :key="coverProject.id" class="space-y-5">
                 <button class="flex items-center gap-5" @click="selectProject(coverProject.id)">
