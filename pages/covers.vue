@@ -1,16 +1,19 @@
 <template>
     <main class="flex-grow">
         <page-heading title="COVERART" description="Discover albumart made by Orkidé"></page-heading>
-        <div class="space-y-5">
-            <div v-for="coverProject in coverProjects" :key="coverProject.id" class="space-y-5">
-                <button class="flex items-center gap-5" @click="selectProject(coverProject.id)">
-                    <FolderIcon class="w-16 h-16 transition" :class="getProjectStyles(coverProject.id)"></FolderIcon>
-                    <p class="text-lg font-bold underline transition text-primary" :class="getProjectStyles(coverProject.id)">{{ coverProject.title }}</p>
-                </button>
-                <ProjectSlideshow
-                    v-if="selectedProjectId == coverProject.id"
-                    :slides="coverProject.slides"
-                />
+        <div class="flex flex-row items-stretch">
+            <div class="border-r-2 border-dashed border-primary"></div>
+            <div class="space-y-5">
+                <div v-for="coverProject in coverProjects" :key="coverProject.id" class="space-y-5">
+                    <button class="flex items-center gap-5" @click="selectProject(coverProject.id)">
+                        <div class="w-10 border-b-2 border-dashed border-primary"></div>
+                        <FolderIcon class="w-16 h-16 transition" :class="getProjectStyles(coverProject.id)"></FolderIcon>
+                        <p class="text-lg font-bold underline transition text-primary" :class="getProjectStyles(coverProject.id)">{{ coverProject.title }}</p>
+                    </button>
+                    <div v-if="selectedProjectId == coverProject.id" class="pl-16 -ml-1">
+                        <ProjectSlideshow :slides="coverProject.slides"/>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
