@@ -5,17 +5,15 @@
             <div class="border-r-2 border-dashed border-primary"></div>
             <div class="space-y-5">
                 <div v-for="coverProject in coverProjects" :key="coverProject.id" class="space-y-5">
-                    <button class="flex items-center gap-5" @click="selectProject(coverProject.id)">
+                    <NuxtLink class="flex items-center gap-5 group" :to="'/covers/'+coverProject.slug">
                         <div class="w-10 border-b-2 border-dashed border-primary"></div>
-                        <FolderIcon class="w-16 h-16 transition" :class="getProjectStyles(coverProject.id)"></FolderIcon>
-                        <p class="text-lg font-bold underline transition text-primary" :class="getProjectStyles(coverProject.id)">{{ coverProject.title }}</p>
-                    </button>
-                    <div v-if="selectedProjectId == coverProject.id" class="pl-16 -ml-1">
-                        <ProjectSlideshow :slides="coverProject.slides"/>
-                    </div>
+                        <FolderIcon class="w-16 h-16 transition text-primary group-hover:text-secondary-dark group-active:text-secondary group-visited:text-primary-dark"></FolderIcon>
+                        <p class="text-lg font-bold underline transition text-primary group-hover:text-secondary-dark group-active:text-secondary group-visited:text-primary-dark">{{ coverProject.title }}</p>
+                    </NuxtLink>
                 </div>
             </div>
         </div>
+        <NuxtPage></NuxtPage>
     </main>
 </template>
 
@@ -32,17 +30,4 @@ const coverProjects = ref(albumCoverProjects.data.map((project) => {
     newProject.id = project.id
     return newProject
 }));
-
-const selectedProjectId = ref(null);
-const selectProject = (projectId) => {
-    let currentVal = selectedProjectId.value
-    selectedProjectId.value = currentVal != projectId ? projectId  : null
-}
-
-const getProjectStyles = (projectId) => {
-    return {
-        'text-secondary' : projectId == selectedProjectId.value,
-        'text-primary' : projectId != selectedProjectId.value,
-    }
-}
 </script>
