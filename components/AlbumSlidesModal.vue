@@ -41,8 +41,6 @@
 </style>
 
 <script setup>
-// TODO: how to close slideshow?
-// TODO: open / close transitions
 // TODO: add title slide
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
