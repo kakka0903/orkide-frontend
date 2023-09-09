@@ -2,9 +2,9 @@
     <div class="fixed inset-0 flex items-center justify-center pt-5 bg-black/70" @click="exit">
         <Carousel ref="slideshow" class="relative">
             <slide v-for="slide in slides" :key="slide.id" class="flex justify-center h-full">
-                <div class="w-full max-w-sm p-10 space-y-10 md:max-w-lg" @click.stop>
+                <div class="w-full max-w-sm p-10 md:max-w-lg" @click.stop>
                     <img v-show="!showDescription" class="w-full bg-gray-500 shadow-2xl aspect-square" :src="getImageAttrs(slide).url">
-                    <div v-show="showDescription" class="hidden px-10 py-5 font-bold text-left bg-white shadow-2xl sm:block niceBorder text-primary">
+                    <div v-show="showDescription" class="px-10 py-5 font-bold text-left bg-white shadow-2xl niceBorder text-primary">
                         <p>{{ slide.description }}</p>
                     </div>
                 </div>
