@@ -22,7 +22,7 @@
             :count="slideshow.data.slidesCount.value"
         />
 
-        <button @click="exit" class="absolute lowercase top-10 right-10 text-secondary-dark hover:text-secondary active:text-secondary">
+        <button @click="exit" class="absolute p-3 lowercase transition top-10 right-10 text-secondary-dark hover:text-secondary active:text-secondary">
             <XIcon class="w-6 h-6"/>
         </button>
     </div>
