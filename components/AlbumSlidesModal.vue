@@ -12,15 +12,21 @@
             </slide>
         </Carousel>
 
-        <arrow-controls
-            class="absolute bottom-4"
-            @click.stop
-            v-if="slideshow"
-            @next="slideshow.next"
-            @prev="slideshow.prev"
-            :current="currentSlide"
-            :count="slideshow.data.slidesCount.value"
-        />
+        <transition
+            enter-active-class="transition duration-300 ease-out"
+            enter-from-class="opacity-0"
+            enter-to-class="opacity-100"
+        >
+            <arrow-controls
+                class="absolute bottom-4"
+                @click.stop
+                v-if="slideshow"
+                @next="slideshow.next"
+                @prev="slideshow.prev"
+                :current="currentSlide"
+                :count="slideshow.data.slidesCount.value"
+            />
+        </transition>
 
         <button @click="exit" class="absolute p-3 lowercase transition top-10 right-10 text-secondary-dark hover:text-secondary active:text-secondary">
             <XIcon class="w-6 h-6"/>
