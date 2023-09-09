@@ -13,7 +13,7 @@
         </Carousel>
 
         <arrow-controls
-            class="absolute bottom-7"
+            class="absolute bottom-4"
             @click.stop
             v-if="slideshow"
             @next="slideshow.next"
