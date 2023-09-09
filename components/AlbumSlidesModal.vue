@@ -2,15 +2,20 @@
     <div class="fixed inset-0 flex items-center justify-center pt-5 bg-black/70" @click="exit">
         <Carousel ref="slideshow" :items-to-show="1" class="relative">
             <slide v-for="slide in slides" :key="slide.id" class="flex justify-center h-full">
-                <div class="w-full max-w-lg p-10 space-y-10" @click.stop>
-                    <img class="w-full bg-gray-500 shadow-2xl aspect-square" :src="getImageAttrs(slide).url">
-                    <!-- <img :src="slide.image" style="object-fit: cover"> -->
-                    <div class="px-10 py-5 mx-5 overflow-y-scroll font-bold text-left bg-white shadow-2xl max-h-32 niceBorder text-primary">
+                <div class="w-full max-w-sm p-10 space-y-10 md:max-w-lg" @click.stop>
+                    <img v-if="!showDescription" class="w-full bg-gray-500 shadow-2xl aspect-square" :src="getImageAttrs(slide).url">
+                    <div v-else class="hidden px-10 py-5 mx-5 overflow-y-scroll font-bold text-left bg-white shadow-2xl sm:block max-h-32 niceBorder text-primary">
                         <p>{{ slide.description }}</p>
                     </div>
                 </div>
             </slide>
         </Carousel>
+
+        <button @click.stop="toggleDescription" class="absolute flex items-center gap-2 p-3 bottom-16 text-secondary-dark hover:text-secondary">
+            <p v-if="!showDescription">show description</p>
+            <p v-else>show albumcover   </p>
+            <QuestionMarkCircleIcon class="w-6 h-6"></QuestionMarkCircleIcon>
+        </button>
 
         <transition
             enter-active-class="transition duration-300 ease-out"
@@ -45,6 +50,7 @@
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 import { XIcon } from '@heroicons/vue/solid/index.js';
+import { QuestionMarkCircleIcon } from '@heroicons/vue/outline/index.js';
 
 defineProps({
     slides: Array
@@ -61,5 +67,10 @@ const getImageAttrs = (slide) => {
 
 const exit = () => {
     navigateTo('/covers')
+}
+
+const showDescription = ref(false)
+const toggleDescription = () => {
+    showDescription.value = !showDescription.value
 }
 </script>
