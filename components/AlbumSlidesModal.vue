@@ -1,6 +1,6 @@
 <template>
-    <div class="fixed inset-0 flex items-start justify-center pt-5 bg-black/70">
-        <carousel class="w-full h-full">
+    <div class="fixed inset-0 flex items-center justify-center pt-5 bg-black/70">
+        <carousel :items-to-show="1">
             <slide v-for="slide in slides" :key="slide.id" class="flex justify-center h-full">
                 <div class="w-full max-w-lg p-10 space-y-20">
                     <img class="w-full bg-gray-500 shadow-2xl aspect-square" :src="getImageAttrs(slide).url">
@@ -10,11 +10,6 @@
                     </div>
                 </div>
             </slide>
-
-            <template #addons>
-                <navigation/>
-                <pagination/>
-            </template>
         </carousel>
 
         <BoxButton @click="navigateTo('/covers')" type="primary" class="fixed top-5 right-5" :width="2">
