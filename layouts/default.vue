@@ -1,10 +1,12 @@
 <template>
-  <div class="flex justify-center mx-6 font-mono xs:mx-10">
-    <div class="w-full min-h-screen mb-5 md:max-w-2xl xl:max-w-5xl">
-      <div class="flex flex-col h-full">
-        <Navigation :links="navLinks"/>
-        <NuxtPage/>
-        <Footer></Footer>
+  <div class="overflow-x-hidden">
+    <div class="flex justify-center mx-6 font-mono xs:mx-10">
+      <div class="w-full min-h-screen mb-5 md:max-w-2xl xl:max-w-5xl">
+        <div class="flex flex-col h-full ">
+          <Navigation :links="navLinks"/>
+          <NuxtPage/>
+          <Footer></Footer>
+        </div>
       </div>
     </div>
   </div>
