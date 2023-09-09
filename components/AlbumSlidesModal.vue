@@ -1,6 +1,6 @@
 <template>
     <div class="fixed inset-0 flex items-center justify-center pt-5 bg-black/70" @click="exit">
-        <Carousel ref="slideshow" class="relative">
+        <Carousel ref="slideshow" class="relative w-full">
             <slide v-for="slide in slides" :key="slide.id" class="flex justify-center h-full">
                 <div class="w-full max-w-sm p-10 md:max-w-lg" @click.stop>
                     <img v-show="!showDescription" class="w-full bg-gray-500 shadow-2xl aspect-square" :src="getImageAttrs(slide).url">
