@@ -11,11 +11,17 @@
             </slide>
         </Carousel>
 
-        <button @click.stop="toggleDescription" class="absolute flex items-center gap-2 p-3 bottom-16 text-secondary-dark hover:text-secondary">
-            <p v-if="!showDescription">show description</p>
-            <p v-else>show albumcover   </p>
-            <QuestionMarkCircleIcon class="w-6 h-6"></QuestionMarkCircleIcon>
-        </button>
+        <transition
+            enter-active-class="transition duration-300 ease-out delay-150"
+            enter-from-class="opacity-0"
+            enter-to-class="opacity-100"
+        >
+            <button v-if="slideshow" @click.stop="toggleDescription" class="absolute flex items-center gap-2 p-3 transition bottom-16 text-secondary-dark hover:text-secondary">
+                <p v-if="!showDescription">show description</p>
+                <p v-else>show albumcover</p>
+                <QuestionMarkCircleIcon class="w-6 h-6"></QuestionMarkCircleIcon>
+            </button>
+        </transition>
 
         <transition
             enter-active-class="transition duration-300 ease-out"
