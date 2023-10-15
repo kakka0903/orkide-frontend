@@ -38,14 +38,6 @@ async function cacheBTSThumbnails () {
 
 // cache entity data for pages
 async function cachePageData () {
-  cacheJson('albumcover-projects', await strapi.find('albumcover-projects', {
-    populate: {
-      slides: {
-        populate: 'image'
-      }
-    }
-  }))
-
   cacheJson('projects', await strapi.find('projects', {
     sort: 'release_date:desc',
     populate: {
