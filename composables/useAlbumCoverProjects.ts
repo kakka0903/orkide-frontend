@@ -6,7 +6,11 @@ export const useAlbumCoverProjects = async () => {
 
   const { find } = useStrapi<AlbumCoverProject[]>()
   const strapiReq = () => find(STRAPI_COLLECTION_NAME, {
-    populate: ['slides']
+    populate: {
+      slides: {
+        populate: 'image'
+      }
+    }
   })
 
   const { data: resData, error } = await useAsyncData(
