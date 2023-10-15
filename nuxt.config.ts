@@ -62,7 +62,7 @@ async function cachePageData () {
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/strapi'],
   css: ['~/assets/custom.css'],
   target: 'static',
   mode: 'universal',
@@ -78,5 +78,8 @@ export default defineNuxtConfig({
       await cacheSlideshows()
       await cacheBTSThumbnails()
     }
+  },
+  experimental: {
+    payloadExtraction: true
   }
 })
