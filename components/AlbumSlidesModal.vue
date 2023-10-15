@@ -4,7 +4,7 @@
             <slide v-for="slide in slides" :key="slide.id" class="flex justify-center h-full">
                 <div class="w-full max-w-sm p-10 md:max-w-lg" @click.stop>
                     <img v-show="!showDescription" class="w-full bg-gray-500 shadow-2xl aspect-square" :src="getImageAttrs(slide).url">
-                    <div v-show="showDescription" class="px-10 py-5 font-bold text-left bg-white shadow-2xl niceBorder text-primary">
+                    <div v-show="showDescription" class="px-10 py-5 font-bold text-left bg-white shadow-2xl dashed-border text-primary">
                         <p>{{ slide.description }}</p>
                     </div>
                 </div>
@@ -44,12 +44,6 @@
         </button>
     </div>
 </template>
-
-<style scoped>
-.niceBorder {
-    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%230011FFFF' stroke-width='10' stroke-dasharray='2%2c2' stroke-dashoffset='2' stroke-linecap='butt'/%3e%3c/svg%3e");
-}
-</style>
 
 <script setup>
 // TODO: add title slide
