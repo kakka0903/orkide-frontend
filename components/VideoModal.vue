@@ -1,22 +1,25 @@
 <template>
-    <BoxModal :isOpen="isOpen" class="text-primary">
-        <YoutubeEmbed :youtubeId="youtubeId"/>
-        <div class="max-w-md p-4 space-y-2 border-t-4 border-primary" v-if="title || description">
-            <h2 class="text-3xl leading-none uppercase text-primary">{{title}}</h2>
-            <p class="font-normal">{{description}}</p>
-        </div>
-    </BoxModal>
+  <BoxModal :is-open="isOpen" class="text-primary">
+    <YoutubeEmbed :youtube-id="youtubeId" />
+    <div v-if="title || description" class="max-w-md p-4 space-y-2 border-t-4 border-primary">
+      <h2 class="text-3xl leading-none uppercase text-primary">
+        {{ title }}
+      </h2>
+      <p class="font-normal">
+        {{ description }}
+      </p>
+    </div>
+  </BoxModal>
 </template>
 
 <script setup>
-import { computed } from '@vue/runtime-core';
 const props = defineProps({
-    youtubeId:String,
-    title:String,
-    description:String,
-    isOpen: {
-        type: Boolean,
-        default: true,
-    }
+  youtubeId: String,
+  title: String,
+  description: String,
+  isOpen: {
+    type: Boolean,
+    default: true
+  }
 })
 </script>

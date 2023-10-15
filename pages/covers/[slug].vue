@@ -1,13 +1,13 @@
 <template>
-    <AlbumSlidesModal :slides="slides"></AlbumSlidesModal>
+  <AlbumSlidesModal :slides="slides" />
 </template>
 
 <script setup>
-import albumProjects from '/data/albumcover-projects.json'
-const route = useRoute();
+import albumProjects from '~/data/albumcover-projects.json'
+const route = useRoute()
 const slug = route.params.slug
 const project = albumProjects.data.find((project) => {
-    return project.attributes.slug == slug
+  return project.attributes.slug == slug
 })
-const slides = project.attributes.slides;
+const slides = project.attributes.slides
 </script>
