@@ -1,4 +1,3 @@
-import { defineNuxtConfig } from 'nuxt'
 import Strapi from "strapi-sdk-js"
 import { cacheStrapiImage, cacheJson } from './cacheUtils.js'
 
@@ -64,7 +63,7 @@ async function cachePageData() {
 export default defineNuxtConfig({
     target: 'static',
     mode: 'universal',
-    buildModules: ['@nuxtjs/tailwindcss'],
+    buildModules: ['@nuxtjs/tailwindcss', '@nuxt/typescript-build'],
     hooks: {
       async 'nitro:config' (nitroConfig) {
         if (nitroConfig.dev) { return }

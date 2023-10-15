@@ -7,6 +7,7 @@
     "dev": "nuxi dev",
     "generate": "nuxi generate",
     "preview": "nuxi preview",
+    "lint": "eslint --ext .ts,.js,.vue .",
     "postinstall": "nuxi prepare"
   },
   "dependencies": {
@@ -18,6 +19,11 @@
     "vue3-carousel": "^0.3.1"
   },
   "devDependencies": {
-    "nuxt": "3.0.0-rc.9"
+    "@nuxt/types": "^2.17.1",
+    "@nuxt/typescript-build": "^3.0.1",
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "eslint": "^8.51.0",
+    "nuxt": "3.7.4",
+    "typescript": "^4.9.5"
   }
 }
