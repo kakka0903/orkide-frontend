@@ -30,7 +30,11 @@
       enter-from-class="opacity-0"
       enter-to-class="opacity-100"
     >
-      <button v-if="slideshow && 1 < currentSlide" class="absolute flex items-center gap-2 p-3 transition bottom-16 text-secondary-dark hover:text-secondary" @click.stop="toggleDescription">
+      <button
+        v-if="slideshow && 1 < currentSlide"
+        class="absolute flex items-center gap-2 p-3 transition bottom-14 text-secondary-dark hover:text-secondary touch-manipulation"
+        @click.stop="toggleDescription"
+      >
         <p v-if="!showDescription">
           show description
         </p>
@@ -48,7 +52,7 @@
     >
       <arrow-controls
         v-if="slideshow && appearShow"
-        class="absolute bottom-4 touch-manipulation "
+        class="absolute bottom-4"
         :current="currentSlide"
         :count="slideshow.data.slidesCount.value"
         @click.stop
