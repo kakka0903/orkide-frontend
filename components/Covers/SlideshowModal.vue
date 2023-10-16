@@ -1,11 +1,11 @@
 <template>
-  <div class="fixed inset-0 flex items-center justify-center pt-5 bg-black/80" @click="exit">
+  <div class="fixed inset-0 flex items-center justify-center bg-black/80" @click="exit">
     <Transition
       enter-active-class="transition duration-500 ease-out delay-300 transform"
       enter-from-class="translate-y-20 opacity-0"
       enter-to-class="opacity-100"
     >
-      <Carousel v-show="appearShow" ref="slideshow" class="relative w-full" :mouse-drag="canDragSlides" :touch-drag="canDragSlides">
+      <Carousel v-show="appearShow" ref="slideshow" class="relative w-full sm:mb-10" :mouse-drag="canDragSlides" :touch-drag="canDragSlides">
         <slide key="intro">
           <CoversIntroSlide
             title="italia"
@@ -61,7 +61,7 @@
       />
     </transition>
 
-    <button class="absolute p-3 lowercase transition top-10 right-10 text-secondary-dark hover:text-secondary active:text-secondary" @click="exit">
+    <button class="absolute p-3 lowercase transition top-5 right-5 sm:top-10 sm:right-10 text-secondary-dark hover:text-secondary active:text-secondary" @click="exit">
       <XIcon class="w-6 h-6" />
     </button>
   </div>
