@@ -35,9 +35,9 @@
 const PAGE_TITLE = 'COVERART'
 const PAGE_SUBTITLE = 'Discover albumart made by Orkidé'
 
-const INTRO_TITLE = 'Lytt og Utforsk'
-const INTRO_SUBTITLE = 'UTFORSK PROSESSEN BAK ORKIDÉ ALBUMCOVERE'
-const INTRO_TEXT = 'I dette arkivet av coverart prosjekter kan du utforske orkide sin prosjekt-utviklings prosess gjennom skisser, utkast og tankekart. Bruk Spotify til å lytte til musikken mens du utforsker for den beste opplevelsen.'
+const INTRO_TITLE = 'Utforsk og Lytt'
+const INTRO_SUBTITLE = 'PROSESSEN BAK ORKIDÉ ALBUMCOVERE'
+const INTRO_TEXT = 'I dette arkivet finner du skisser, utkast og eksperimenter fra platecovere designet av Orkidé. Sjekk ut "Orkide Listen" på spotify for en spilleliste med musikken coverene er designet for!'
 
 const { data: coverProjects } = await useAlbumCoverProjects()
 
