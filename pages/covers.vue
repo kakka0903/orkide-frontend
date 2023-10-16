@@ -37,8 +37,6 @@
 <script setup lang="ts">
 import { VideoCameraIcon, MusicNoteIcon } from '@heroicons/vue/outline'
 import { AlbumCoverProject } from '~/types/CoverProjects'
-// TODO: add folder graphics
-// TODO: folder selected styling
 
 const PAGE_TITLE = 'COVERART'
 const PAGE_SUBTITLE = 'Discover albumart made by Orkidé'
