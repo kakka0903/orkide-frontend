@@ -42,13 +42,13 @@
     </transition>
 
     <transition
-      enter-active-class="transition duration-300 ease-out"
+      enter-active-class="transition duration-300 ease-out delay-1000"
       enter-from-class="opacity-0"
       enter-to-class="opacity-100"
     >
       <arrow-controls
-        v-if="slideshow"
-        class="absolute bottom-4"
+        v-if="slideshow && appearShow"
+        class="absolute bottom-4 touch-manipulation "
         :current="currentSlide"
         :count="slideshow.data.slidesCount.value"
         @click.stop
