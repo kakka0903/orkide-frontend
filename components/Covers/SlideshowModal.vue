@@ -102,4 +102,6 @@ const toggleDescription = () => {
   showDescription.value = !showDescription.value
   slideshow.value.updateSlideWidth()
 }
+
+useScrollLock()
 </script>
