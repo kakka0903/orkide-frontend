@@ -7,8 +7,8 @@
 
       <slide v-for="slide in slides" :key="slide.id" class="flex justify-center h-full">
         <CoverProjectSlide>
-          <img v-show="!showDescription" class="w-full bg-gray-500 shadow-2xl aspect-square" :src="getImageAttrs(slide).url">
-          <div v-show="showDescription" class="px-10 py-5 font-bold text-left bg-white shadow-2xl dashed-border text-primary">
+          <img v-show="!showDescription" class="w-full bg-gray-500 aspect-square" :src="getImageAttrs(slide).url">
+          <div v-show="showDescription" class="px-10 py-5 font-bold text-left bg-white dashed-border text-primary">
             <p>{{ slide.description }}</p>
           </div>
         </CoverProjectSlide>
