@@ -12,15 +12,22 @@
     <div class="flex flex-row items-stretch">
       <div class="border-r-2 border-dashed border-primary" />
       <div class="space-y-5">
-        <div v-for="coverProject in coverProjects" :key="coverProject.id" class="space-y-5">
-          <NuxtLink class="flex items-center gap-5 group" :to="'/covers/'+coverProject.slug">
-            <div class="border-b-2 border-dashed w-7 border-primary" />
-            <FolderIcon class="w-16 h-16 transition text-primary group-hover:text-secondary-dark group-active:text-secondary group-visited:text-primary-dark" />
-            <p class="text-lg font-bold underline transition text-primary group-hover:text-secondary-dark group-active:text-secondary group-visited:text-primary-dark">
-              {{ coverProject.title }}
-            </p>
-          </NuxtLink>
-        </div>
+        <ArchiveFolder
+          v-for="project in coverProjects"
+          :key="project.slug"
+          :title="project.title"
+          :is-selected="project == selectedProject"
+          @click="selectProject(project)"
+        >
+          <div class="space-y-2">
+            <ArchiveTextLink :url="getSlideShowLink(project)">
+              <VideoCameraIcon class="w-6 h-6" /> Se prosessen
+            </ArchiveTextLink>
+            <ArchiveTextLink :url="getAlbumLink(project)">
+              <MusicNoteIcon class="w-6 h-6" /> Hør plata
+            </ArchiveTextLink>
+          </div>
+        </ArchiveFolder>
       </div>
     </div>
     <NuxtPage />
@@ -28,7 +35,8 @@
 </template>
 
 <script setup lang="ts">
-
+import { VideoCameraIcon, MusicNoteIcon } from '@heroicons/vue/outline'
+import { AlbumCoverProject } from '~/types/CoverProjects'
 // TODO: add folder graphics
 // TODO: folder selected styling
 
@@ -40,5 +48,23 @@ const INTRO_SUBTITLE = 'PROSESSEN BAK ORKIDÉ ALBUMCOVERE'
 const INTRO_TEXT = 'I dette arkivet finner du skisser, utkast og eksperimenter fra platecovere designet av Orkidé. Sjekk ut "Orkide Listen" på spotify for en spilleliste med musikken coverene er designet for!'
 
 const { data: coverProjects } = await useAlbumCoverProjects()
+
+function getSlideShowLink (coverProject: AlbumCoverProject) {
+  return '/covers/' + coverProject.slug
+}
+
+function getAlbumLink (coverProject: AlbumCoverProject) {
+  return '/covers/' + coverProject.slug
+}
+
+const selectedProject: Ref<null | AlbumCoverProject> = ref(null)
+
+function selectProject (project: AlbumCoverProject) {
+  if (selectedProject.value === project) {
+    selectedProject.value = null
+  } else {
+    selectedProject.value = project
+  }
+}
 
 </script>
