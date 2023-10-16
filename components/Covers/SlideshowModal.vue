@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed inset-0 flex items-center justify-center pt-5 bg-black/70" @click="exit">
+  <div class="fixed inset-0 flex items-center justify-center pt-5 bg-black/80" @click="exit">
     <Transition
       enter-active-class="transition duration-500 ease-out delay-300 transform"
       enter-from-class="translate-y-20 opacity-0"
