@@ -21,7 +21,7 @@
         >
           <div class="space-y-2">
             <ArchiveTextLink :url="getSlideShowLink(project)">
-              <VideoCameraIcon class="w-6 h-6" /> Se prosessen
+              <PhotographIcon class="w-6 h-6" /> Se prosessen
             </ArchiveTextLink>
             <ArchiveTextLink :url="getAlbumLink(project)">
               <MusicNoteIcon class="w-6 h-6" /> Hør plata
@@ -35,7 +35,7 @@
 </template>
 
 <script setup lang="ts">
-import { VideoCameraIcon, MusicNoteIcon } from '@heroicons/vue/outline'
+import { PhotographIcon, MusicNoteIcon } from '@heroicons/vue/outline'
 import { AlbumCoverProject } from '~/types/CoverProjects'
 
 const PAGE_TITLE = 'COVERART'
