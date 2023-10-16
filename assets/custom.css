@@ -1,3 +1,7 @@
 .dashed-border {
   background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%230011FFFF' stroke-width='10' stroke-dasharray='2%2c2' stroke-dashoffset='2' stroke-linecap='butt'/%3e%3c/svg%3e");
 }
+
+html.lock-scroll {
+  overflow: hidden;
+}
