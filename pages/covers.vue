@@ -2,7 +2,7 @@
   <main class="flex-grow">
     <page-heading :title="PAGE_TITLE" :description="PAGE_SUBTITLE" />
     <div class="pb-20">
-      <DashedBox
+      <PageIntroBox
         class="max-w-md"
         :title="INTRO_TITLE"
         :subtitle="INTRO_SUBTITLE"
