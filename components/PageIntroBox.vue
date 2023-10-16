@@ -1,5 +1,5 @@
 <template>
-  <DashedBox>
+  <DashedBox class="p-7">
     <p class="text-2xl font-bold text-primary">
       {{ title }}
     </p>
