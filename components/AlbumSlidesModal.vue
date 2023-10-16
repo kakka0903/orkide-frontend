@@ -1,6 +1,10 @@
 <template>
   <div class="fixed inset-0 flex items-center justify-center pt-5 bg-black/70" @click="exit">
     <Carousel ref="slideshow" class="relative w-full">
+      <slide key="intro">
+        <CoverProjectIntroSlide title="italia" subtitle="UNDERGRUNN - 2022" text="UNDERGRUNN pakket selvfølgelig baggen og dro til Italia for å spille inn musikkvideo 🇮🇹 Det Orkidé-regisserte klippet er tekstet til engelsk, trolig til stor glede for UGs internasjonale fanbase. På fredag gjør UNDERGRUNN angivelig sin siste Oslo-konsert i år." />
+      </slide>
+
       <slide v-for="slide in slides" :key="slide.id" class="flex justify-center h-full">
         <CoverProjectSlide>
           <img v-show="!showDescription" class="w-full bg-gray-500 shadow-2xl aspect-square" :src="getImageAttrs(slide).url">
