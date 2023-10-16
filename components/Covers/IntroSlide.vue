@@ -1,5 +1,5 @@
 <template>
-  <CoversSlideBase class="flex justify-center h-full">
+  <CoversBaseSlide class="flex justify-center h-full">
     <DashedBox class="flex flex-col justify-center w-full p-8 md:p-10 aspect-square">
       <div>
         <p class="text-3xl font-bold underline md:mb-2 md:text-4xl text-primary">
@@ -13,7 +13,7 @@
         </p>
       </div>
     </DashedBox>
-  </CoversSlideBase>
+  </CoversBaseSlide>
 </template>
 
 <script setup lang="ts">
@@ -23,4 +23,5 @@ interface Props {
   text: string
 }
 defineProps<Props>()
+// TODO: enable markdown formatting for text
 </script>

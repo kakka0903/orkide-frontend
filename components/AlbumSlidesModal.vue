@@ -12,16 +12,20 @@
   <div class="fixed inset-0 flex items-center justify-center pt-5 bg-black/70" @click="exit">
     <Carousel ref="slideshow" class="relative w-full">
       <slide key="intro">
-        <CoversIntroSlide title="italia" subtitle="UNDERGRUNN - 2022" text="UNDERGRUNN pakket selvfølgelig baggen og dro til Italia for å spille inn musikkvideo 🇮🇹 Det Orkidé-regisserte klippet er tekstet til engelsk, trolig til stor glede for UGs internasjonale fanbase. På fredag gjør UNDERGRUNN angivelig sin siste Oslo-konsert i år." />
+        <CoversIntroSlide
+          title="italia"
+          subtitle="UNDERGRUNN - 2022"
+          text="UNDERGRUNN pakket selvfølgelig baggen og dro til Italia for å spille inn musikkvideo 🇮🇹 Det Orkidé-regisserte klippet er tekstet til engelsk, trolig til stor glede for UGs internasjonale fanbase. På fredag gjør UNDERGRUNN angivelig sin siste Oslo-konsert i år."
+        />
       </slide>
 
       <slide v-for="slide in slides" :key="slide.id" class="flex justify-center h-full">
-        <CoversSlideBase>
-          <img v-show="!showDescription" class="w-full bg-gray-500 aspect-square" :src="getImageAttrs(slide).url">
-          <div v-show="showDescription" class="px-10 py-5 font-bold text-left bg-white dashed-border text-primary">
-            <p>{{ slide.description }}</p>
-          </div>
-        </CoversSlideBase>
+        <CoversImageSlide
+          :image-url="getImageAttrs(slide).url"
+          :image-alt="getImageAttrs(slide).alternativeText"
+          :description="slide.description"
+          :show-description="showDescription"
+        />
       </slide>
     </Carousel>
 
@@ -86,6 +90,8 @@ const getImageAttrs = (slide) => {
 const exit = () => {
   navigateTo('/covers')
 }
+
+const { appearShow } = useAppearShow()
 
 const showDescription = ref(false)
 const toggleDescription = () => {
