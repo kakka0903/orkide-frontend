@@ -4,9 +4,11 @@
       :title="_pageHeading.title"
       :description="_pageHeading.subtitle"
     />
-    <div class="pb-20">
+    <div
+      v-if="_pageIntro !== undefined && _pageIntro !== null"
+      class="pb-20"
+    >
       <PageIntroBox
-        v-if="_pageIntro !== undefined"
         class="max-w-md"
         :title="_pageIntro.title"
         :subtitle="_pageIntro.subtitle"
@@ -22,6 +24,5 @@ interface Props {
   route: string
 }
 const props = defineProps<Props>()
-
 const { _pageHeading, _pageIntro } = await usePageData(props.route)
 </script>
