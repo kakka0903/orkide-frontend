@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .description-field a {
+    @apply text-primary hover:text-secondary-dark active:text-secondary transition-colors underline
+  }
+  .description-field u {
+    @apply underline
+  }
+  .description-field ul > li {
+    @apply list-disc ml-4
+  }
+
+}
