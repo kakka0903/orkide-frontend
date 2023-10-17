@@ -23,7 +23,7 @@
             <ArchiveTextLink :url="getSlideShowLink(project)">
               <PhotographIcon class="w-6 h-6" /> Se prosessen
             </ArchiveTextLink>
-            <ArchiveTextLink :url="getAlbumLink(project)">
+            <ArchiveTextLink :url="project.albumLink">
               <MusicNoteIcon class="w-6 h-6" /> Hør plata
             </ArchiveTextLink>
           </div>
@@ -49,10 +49,6 @@ const { data: coverProjects } = await useManyCoverProjects()
 
 function getSlideShowLink (coverProject: AlbumCoverProject) {
   return '/covers/' + coverProject.id
-}
-
-function getAlbumLink (coverProject: AlbumCoverProject) {
-  return '/covers/' + coverProject.slug
 }
 
 const selectedProject: Ref<null | AlbumCoverProject> = ref(null)
