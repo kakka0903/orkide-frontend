@@ -22,9 +22,14 @@ const enableScrollLock = useScrollLockState()
 const navLinks = ref([
   { display: 'orkide', url: '/' },
   { display: 'prosjekter', url: '/prosjekter/' },
-  { display: 'coverart', url: '/covers/' },
   { display: 'kontakt', url: '/kontakt/' }
 ])
+
+// conditionally enable feature covers feature
+const { isCoversLive } = useFeatureFlags()
+if (isCoversLive.value) {
+  navLinks.value.push({ display: 'coverart', url: '/covers/' })
+}
 
 useHead({
   htmlAttrs: {
