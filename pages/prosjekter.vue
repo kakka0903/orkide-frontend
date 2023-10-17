@@ -16,6 +16,8 @@
 </template>
 
 <script setup>
+// TODO: disable zoom on double tap
+
 import projects from '~/data/projects.json'
 useHead({
   title: 'Orkidé - Prosjekter',

@@ -17,6 +17,8 @@
 </template>
 
 <script setup lang="ts">
+// TODO: fix sizing when missing subtitle and desc
+// TODO: set limit for text sizes
 interface Props {
   title: string
   subtitle?: string

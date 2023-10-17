@@ -38,6 +38,9 @@
 import { PhotographIcon, MusicNoteIcon } from '@heroicons/vue/outline'
 import { AlbumCoverProject } from '~/types/CoverProjects'
 
+// TODO: get intro slide from CMS
+// TODO: add promt to leave site
+
 const PAGE_TITLE = 'COVERART'
 const PAGE_SUBTITLE = 'Discover albumart made by Orkidé'
 
