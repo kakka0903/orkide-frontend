@@ -45,7 +45,7 @@ const INTRO_TITLE = 'Utforsk og Lytt'
 const INTRO_SUBTITLE = 'PROSESSEN BAK ORKIDÉ ALBUMCOVERE'
 const INTRO_TEXT = 'I dette arkivet finner du skisser, utkast og eksperimenter fra platecovere designet av Orkidé. Sjekk ut "Orkide Listen" på spotify for en spilleliste med musikken coverene er designet for!'
 
-const { data: coverProjects } = await useAlbumCoverProjects()
+const { data: coverProjects } = await useManyCoverProjects()
 
 function getSlideShowLink (coverProject: AlbumCoverProject) {
   return '/covers/' + coverProject.slug
