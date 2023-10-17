@@ -10,7 +10,8 @@
 
 <script setup>
 // TODO: throw error if no project
+// TODO: use slug over id
 const route = useRoute()
-const { data: project } = await useSingleCoverProject(route.params.slug)
+const { data: project } = await useSingleCoverProject(route.params.id)
 const { appearShow } = useAppearShow()
 </script>

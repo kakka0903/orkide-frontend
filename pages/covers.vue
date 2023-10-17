@@ -48,7 +48,7 @@ const INTRO_TEXT = 'I dette arkivet finner du skisser, utkast og eksperimenter f
 const { data: coverProjects } = await useManyCoverProjects()
 
 function getSlideShowLink (coverProject: AlbumCoverProject) {
-  return '/covers/' + coverProject.slug
+  return '/covers/' + coverProject.id
 }
 
 function getAlbumLink (coverProject: AlbumCoverProject) {
