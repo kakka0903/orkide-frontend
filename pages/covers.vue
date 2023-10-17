@@ -1,5 +1,5 @@
 <template>
-  <main class="flex-grow">
+  <main class="flex-grow mb-12">
     <page-heading :title="PAGE_TITLE" :description="PAGE_SUBTITLE" />
     <div class="pb-20">
       <PageIntroBox
