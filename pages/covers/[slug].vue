@@ -4,19 +4,13 @@
     enter-from-class="opacity-0"
     enter-to-class="opacity-100"
   >
-    <CoversSlideshowModal v-show="appearShow" :slides="slides" />
+    <CoversSlideshowModal v-show="appearShow && project" :project="project" />
   </transition>
 </template>
 
 <script setup>
-import albumProjects from '~/data/albumcover-projects.json'
+// TODO: throw error if no project
 const route = useRoute()
-const slug = route.params.slug
-const project = albumProjects.data.find((project) => {
-  return project.attributes.slug == slug
-})
-const slides = project.attributes.slides
-
+const { data: project } = await useSingleCoverProject(route.params.slug)
 const { appearShow } = useAppearShow()
-
 </script>
