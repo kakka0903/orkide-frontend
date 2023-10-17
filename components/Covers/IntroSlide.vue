@@ -8,15 +8,15 @@
         <p v-if="subtitle" class="mt-1 text-sm font-bold md:text-base md:mb-4 text-secondary">
           {{ subtitle }}
         </p>
-        <div class="mt-2 space-y-4 text-sm description-field md:text-base text-primary" v-html="md.render(text)" />
+        <div class="mt-2 text-sm md:text-base text-primary">
+          <MarkdownField :markdown="text" />
+        </div>
       </div>
     </DashedBox>
   </CoversBaseSlide>
 </template>
 
 <script setup lang="ts">
-import MarkdownIt from 'markdown-it'
-const md = MarkdownIt()
 
 // TODO: fix sizing when missing subtitle and desc
 // TODO: set limit for text sizes
