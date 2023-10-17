@@ -3,10 +3,11 @@
     <page-heading :title="PAGE_TITLE" :description="PAGE_SUBTITLE" />
     <div class="pb-20">
       <PageIntroBox
+        v-if="pageIntro !== undefined && pageIntro !== null"
         class="max-w-md"
-        :title="INTRO_TITLE"
-        :subtitle="INTRO_SUBTITLE"
-        :text="INTRO_TEXT"
+        :title="pageIntro.title"
+        :subtitle="pageIntro.subtitle"
+        :text="pageIntro.text"
       />
     </div>
     <div class="flex flex-row items-stretch">
@@ -44,11 +45,10 @@ import { AlbumCoverProject } from '~/types/CoverProjects'
 const PAGE_TITLE = 'COVERART'
 const PAGE_SUBTITLE = 'Discover albumart made by Orkidé'
 
-const INTRO_TITLE = 'Utforsk og Lytt'
-const INTRO_SUBTITLE = 'PROSESSEN BAK ORKIDÉ ALBUMCOVERE'
-const INTRO_TEXT = 'I dette arkivet finner du skisser, utkast og eksperimenter fra platecovere designet av Orkidé. Sjekk ut "Orkide Listen" på spotify for en spilleliste med musikken coverene er designet for!'
-
 const { data: coverProjects } = await useManyCoverProjects()
+const { data: pageIntro } = await usePageIntro('covers-page')
+
+console.log(pageIntro)
 
 function getSlideShowLink (coverProject: AlbumCoverProject) {
   return '/covers/' + coverProject.id
