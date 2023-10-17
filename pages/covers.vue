@@ -20,6 +20,7 @@
           </div>
         </ArchiveFolder>
       </div>
+      <NuxtPage />
     </div>
   </DefaultPage>
 </template>
