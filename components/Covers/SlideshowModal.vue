@@ -14,10 +14,10 @@
           />
         </slide>
 
-        <slide v-for="slide in slides" :key="slide.id" class="flex justify-center h-full">
+        <slide v-for="slide in project.slides" :key="slide.id" class="flex justify-center h-full">
           <CoversImageSlide
-            :image-url="getImageAttrs(slide).url"
-            :image-alt="getImageAttrs(slide).alternativeText"
+            :image-url="slide.image.data.attributes.url"
+            :image-alt="slide.image.data.attributes.alternativeText"
             :description="slide.description"
             :show-description="showDescription"
           />
@@ -67,18 +67,20 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 // TODO: add title slide
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide } from 'vue3-carousel'
 import { XIcon } from '@heroicons/vue/solid/index.js'
 import { QuestionMarkCircleIcon } from '@heroicons/vue/outline/index.js'
+import { AlbumCoverProject } from '~/types/CoverProjects'
 
 const { appearShow } = useAppearShow()
 
-defineProps({
-  slides: Array
-})
+interface Props {
+  project: AlbumCoverProject
+}
+defineProps<Props>()
 
 const slideshow = ref(null)
 const currentSlide = computed(() => {
