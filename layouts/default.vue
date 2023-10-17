@@ -6,7 +6,7 @@
           <div class="w-full min-h-screen mb-5 md:max-w-2xl xl:max-w-5xl">
             <div class="flex flex-col h-full">
               <Navigation :links="navLinks" />
-              <NuxtPage />
+              <slot />
               <Footer />
             </div>
           </div>

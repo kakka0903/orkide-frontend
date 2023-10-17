@@ -10,6 +10,7 @@ declare interface PageHeading {
 }
 
 declare interface Page {
+  route: string
   page_heading: PageHeading
   page_intro?: PageIntro
 }
