@@ -1,5 +1,5 @@
 <template>
-  <div class="relative max-w-xs h-[123px] w-full" @click="isFlipped = !isFlipped">
+  <div class="relative max-w-xs h-[123px] w-full font-bold" @click="isFlipped = !isFlipped">
     <div class="relative w-full h-full text-left">
       <TransitionGroup
         enter-active-class="transition-[opacity,transform] duration-300"
