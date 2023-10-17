@@ -1,7 +1,7 @@
 <template>
   <div class="fixed inset-0 flex items-center justify-center bg-black/80" @click="exit">
     <Transition
-      enter-active-class="transition duration-500 ease-out delay-300 transform"
+      enter-active-class="transition duration-500 ease-out delay-300 transform-gpu"
       enter-from-class="translate-y-20 opacity-0"
       enter-to-class="opacity-100"
     >

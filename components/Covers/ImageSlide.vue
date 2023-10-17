@@ -3,8 +3,8 @@
     <div class="flex flex-col w-full gap-4 aspect-square">
       <Transition
         mode="out-in"
-        enter-active-class="transition duration-300 ease-out transform"
-        leave-active-class="transition duration-75 ease-in transform"
+        enter-active-class="transition duration-300 ease-out transform-gpu"
+        leave-active-class="transition duration-75 ease-in transform-gpu"
         enter-from-class="scale-95 opacity-0"
         leave-to-class="scale-95 opacity-0"
       >
