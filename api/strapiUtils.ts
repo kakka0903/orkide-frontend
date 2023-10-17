@@ -1,12 +1,13 @@
-import { Strapi4ResponseSingle, Strapi4ResponseMultiple, Strapi4ResponseMany } from '@nuxtjs/strapi/dist/runtime/types'
+import { Strapi4ResponseSingle, Strapi4ResponseMany, Strapi4ResponseData } from '@nuxtjs/strapi/dist/runtime/types'
 
-/**
- * Get only the attributes of a Strapi API response.
- * @param response Strapi response with a single entity.
- * @returns The attributes of the given entity.
- */
-export function getOnlyAttributes<T> (response: Strapi4ResponseSingle<T>) {
-  return response.data.attributes
+interface HasId {
+  id: number
+}
+
+function getAttributesWithId<T extends HasId> (entity: Strapi4ResponseData<T>) {
+  const newEntity = entity.attributes
+  newEntity.id = entity.id
+  return newEntity
 }
 
 /**
@@ -14,6 +15,15 @@ export function getOnlyAttributes<T> (response: Strapi4ResponseSingle<T>) {
  * @param response Strapi response with a single entity.
  * @returns The attributes of the given entity.
  */
-export function getOnlyAttributesMany<T> (response: Strapi4ResponseMany<T>) {
-  return response.data.map(x => x.attributes)
+export function getOnlyAttributes<T extends HasId> (response: Strapi4ResponseSingle<T>): T {
+  return getAttributesWithId(response.data)
+}
+
+/**
+ * Get only the attributes of a Strapi API response.
+ * @param response Strapi response with a single entity.
+ * @returns The attributes of the given entity.
+ */
+export function getOnlyAttributesMany<T extends HasId> (response: Strapi4ResponseMany<T>): T[] {
+  return response.data.map(getAttributesWithId)
 }
