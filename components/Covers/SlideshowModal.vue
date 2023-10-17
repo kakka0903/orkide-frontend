@@ -8,9 +8,9 @@
       <Carousel v-show="appearShow" ref="slideshow" class="relative w-full sm:mb-10" :mouse-drag="canDragSlides" :touch-drag="canDragSlides">
         <slide key="intro">
           <CoversIntroSlide
-            title="italia"
-            subtitle="UNDERGRUNN - 2022"
-            text="UNDERGRUNN pakket selvfølgelig baggen og dro til Italia for å spille inn musikkvideo 🇮🇹 Det Orkidé-regisserte klippet er tekstet til engelsk, trolig til stor glede for UGs internasjonale fanbase. På fredag gjør UNDERGRUNN angivelig sin siste Oslo-konsert i år."
+            :title="project.title"
+            :subtitle="project.subtitle"
+            :text="project.description"
           />
         </slide>
 
