@@ -4,7 +4,13 @@ declare interface PageIntro {
   text: string
 }
 
+declare interface PageHeading {
+  title: string
+  subtitle: string
+}
+
 declare interface Page {
+  page_heading: PageHeading
   page_intro?: PageIntro
 }
 

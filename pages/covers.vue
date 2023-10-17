@@ -1,13 +1,16 @@
 <template>
-  <main class="flex-grow mb-12">
-    <page-heading :title="PAGE_TITLE" :description="PAGE_SUBTITLE" />
+  <main v-if="renderPage" class="flex-grow mb-12">
+    <page-heading
+      :title="pageData?.page_heading.title"
+      :description="pageData?.page_heading.subtitle"
+    />
     <div class="pb-20">
       <PageIntroBox
-        v-if="pageIntro !== undefined && pageIntro !== null"
+        v-if="pageData?.page_intro !== undefined"
         class="max-w-md"
-        :title="pageIntro.title"
-        :subtitle="pageIntro.subtitle"
-        :text="pageIntro.text"
+        :title="pageData?.page_intro.title"
+        :subtitle="pageData?.page_intro.subtitle"
+        :text="pageData?.page_intro.text"
       />
     </div>
     <div class="flex flex-row items-stretch">
@@ -39,16 +42,17 @@
 import { PhotographIcon, MusicNoteIcon } from '@heroicons/vue/outline'
 import { AlbumCoverProject } from '~/types/CoverProjects'
 
-// TODO: get intro slide from CMS
 // TODO: add promt to leave site
-
-const PAGE_TITLE = 'COVERART'
-const PAGE_SUBTITLE = 'Discover albumart made by Orkidé'
-
 const { data: coverProjects } = await useManyCoverProjects()
-const { data: pageIntro } = await usePageIntro('covers-page')
-
-console.log(pageIntro)
+const { data: pageData } = await usePageIntro('covers-page')
+const renderPage = computed(() => {
+  if (pageData === null || pageData === undefined) {
+    createError('could not load page data!')
+    return false
+  } else {
+    return true
+  }
+})
 
 function getSlideShowLink (coverProject: AlbumCoverProject) {
   return '/covers/' + coverProject.id
