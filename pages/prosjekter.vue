@@ -1,9 +1,5 @@
 <template>
-  <main class="flex flex-col flex-grow font-bold">
-    <PageHeading
-      title="ORKIDÉ KINO"
-      description="Videoer laget av Orkidé"
-    />
+  <DefaultPage route="prosjekter">
     <NuxtPage :projects="projects.data" />
     <div class="flex flex-col content-start flex-grow gap-2 mb-2 gap-y-3 sm:flex-wrap sm:flex-row">
       <ProjectTicket
@@ -12,7 +8,7 @@
         :music-video="musicVideo"
       />
     </div>
-  </main>
+  </DefaultPage>
 </template>
 
 <script setup>
