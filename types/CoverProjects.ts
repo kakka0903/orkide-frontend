@@ -1,24 +1,19 @@
-declare interface ImageLink {
-  data: {
-    attributes: {
-      url: string
-      alternativeText: string
-    }
-  }
-}
+import { Image } from './Strapi'
 
-declare interface AlbumCoverProjectSlide {
+interface Slide {
   id: number
-  image: ImageLink
+  image: Image
   description: string
-  spotifyTrackLink: string
 }
 
 declare interface AlbumCoverProject {
+  id: number
   title: string
-  slug: string
+  subtitle: string
   description: string
-  slides: AlbumCoverProjectSlide[]
+  slug: string
+  albumLink: string
+  slides: Slide[]
 }
 
 export type { AlbumCoverProject, AlbumCoverProjectSlide }
