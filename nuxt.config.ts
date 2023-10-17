@@ -55,7 +55,7 @@ async function cachePageData () {
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', '@nuxtjs/strapi'],
-  css: ['~/assets/custom.css'],
+  css: ['~/assets/css/custom.css'],
   target: 'static',
   mode: 'universal',
   hooks: {
