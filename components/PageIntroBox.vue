@@ -6,9 +6,7 @@
     <p v-if="subtitle" class="font-bold uppercase text-secondary">
       {{ subtitle }}
     </p>
-    <p class="mt-3 text-primary">
-      {{ text }}
-    </p>
+    <MarkdownField class="mt-3 text-primary" :markdown="text" />
   </DashedBox>
 </template>
 
