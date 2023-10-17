@@ -1,6 +1,6 @@
 <template>
   <CoversBaseSlide>
-    <div class="flex flex-col gap-4 aspect-square">
+    <div class="flex flex-col w-full gap-4 aspect-square">
       <Transition
         mode="out-in"
         enter-active-class="transition duration-300 ease-out transform"
@@ -8,9 +8,9 @@
         enter-from-class="scale-95 opacity-0"
         leave-to-class="scale-95 opacity-0"
       >
-        <img v-if="!showDescription" class="w-full bg-gray-500 aspect-square" :src="imageUrl" :alt="imageAlt">
-        <div v-else class="px-10 py-5 font-bold text-left bg-white aspect-square dashed-border text-primary ">
-          <p>{{ description }}</p>
+        <img v-if="!showDescription" class="bg-gray-500 aspect-square" :src="imageUrl" :alt="imageAlt">
+        <div v-else class="px-10 py-5 text-left bg-white aspect-square dashed-border text-primary ">
+          <MarkdownField :markdown="description" />
         </div>
       </Transition>
     </div>
