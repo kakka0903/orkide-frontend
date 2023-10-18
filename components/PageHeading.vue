@@ -11,7 +11,7 @@
       </transition>
     </div>
     <h1 class="absolute top-[-5px] left-[18px] text-[43px]">
-      {{ title }}
+      {{ heading.title }}
     </h1>
     <transition
       appear
@@ -19,19 +19,21 @@
       enter-from-class="translate-x-10 opacity-0"
       enter-to-class="translate-x-0 opacity-100"
     >
-      <h2 v-if="description && appearShow">
-        {{ description }}
+      <h2 v-if="heading.subtitle && appearShow">
+        {{ heading.subtitle }}
       </h2>
     </transition>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import useAppearShow from '../composables/useAppearShow'
+import { PageHeading } from '~/types/Pages'
+
 const { appearShow } = useAppearShow()
 
-defineProps({
-  title: String,
-  description: String
-})
+interface Props {
+  heading: PageHeading
+}
+defineProps<Props>()
 </script>

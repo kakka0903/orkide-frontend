@@ -15,4 +15,4 @@ declare interface Page {
   page_intro?: PageIntro
 }
 
-export type { Page }
+export type { Page, PageIntro, PageHeading }
