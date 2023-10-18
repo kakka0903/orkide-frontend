@@ -16,8 +16,8 @@ export const usePageData = async (routeName: string) => {
     }
   )
 
-  const _pageHeading = data.value?.page_heading
-  const _pageIntro = data.value?.page_intro
+  const heading = data.value?.page_heading
+  const intro = data.value?.page_intro
 
-  return { _pageHeading, _pageIntro }
+  return { heading, intro }
 }
