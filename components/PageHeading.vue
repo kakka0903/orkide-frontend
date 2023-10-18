@@ -1,5 +1,5 @@
 <template>
-  <div class="relative h-20 mt-2 mb-10 font-bold text-primary">
+  <div class="relative h-20 font-bold text-primary">
     <div class="-translate-x-5">
       <transition
         appear
