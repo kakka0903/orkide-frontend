@@ -72,7 +72,6 @@
 </template>
 
 <script setup lang="ts">
-// TODO: add title slide
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide } from 'vue3-carousel'
 import { XIcon } from '@heroicons/vue/solid/index.js'
@@ -93,10 +92,6 @@ const slideshow = ref(null)
 const currentSlide = computed(() => {
   return slideshow.value.data.currentSlide.value + 1
 })
-
-const getImageAttrs = (slide) => {
-  return slide.image.data.attributes
-}
 
 const exit = () => {
   navigateTo('/covers')
