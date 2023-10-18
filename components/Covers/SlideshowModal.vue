@@ -5,7 +5,7 @@
       enter-from-class="translate-y-20 opacity-0"
       enter-to-class="opacity-100"
     >
-      <Carousel v-show="appearShow" ref="slideshow" class="relative w-full sm:mb-10" :mouse-drag="canDragSlides" :touch-drag="canDragSlides">
+      <Carousel v-if="appearShow && project !== null" ref="slideshow" class="relative w-full sm:mb-10" :mouse-drag="canDragSlides" :touch-drag="canDragSlides">
         <slide key="intro">
           <CoversIntroSlide
             :title="project.title"
@@ -14,7 +14,11 @@
           />
         </slide>
 
-        <slide v-for="slide in project.slides" :key="slide.id" class="flex justify-center h-full">
+        <slide
+          v-for="slide in project.slides"
+          :key="slide.id"
+          class="flex justify-center h-full"
+        >
           <CoversImageSlide
             :image-url="slide.image.data.attributes.url"
             :image-alt="slide.image.data.attributes.alternativeText"
@@ -73,14 +77,17 @@ import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide } from 'vue3-carousel'
 import { XIcon } from '@heroicons/vue/solid/index.js'
 import { QuestionMarkCircleIcon } from '@heroicons/vue/outline/index.js'
-import { AlbumCoverProject } from '~/types/CoverProjects'
 
 const { appearShow } = useAppearShow()
 
 interface Props {
-  project: AlbumCoverProject
+  coverProjectId: number
 }
-defineProps<Props>()
+const props = defineProps<Props>()
+const { data: project } = await useSingleCoverProject(props.coverProjectId)
+if (project === null) {
+  throw createError('Could not load project!')
+}
 
 const slideshow = ref(null)
 const currentSlide = computed(() => {
