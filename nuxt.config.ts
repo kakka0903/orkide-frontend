@@ -1,10 +1,23 @@
 import Strapi from 'strapi-sdk-js'
 import { defineNuxtConfig } from 'nuxt/config'
 import { cacheStrapiImage, cacheJson } from './cacheUtils.ts'
+import { AlbumCoverProject } from './types/CoverProjects'
 
 const strapi = new Strapi({
   url: process.env.STRAPI_URL
 })
+
+async function getPrerenderRoutes () {
+  // TODO: import this request from somewhere
+  const data = await strapi.find<AlbumCoverProject>('albumcover-projects')
+  if (data.data !== null) {
+    return data.data.map(project => '/covers/' + project.id)
+  } else {
+    throw createError('could not load routes to prerender!')
+  }
+}
+
+// TODO: make payloadExtraction composables for all these cache functions
 
 // Cache images in cover slideshows
 async function cacheSlideshows () {
@@ -56,8 +69,7 @@ async function cachePageData () {
 export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', '@nuxtjs/strapi'],
   css: ['~/assets/css/custom.css'],
-  target: 'static',
-  mode: 'universal',
+  ssr: true,
   hooks: {
     async 'nitro:config' (nitroConfig) {
       if (nitroConfig.dev) { return }
@@ -69,6 +81,8 @@ export default defineNuxtConfig({
       await cachePageData()
       await cacheSlideshows()
       await cacheBTSThumbnails()
+
+      nitroConfig?.prerender?.routes?.push(...await getPrerenderRoutes())
     }
   },
   experimental: {
