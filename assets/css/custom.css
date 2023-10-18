@@ -5,3 +5,10 @@
 html.lock-scroll {
   overflow: hidden;
 }
+
+/* Prevents layout shift when scroll bar appears/disappears.
+   https://stackoverflow.com/questions/9341465/prevent-a-centered-layout-from-shifting-its-position-when-scrollbar-appears */
+html {
+  margin-left: calc(100vw - 100%);
+  margin-right: 0;
+}
