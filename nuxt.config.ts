@@ -2,6 +2,7 @@ import Strapi from 'strapi-sdk-js'
 import { defineNuxtConfig } from 'nuxt/config'
 import { cacheStrapiImage, cacheJson } from './cacheUtils.ts'
 import { AlbumCoverProject } from './types/CoverProjects'
+import { cacheCoverProjectData } from './api/cache.js'
 
 const strapi = new Strapi({
   url: process.env.STRAPI_URL
@@ -81,6 +82,7 @@ export default defineNuxtConfig({
       await cachePageData()
       await cacheSlideshows()
       await cacheBTSThumbnails()
+      await cacheCoverProjectData(process.env.STRAPI_URL)
 
       nitroConfig?.prerender?.routes?.push(...await getPrerenderRoutes())
     }
