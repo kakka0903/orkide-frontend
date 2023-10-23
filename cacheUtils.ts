@@ -43,4 +43,4 @@ function cacheStrapiImage (imageData) {
   cacheImage(imageData.hash + imageData.ext, imageURL)
 }
 
-export default { cacheImage, cacheJson, cacheStrapiImage }
+export { cacheImage, cacheJson, cacheStrapiImage }
