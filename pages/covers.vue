@@ -7,7 +7,7 @@
           v-for="project in coverProjects"
           :key="project.slug"
           :title="project.title"
-          :is-selected="project == selectedProject"
+          :is-selected="isProjectSelected(project.id)"
           @click="selectProject(project)"
         >
           <div class="space-y-2">
@@ -35,13 +35,22 @@ function getSlideShowLink (coverProject: AlbumCoverProject) {
   return '/covers/' + coverProject.id
 }
 
-const selectedProject: Ref<null | AlbumCoverProject> = ref(null)
-function selectProject (project: AlbumCoverProject) {
-  if (selectedProject.value === project) {
-    selectedProject.value = null
-  } else {
-    selectedProject.value = project
-  }
+const selectedProjectID: Ref<null | number> = ref(null)
+
+/**
+ * Check if project is selected or not.
+ * @param projectId ID of project to check.
+ */
+function isProjectSelected (projectId: number) {
+  return selectedProjectID.value === projectId
 }
 
+/**
+ * Select a project when its not selected and unselect it when it is selected.
+ * @param project The project to select/unselect.
+ */
+function selectProject (project: AlbumCoverProject) {
+  const isSelected = isProjectSelected(project.id)
+  selectedProjectID.value = (isSelected) ? null : project.id
+}
 </script>
