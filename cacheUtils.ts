@@ -9,7 +9,7 @@ const IMG_CACHE_DIR = './public/uploads/'
  * @param filename The name of the json file
  * @param data Object to be saved
  */
-async function cacheJson (filename, data) {
+function cacheJson (filename, data) {
   console.log('Caching: ' + filename + '.json')
   fs.mkdir(JSON_CACHE_DIR, { recursive: true }, (err) => { if (err) { throw err } })
   const jsonData = JSON.stringify(data)
@@ -21,7 +21,7 @@ async function cacheJson (filename, data) {
  * @param {*} filename Image filename
  * @param {*} url URL to pull image from
  */
-async function cacheImage (filename, url) {
+function cacheImage (filename, url) {
   console.log('Caching: ' + IMG_CACHE_DIR + filename)
   axios({
     method: 'get',
@@ -38,7 +38,7 @@ async function cacheImage (filename, url) {
  * Save a an image from Strapi CMS to local fs.
  * @param {*} imageData Object representing strapi image
  */
-async function cacheStrapiImage (imageData) {
+function cacheStrapiImage (imageData) {
   const imageURL = process.env.STRAPI_URL + imageData.url
   cacheImage(imageData.hash + imageData.ext, imageURL)
 }
