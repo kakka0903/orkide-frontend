@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center gap-10 text-secondary-dark">
-    <button class="p-3 transition disabled:opacity-0 hover:text-secondary touch-manipulation" :disabled="current == 1" @click="prev">
+    <button class="p-3 transition disabled:opacity-0 hover:text-secondary touch-manipulation" :disabled="current == 1" @click.stop="prev">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -17,7 +17,7 @@
       {{ current }} / {{ count }}
     </div>
 
-    <button class="p-3 transition disabled:opacity-0 hover:text-secondary touch-manipulation" :disabled="current == count" @click="next">
+    <button class="p-3 transition disabled:opacity-0 hover:text-secondary touch-manipulation" :disabled="current == count" @click.stop="next">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

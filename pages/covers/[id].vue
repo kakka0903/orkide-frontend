@@ -4,7 +4,7 @@
     enter-from-class="opacity-0"
     enter-to-class="opacity-100"
   >
-    <CoversSlideshowModal v-show="appearShow" :cover-project-id="coverProjectId" />
+    <CoversSlideshowModal v-show="appearShow" :cover-project-id="coverProjectId" @click="navigateTo('/covers')" />
   </transition>
 </template>
 

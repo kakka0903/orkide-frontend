@@ -5,8 +5,15 @@
       enter-from-class="translate-y-20 opacity-0"
       enter-to-class="opacity-100"
     >
-      <Carousel v-if="appearShow && project !== null" ref="slideshow" class="relative w-full sm:mb-10" :mouse-drag="canDragSlides" :touch-drag="canDragSlides">
-        <slide key="intro">
+      <Carousel
+        v-if="appearShow && project !== null"
+        ref="slideshow"
+        class="relative w-full sm:mb-10"
+        :mouse-drag="canDragSlides"
+        :touch-drag="canDragSlides"
+        @click="exit"
+      >
+        <slide key="intro" @click="exit">
           <CoversIntroSlide
             :title="project.title"
             :subtitle="project.subtitle"
