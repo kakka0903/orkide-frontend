@@ -1,6 +1,6 @@
 <template>
   <CoversBaseSlide>
-    <div class="flex flex-col w-full gap-4 aspect-square">
+    <div class="flex flex-col w-full gap-4 cursor-pointer aspect-square" @click="$emit('switch')">
       <Transition
         mode="out-in"
         enter-active-class="transition duration-300 ease-out transform-gpu"
@@ -25,4 +25,6 @@ interface Props {
   imageAlt: string
 }
 defineProps<Props>()
+
+defineEmits(['switch'])
 </script>
