@@ -12,10 +12,10 @@
         >
           <div class="space-y-2">
             <ArchiveTextLink :url="getSlideShowLink(project)">
-              <PhotographIcon class="w-6 h-6" /> Se prosessen
+              <PhotoIcon class="w-6 h-6" /> Se prosessen
             </ArchiveTextLink>
             <ArchiveTextLink v-if="project.albumLink" :url="project.albumLink">
-              <MusicNoteIcon class="w-6 h-6" /> Hør plata
+              <MusicalNoteIcon class="w-6 h-6" /> Hør plata
             </ArchiveTextLink>
           </div>
         </ArchiveFolder>
@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { PhotographIcon, MusicNoteIcon } from '@heroicons/vue/outline'
+import { PhotoIcon, MusicalNoteIcon } from '@heroicons/vue/24/outline'
 import { AlbumCoverProject } from '~/types/CoverProjects'
 
 const { data: coverProjects } = await useManyCoverProjects()

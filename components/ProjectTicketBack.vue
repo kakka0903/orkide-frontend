@@ -36,7 +36,7 @@
 </template>
 
 <script setup>
-import { PlayIcon, PlusIcon } from '@heroicons/vue/solid/index.js'
+import { PlayIcon, PlusIcon } from '@heroicons/vue/24/solid/index.js'
 const props = defineProps({ musicVideo: Object })
 const hasClips = computed(() => {
   return props.musicVideo.attributes.bts_clips.data.length > 0

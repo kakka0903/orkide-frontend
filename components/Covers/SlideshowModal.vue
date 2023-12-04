@@ -24,6 +24,7 @@
             :image-alt="slide.image.data.attributes.alternativeText"
             :description="slide.description"
             :show-description="showDescription"
+            @switch="toggleDescription"
           />
         </slide>
       </Carousel>
@@ -59,14 +60,13 @@
         class="absolute bottom-4"
         :current="currentSlide"
         :count="slideshow.data.slidesCount.value"
-        @click.stop
         @next="slideshow.next"
         @prev="slideshow.prev"
       />
     </transition>
 
     <button class="absolute p-3 lowercase transition top-5 right-5 sm:top-10 sm:right-10 text-secondary-dark hover:text-secondary active:text-secondary" @click="exit">
-      <XIcon class="w-6 h-6" />
+      <XMarkIcon class="w-6 h-6" />
     </button>
   </div>
 </template>
@@ -74,8 +74,8 @@
 <script setup lang="ts">
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide } from 'vue3-carousel'
-import { XIcon } from '@heroicons/vue/solid/index.js'
-import { QuestionMarkCircleIcon } from '@heroicons/vue/outline/index.js'
+import { XMarkIcon } from '@heroicons/vue/24/solid/index.js'
+import { QuestionMarkCircleIcon } from '@heroicons/vue/24/outline/index.js'
 
 const { appearShow } = useAppearShow()
 

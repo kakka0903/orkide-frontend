@@ -42,7 +42,7 @@
 
 <script setup>
 import gsap from 'gsap'
-import { ArrowLeftIcon } from '@heroicons/vue/solid/index.js'
+import { ArrowLeftIcon } from '@heroicons/vue/24/solid/index.js'
 import projects from '~/data/projects.json'
 const { appearShow } = useAppearShow()
 

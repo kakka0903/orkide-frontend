@@ -13,7 +13,7 @@
       >
         <article class="relative bg-white border-4 border-primary" @click.stop>
           <button class="absolute lowercase top-2 right-2 text-secondary hover:text-secondary-dark active:text-primary-dark" @click="close">
-            <XIcon class="w-6 h-6" />
+            <XMarkIcon class="w-6 h-6" />
           </button>
           <slot />
         </article>
@@ -23,7 +23,7 @@
 </template>
 
 <script setup>
-import { XIcon } from '@heroicons/vue/solid/index.js'
+import { XMarkIcon } from '@heroicons/vue/24/solid/index.js'
 import useAppearShow from '../composables/useAppearShow'
 const { appearShow } = useAppearShow()
 const emit = defineEmits(['close'])

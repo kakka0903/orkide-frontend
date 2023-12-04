@@ -34,7 +34,7 @@
 </template>
 
 <script setup>
-import { CheckCircleIcon, ExclamationIcon } from '@heroicons/vue/outline/index.js'
+import { CheckCircleIcon, ExclamationIcon } from '@heroicons/vue/24/outline/index.js'
 
 defineProps({
   level: {

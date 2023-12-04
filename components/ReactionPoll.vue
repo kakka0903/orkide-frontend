@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import { ThumbDownIcon, ThumbUpIcon } from '@heroicons/vue/outline'
+import { ThumbDownIcon, ThumbUpIcon } from '@heroicons/vue/24/outline'
 const selected = ref('')
 function select (type) {
   selected.value = selected.value == type ? '' : type
