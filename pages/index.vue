@@ -34,14 +34,6 @@
               projects~
             </BoxButton>
           </NuxtLink>
-          <NuxtLink to="/covers/" class="relative">
-            <BoxButton :width="3" type="primary">
-              *COVERART
-            </BoxButton>
-            <SpikeBadge class="absolute -top-14 -right-10 text-[20px] pointer-events-none rotate-12">
-              NY!
-            </SpikeBadge>
-          </NuxtLink>
         </div>
       </Transition>
     </div>

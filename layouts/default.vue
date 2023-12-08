@@ -22,7 +22,6 @@ const enableScrollLock = useScrollLockState()
 const navLinks = ref([
   { display: 'orkide', url: '/' },
   { display: 'prosjekter', url: '/prosjekter/' },
-  { display: 'coverart', url: '/covers/' },
   { display: 'kontakt', url: '/kontakt/' }
 ])
 
