@@ -89,10 +89,5 @@ export default defineNuxtConfig({
   },
   experimental: {
     payloadExtraction: true
-  },
-  runtimeConfig: {
-    public: {
-      ENABLE_COVERS: false
-    }
   }
 })
