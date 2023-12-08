@@ -10,7 +10,7 @@
       </Transition>
     </div>
     <div class="flex flex-col items-center gap-5">
-      <PageSectionHeading>
+      <SectionSwitcherHeading>
         <Transition
           enter-active-class="transition transform"
           enter-from-class="opacity-0"
@@ -20,10 +20,10 @@
             {{ currentSection.title }}
           </p>
         </Transition>
-      </PageSectionHeading>
-      <SwitchSectionButton @click="nextSection()">
+      </SectionSwitcherHeading>
+      <SectionSwitcherButton @click="nextSection()">
         {{ switchMessage }}
-      </SwitchSectionButton>
+      </SectionSwitcherButton>
       <p class="text-primary">
         {{ sectionIdx + 1 }} / {{ sections.length }}
       </p>
