@@ -7,7 +7,7 @@
       </p>
     </div>
     <div class="absolute top-0 right-0 flex flex-col text-xs ">
-      <NuxtLink :to="'/prosjekter/'+musicVideo.attributes.slug+'/'" @click.stop>
+      <NuxtLink :to="'/prosjekter/kino/'+musicVideo.attributes.slug+'/'" @click.stop>
         <BoxButton
           type="primary"
           :width="4"
@@ -36,7 +36,7 @@
 </template>
 
 <script setup>
-import { PlayIcon, PlusIcon } from '@heroicons/vue/24/solid/index.js'
+import { PlayIcon } from '@heroicons/vue/24/solid/index.js'
 const props = defineProps({ musicVideo: Object })
 const hasClips = computed(() => {
   return props.musicVideo.attributes.bts_clips.data.length > 0

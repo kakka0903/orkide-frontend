@@ -30,7 +30,7 @@ import { AlbumCoverProject } from '~/types/CoverProjects'
 const { data: coverProjects } = await useManyCoverProjects()
 
 function getSlideShowLink (coverProject: AlbumCoverProject) {
-  return '/covers/' + coverProject.id
+  return '/prosjekter/covers/' + coverProject.id
 }
 
 const selectedProjectID: Ref<null | number> = ref(null)

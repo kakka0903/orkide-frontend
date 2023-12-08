@@ -1,11 +1,16 @@
 <template>
   <DefaultPage route="prosjekter">
-    <VideoProjectsDisplay />
+    <SectionSwitcher :sections="projectSections" switch-message="bytt seksjon" />
   </DefaultPage>
 </template>
 
-<script setup>
+<script setup lang="ts">
 // TODO: disable zoom on double tap
+
+const projectSections = [
+  { title: 'KINO', component: resolveComponent('VideoProjectsDisplay') },
+  { title: 'ARKIV', component: resolveComponent('ArchiveDisplay') }
+]
 
 useHead({
   title: 'Orkidé - Prosjekter',

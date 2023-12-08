@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed inset-0 flex items-center justify-center bg-black/80" @click="exit">
+  <div class="fixed inset-0 z-20 flex items-center justify-center bg-black/80" @click="exit">
     <Transition
       enter-active-class="transition duration-500 ease-out delay-300 transform-gpu"
       enter-from-class="translate-y-20 opacity-0"
@@ -101,7 +101,7 @@ const currentSlide = computed(() => {
 })
 
 const exit = () => {
-  navigateTo('/covers')
+  navigateTo('/prosjekter')
 }
 
 // disable drag while transitions are active to fix buggy UI
