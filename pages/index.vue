@@ -34,7 +34,7 @@
               projects~
             </BoxButton>
           </NuxtLink>
-          <NuxtLink v-if="isCoversLive" to="/covers/" class="relative">
+          <NuxtLink to="/covers/" class="relative">
             <BoxButton :width="3" type="primary">
               *COVERART
             </BoxButton>
@@ -51,8 +51,6 @@
 <script async setup>
 import polls from '~/data/polls.json'
 const { appearShow } = useAppearShow()
-
-const { isCoversLive } = useFeatureFlags()
 
 useHead({
   title: 'Orkidé'
