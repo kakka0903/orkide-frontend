@@ -12,7 +12,7 @@ async function getPrerenderRoutes () {
   // TODO: import this request from somewhere
   const data = await strapi.find<AlbumCoverProject>('albumcover-projects')
   if (data.data !== null) {
-    return data.data.map(project => '/covers/' + project.id)
+    return data.data.map(project => '/prosjekter/covers/' + project.id)
   } else {
     throw createError('could not load routes to prerender!')
   }
