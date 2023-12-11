@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div class="flex flex-col-reverse gap-10 md:flex-row">
     <div class="flex-grow">
       <Transition
         enter-active-class="transition transform"
@@ -11,6 +11,16 @@
     </div>
 
     <SectionSwitcherInfoDesktop
+      class="hidden md:flex"
+      :section-idx="sectionIdx"
+      :num-sections="sections.length"
+      :switch-message="switchMessage"
+      :current-section-title="currentSection.title"
+      @switch-section="nextSection"
+    />
+
+    <SectionSwitcherInfoMobile
+      class="md:hidden"
       :section-idx="sectionIdx"
       :num-sections="sections.length"
       :switch-message="switchMessage"
