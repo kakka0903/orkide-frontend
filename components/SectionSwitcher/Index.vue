@@ -9,25 +9,14 @@
         <component :is="currentSection.component" :key="currentSection.title" />
       </Transition>
     </div>
-    <div class="flex flex-col items-center gap-5">
-      <SectionSwitcherHeading>
-        <Transition
-          enter-active-class="transition transform"
-          enter-from-class="opacity-0"
-          mode="out-in"
-        >
-          <p :key="currentSection.title">
-            {{ currentSection.title }}
-          </p>
-        </Transition>
-      </SectionSwitcherHeading>
-      <SectionSwitcherButton @click="nextSection()">
-        {{ switchMessage }}
-      </SectionSwitcherButton>
-      <p class="text-primary">
-        {{ sectionIdx + 1 }} / {{ sections.length }}
-      </p>
-    </div>
+
+    <SectionSwitcherInfoDesktop
+      :section-idx="sectionIdx"
+      :num-sections="sections.length"
+      :switch-message="switchMessage"
+      :current-section-title="currentSection.title"
+      @switch-section="nextSection"
+    />
   </div>
 </template>
 
