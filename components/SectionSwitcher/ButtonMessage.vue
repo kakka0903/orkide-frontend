@@ -6,8 +6,8 @@
       enter-from-class="translate-x-[100%]"
       leave-to-class="translate-x-[100%]"
     >
-      <div v-if="showMessage" class="border-[1.5px] shadow-xl flex items-center bg-white border-secondary border-r-0  border-dashed h-14">
-        <p class="px-4 text-2xl font-bold whitespace-nowrap text-secondary-dark">
+      <div v-if="showMessage" class="flex items-center bg-white border border-r-0 shadow-xl border-1 border-secondary h-14">
+        <p class="px-4 text-xl font-bold whitespace-nowrap text-secondary-dark">
           <slot />
         </p>
       </div>
@@ -16,6 +16,7 @@
 </template>
 
 <script lang="ts" setup>
+// TODO: only ever show button message ONCE
 const showMessage = ref(false)
 
 function flashMessage () {
