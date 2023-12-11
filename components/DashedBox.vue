@@ -1,5 +1,5 @@
 <template>
-  <div class="text-left bg-white dashed-border">
+  <div class="text-left bg-background dashed-border">
     <slot />
   </div>
 </template>

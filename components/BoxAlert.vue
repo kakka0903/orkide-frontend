@@ -12,7 +12,7 @@
       class="fixed top-0 left-0 flex justify-center w-full cursor-pointer pointer-events-none"
     >
       <article
-        class="flex w-full max-w-sm py-3 mt-5 -mx-2 bg-white border-4 pointer-events-auto"
+        class="flex w-full max-w-sm py-3 mt-5 -mx-2 border-4 pointer-events-auto bg-background"
         :class="{ 'border-red-600' : level == 'warning', 'border-primary': level == 'success'}"
         @click.stop="isDeleted = true"
       >

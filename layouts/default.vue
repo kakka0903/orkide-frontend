@@ -1,7 +1,7 @@
 <template>
   <Html :class="{'lock-scroll': enableScrollLock}">
     <Body>
-      <div class="overflow-x-hidden">
+      <div class="overflow-x-hidden bg-background">
         <div class="flex justify-center mx-6 font-mono xs:mx-10">
           <div class="w-full min-h-screen mb-5 md:max-w-2xl xl:max-w-5xl">
             <div class="flex flex-col h-full">
