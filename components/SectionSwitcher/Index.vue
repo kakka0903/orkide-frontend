@@ -31,6 +31,8 @@
 </template>
 
 <script setup lang="ts">
+// TODO: only ever show button message ONCE
+
 interface Props {
   sections: {
     title: string,
@@ -45,14 +47,32 @@ const currentSection = computed(() => {
   return props.sections[sectionIdx.value]
 })
 
-const updateSectionUrl = () => {
-  console.log('set url section to: ' + currentSection.value.title)
-}
-
 const nextSection = () => {
   sectionIdx.value = (sectionIdx.value + 1) % props.sections.length
   updateSectionUrl()
 }
 
-onMounted(updateSectionUrl)
+const updateSectionUrl = () => {
+  const router = useRouter()
+  const route = useRoute()
+  if (route.name !== undefined && route.name !== null) {
+    router.push({ name: route.name, query: { section: currentSection.value.title.toLowerCase() } })
+  }
+}
+
+const updateSectionIdx = () => {
+  const route = useRoute()
+  const sectionName = route.query.section
+  const section = props.sections.find(s => s.title.toLowerCase() === sectionName)
+  const idx = (section !== undefined) ? props.sections.indexOf(section) : section
+
+  if (idx !== null && idx !== undefined) {
+    sectionIdx.value = idx
+  }
+}
+
+onMounted(() => {
+  updateSectionIdx()
+  updateSectionUrl()
+})
 </script>
