@@ -27,7 +27,7 @@
 
 <script setup lang="ts">
 import { PhotographIcon, MusicNoteIcon } from '@heroicons/vue/outline'
-import { AlbumCoverProject } from '~/types/CoverProjects'
+import type { AlbumCoverProject } from '~/types/CoverProjects'
 
 const { data: coverProjects } = await useManyCoverProjects()
 
