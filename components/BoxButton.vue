@@ -15,7 +15,7 @@ const props = defineProps({
 
 const classes = computed(() => {
   return {
-    'text-white': props.type === 'primary',
+    'text-background': props.type === 'primary',
     'bg-primary': props.type === 'primary',
     'active:bg-secondary': props.type === 'primary',
     'disabled:bg-primary-dark': props.type === 'primary',

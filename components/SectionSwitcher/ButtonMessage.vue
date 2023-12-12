@@ -6,7 +6,7 @@
       enter-from-class="translate-x-[100%]"
       leave-to-class="translate-x-[100%]"
     >
-      <div v-if="showMessage" class="flex items-center bg-white border border-r-0 shadow-xl border-1 border-secondary h-14">
+      <div v-if="showMessage" class="flex items-center border border-r-0 shadow-xl bg-background border-1 border-secondary h-14">
         <p class="px-4 text-xl font-bold whitespace-nowrap text-secondary-dark">
           <slot />
         </p>
