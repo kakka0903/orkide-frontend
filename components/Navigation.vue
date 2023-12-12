@@ -9,6 +9,7 @@
     >
       {{ link.display }}
     </NuxtLink>
+    <ThemeSwitcher />
   </nav>
 </template>
 
