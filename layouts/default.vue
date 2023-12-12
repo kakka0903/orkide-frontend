@@ -40,7 +40,8 @@ useHead({
     { rel: 'preload', as: 'style', type: 'text/css', href: '/fonts/dejavu-font.css' }
   ],
   script: [
-    { defer: 'defer', src: 'https://plausible.kakk.dev/js/plausible.js', 'data-domain': 'orkide.world' }
+    { defer: 'defer', src: 'https://plausible.kakk.dev/js/plausible.js', 'data-domain': 'orkide.world' },
+    { src: '/setTheme.js' } // sets darkmode according to preferred theme
   ],
   meta: [
     { name: 'description', content: 'Orkidé lager video for norkse artister som Undergrunn. Alt er regissert, filmet og redigert av Orkidé. Nettsiden inneholder også eksklusive BTS videoklipp.' },
