@@ -15,11 +15,11 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: '#0011FF',
-        'primary-dark': '#1D3A8A',
+        primary: '#F262FF',
+        'primary-dark': '#AC47B4',
         secondary: '#84CC16',
-        'secondary-dark': '#5D9010',
-        background: '#221F1F'
+        'secondary-dark': '#609313',
+        background: '#130C14'
       },
       fontFamily: {
         mono: ['DejaVuSansMono', ...defaultTheme.fontFamily.mono]
