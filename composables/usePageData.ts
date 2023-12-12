@@ -1,4 +1,4 @@
-import { Page } from '~/types/Pages'
+import type { Page } from '~/types/Pages'
 
 export const usePageData = async (routeName: string) => {
   const { find } = useStrapi()

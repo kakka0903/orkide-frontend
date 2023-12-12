@@ -1,4 +1,4 @@
-import { AlbumCoverProject } from '~/types/CoverProjects'
+import type { AlbumCoverProject } from '~/types/CoverProjects'
 import albumCoverProjectData from '~/data/albumCoverProjects.json'
 
 export const useManyCoverProjects = () => {

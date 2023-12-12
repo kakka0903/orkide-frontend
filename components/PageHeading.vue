@@ -28,7 +28,7 @@
 
 <script setup lang="ts">
 import useAppearShow from '../composables/useAppearShow'
-import { PageHeading } from '~/types/Pages'
+import type { PageHeading } from '~/types/Pages'
 
 const { appearShow } = useAppearShow()
 

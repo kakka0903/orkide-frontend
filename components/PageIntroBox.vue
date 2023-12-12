@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { PageIntro } from '~/types/Pages'
+import type { PageIntro } from '~/types/Pages'
 
 interface Props {
   intro: PageIntro

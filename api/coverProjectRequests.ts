@@ -1,5 +1,5 @@
 import Strapi from 'strapi-sdk-js'
-import { AlbumCoverProject } from '~/types/CoverProjects'
+import type { AlbumCoverProject } from '~/types/CoverProjects'
 
 /**
  * Get AlbumCoverProject API request to functions.
