@@ -2,15 +2,15 @@
   <DefaultPage route="kontakt">
     <div class="flex flex-col items-center mt-12 mb-24 font-mono font-bold text-secondary text-7xl sm:text-8xl">
       <a
-        class="bg-background text-primary hover:bg-primary active:text-secondary hover:text-white"
+        class="bg-background text-primary hover:bg-primary active:text-secondary hover:text-background"
         :href="contact.instagram_link"
       >{{ contact.instagram_link_text }}</a>
       <a
-        class="bg-background text-secondary hover:bg-secondary active:text-primary hover:text-white"
+        class="bg-background text-secondary hover:bg-secondary active:text-primary hover:text-background"
         :href="contact.youtube_link"
       >{{ contact.youtube_link_text }}</a>
       <a
-        class="bg-background text-primary hover:bg-primary active:text-secondary hover:text-white"
+        class="bg-background text-primary hover:bg-primary active:text-secondary hover:text-background"
         :href="contact.tiktok_link"
       >{{ contact.tiktok_link_text }} </a>
     </div>
