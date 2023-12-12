@@ -1,9 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 
-const colors = require('tailwindcss/colors')
 const defaultTheme = require('tailwindcss/defaultTheme')
 
+// enables themed colors to work with tailwind opacity
+function withOpacityValue (variable) {
+  return ({ opacityValue }) => {
+    return (opacityValue === undefined) ? `rgb(var(${variable}))` : `rgb(var(${variable}) / ${opacityValue})`
+  }
+}
+
 module.exports = {
+  darkMode: 'class',
   content: [
     './index.html',
     './src/**/*.{vue,js,ts,jsx,tsx}'
@@ -15,11 +22,11 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: '#F262FF',
-        'primary-dark': '#AC47B4',
-        secondary: '#84CC16',
-        'secondary-dark': '#609313',
-        background: '#130C14'
+        primary: withOpacityValue('--primary'),
+        'primary-dark': withOpacityValue('--primary-dark'),
+        secondary: withOpacityValue('--secondary'),
+        'secondary-dark': withOpacityValue('--secondary-dark'),
+        background: withOpacityValue('--background')
       },
       fontFamily: {
         mono: ['DejaVuSansMono', ...defaultTheme.fontFamily.mono]
