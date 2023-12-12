@@ -9,9 +9,9 @@
         leave-to-class="scale-95 opacity-0"
       >
         <img v-if="!showDescription" class="bg-gray-500 aspect-square" :src="imageUrl" :alt="imageAlt">
-        <div v-else class="px-10 py-5 text-left bg-white aspect-square dashed-border text-primary ">
+        <DashedBox v-else class="px-10 py-5 text-left bg-background aspect-square text-primary ">
           <MarkdownField :markdown="description" />
-        </div>
+        </DashedBox>
       </Transition>
     </div>
   </CoversBaseSlide>

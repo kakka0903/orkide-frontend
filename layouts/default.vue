@@ -1,6 +1,6 @@
 <template>
   <Html :class="{'lock-scroll': enableScrollLock}">
-    <Body>
+    <Body class="bg-background">
       <div class="overflow-x-hidden">
         <div class="flex justify-center mx-6 font-mono xs:mx-10">
           <div class="w-full min-h-screen mb-5 md:max-w-2xl xl:max-w-5xl">
@@ -34,7 +34,8 @@ useHead({
     { rel: 'preload', as: 'style', type: 'text/css', href: '/fonts/dejavu-font.css' }
   ],
   script: [
-    { defer: 'defer', src: 'https://plausible.kakk.dev/js/plausible.js', 'data-domain': 'orkide.world' }
+    { defer: 'defer', src: 'https://plausible.kakk.dev/js/plausible.js', 'data-domain': 'orkide.world' },
+    { src: '/setTheme.js' } // sets darkmode according to preferred theme
   ],
   meta: [
     { name: 'description', content: 'Orkidé lager video for norkse artister som Undergrunn. Alt er regissert, filmet og redigert av Orkidé. Nettsiden inneholder også eksklusive BTS videoklipp.' },

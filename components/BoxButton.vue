@@ -21,7 +21,7 @@ const classes = computed(() => {
     'disabled:bg-primary-dark': props.type === 'primary',
 
     'text-primary': props.type === 'secondary',
-    'bg-white': props.type === 'secondary',
+    'bg-background': props.type === 'secondary',
     'active:text-secondary': props.type === 'secondary',
     'disabled:text-primary-dark': props.type === 'secondary'
   }
