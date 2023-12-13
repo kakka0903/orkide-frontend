@@ -11,7 +11,7 @@
         enter-from-class="-translate-y-6 opacity-0"
         enter-to-class="translate-y-0 opacity-100"
       >
-        <article class="relative bg-background border-4 border-primary" @click.stop>
+        <article class="relative w-full max-w-xs border-4 sm:max-w-lg bg-background border-primary" @click.stop>
           <button class="absolute lowercase top-2 right-2 text-secondary hover:text-secondary-dark active:text-primary-dark" @click="close">
             <XMarkIcon class="w-6 h-6" />
           </button>
