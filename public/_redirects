@@ -1,1 +1,1 @@
-/prosjekter/* /prosjekter/kino/:slug
+/prosjekter/:slug /prosjekter/kino/:slug
