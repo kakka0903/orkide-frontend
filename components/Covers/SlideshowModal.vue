@@ -101,7 +101,7 @@ const currentSlide = computed(() => {
 })
 
 const exit = () => {
-  navigateTo('/prosjekter')
+  history.back()
 }
 
 // disable drag while transitions are active to fix buggy UI
