@@ -8,7 +8,14 @@
         enter-from-class="scale-95 opacity-0"
         leave-to-class="scale-95 opacity-0"
       >
-        <img v-if="!showDescription" class="bg-gray-500" :src="imageUrl" :alt="imageAlt">
+        <NuxtImg
+          v-if="!showDescription"
+          width="1000"
+          format="jpeg"
+          class="bg-gray-500"
+          :src="imageUrl"
+          :alt="imageAlt"
+        />
         <DashedBox v-else class="px-10 py-5 text-left bg-background aspect-square text-primary ">
           <MarkdownField :markdown="description" />
         </DashedBox>
