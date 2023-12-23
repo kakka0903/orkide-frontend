@@ -20,7 +20,7 @@
 <script setup lang="ts">
 interface Props {
   showDescription: boolean
-  description: string
+  description?: string
   imageUrl: string
   imageAlt: string
 }

@@ -23,7 +23,7 @@
 interface Props {
   title: string
   subtitle?: string
-  text: string
+  text?: string
 }
 defineProps<Props>()
 // TODO: enable markdown formatting for text
