@@ -1,4 +1,4 @@
-import { Strapi4ResponseSingle, Strapi4ResponseMany, Strapi4ResponseData } from '@nuxtjs/strapi/dist/runtime/types'
+import type { Strapi4ResponseSingle, Strapi4ResponseMany, Strapi4ResponseData } from '@nuxtjs/strapi/dist/runtime/types'
 
 interface HasId {
   id: number

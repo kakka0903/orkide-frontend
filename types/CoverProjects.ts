@@ -23,4 +23,4 @@ declare interface AlbumCoverProject {
   links: ArchiveLink[]
 }
 
-export type { AlbumCoverProject, AlbumCoverProjectSlide }
+export type { AlbumCoverProject, Slide as AlbumCoverProjectSlide }

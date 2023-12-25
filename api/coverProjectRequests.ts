@@ -21,7 +21,7 @@ const useCoverProjectRoutes = (strapiUrl: string) => {
     }
   }
 
-  const manyCoverProjects = () => strapi.find<AlbumCoverProject>(ROUTE_NAME, requestOptions)
+  const manyCoverProjects = () => strapi.find<AlbumCoverProject[]>(ROUTE_NAME, requestOptions)
   const singleCoverProject = (coverId: number) => strapi.findOne<AlbumCoverProject>(ROUTE_NAME, coverId, requestOptions)
   return { manyCoverProjects, singleCoverProject }
 }
