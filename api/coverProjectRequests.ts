@@ -16,7 +16,8 @@ const useCoverProjectRoutes = (strapiUrl: string) => {
     populate: {
       slides: {
         populate: 'image'
-      }
+      },
+      links: []
     }
   }
 

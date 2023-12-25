@@ -6,6 +6,12 @@ interface Slide {
   description: string
 }
 
+interface ArchiveLink {
+  label: string,
+  url: string,
+  icon: string,
+}
+
 declare interface AlbumCoverProject {
   id: number
   title: string
@@ -13,7 +19,8 @@ declare interface AlbumCoverProject {
   description: string
   slug: string
   albumLink: string
-  slides: Slide[]
+  slides: Slide[],
+  links: ArchiveLink[]
 }
 
 export type { AlbumCoverProject, AlbumCoverProjectSlide }

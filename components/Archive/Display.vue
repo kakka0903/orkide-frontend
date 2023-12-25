@@ -13,8 +13,9 @@
           <ArchiveTextLink :url="getSlideShowLink(project)">
             <PhotoIcon class="w-6 h-6" /> Se prosessen
           </ArchiveTextLink>
-          <ArchiveTextLink v-if="project.albumLink" :url="project.albumLink">
-            <MusicalNoteIcon class="w-6 h-6" /> Hør plata
+          <ArchiveTextLink v-for="link in project.links" :key="link.url" :url="link.url">
+            <div class="w-6 h-6" v-html="JSON.parse(link.icon).component" />
+            <p>{{ link.label }}</p>
           </ArchiveTextLink>
         </div>
       </ArchiveFolder>
@@ -24,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { PhotoIcon, MusicalNoteIcon } from '@heroicons/vue/24/outline'
+import { PhotoIcon } from '@heroicons/vue/24/outline'
 import type { AlbumCoverProject } from '~/types/CoverProjects'
 
 const { data: coverProjects } = await useManyCoverProjects()
