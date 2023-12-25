@@ -10,9 +10,9 @@
       >
         <NuxtImg
           v-if="!showDescription"
-          width="1000"
-          format="jpeg"
           class="bg-gray-500"
+          provider="strapi"
+          :modifiers="{ breakpoint: 'large' }"
           :src="imageUrl"
           :alt="imageAlt"
         />
@@ -29,7 +29,7 @@ interface Props {
   showDescription: boolean
   description?: string
   imageUrl: string
-  imageAlt: string
+  imageAlt?: string
 }
 defineProps<Props>()
 

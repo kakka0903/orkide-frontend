@@ -27,7 +27,7 @@
           class="flex justify-center h-full"
         >
           <CoversImageSlide
-            :image-url="slide.image.data.attributes.url"
+            :image-url="slide.image.data.attributes.hash+slide.image.data.attributes.ext"
             :image-alt="slide.image.data.attributes.alternativeText"
             :description="slide.description"
             :show-description="showDescription"

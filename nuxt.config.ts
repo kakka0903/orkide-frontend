@@ -71,6 +71,11 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', '@nuxtjs/strapi', '@nuxt/image'],
   css: ['~/assets/css/custom.css'],
   ssr: true,
+  image: {
+    strapi: {
+      baseURL: process.env.STRAPI_URL + '/uploads'
+    }
+  },
   hooks: {
     async 'nitro:config' (nitroConfig) {
       if (nitroConfig.dev) { return }
