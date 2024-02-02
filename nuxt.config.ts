@@ -1,7 +1,7 @@
 import Strapi from 'strapi-sdk-js'
 import { defineNuxtConfig } from 'nuxt/config'
 import { cacheStrapiImage, cacheJson } from './cacheUtils.ts'
-import { AlbumCoverProject } from './types/CoverProjects'
+import type { AlbumCoverProject } from './types/CoverProjects'
 import { cacheCoverProjectData } from './api/cache.js'
 
 const strapi = new Strapi({
