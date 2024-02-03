@@ -15,20 +15,7 @@
 </template>
 
 <script setup lang="ts">
-
-const strapi = useStrapi()
 const doCacheCMSData = useRuntimeConfig().public.cacheCMSData
-
-const getVideoProjects = () => strapi.find('projects', {
-  sort: ['release_date:desc']
-})
-
-const asyncOptions = {
-  transform: res => res.data.map(project => project.attributes),
-  server: doCacheCMSData
-}
-
-const { data: projects } = await useAsyncData(
-  getVideoProjects, asyncOptions
-)
+const { getVideoProjects } = useCMSData(doCacheCMSData)
+const { data: projects } = await getVideoProjects()
 </script>
