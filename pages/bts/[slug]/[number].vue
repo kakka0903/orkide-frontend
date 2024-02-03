@@ -1,9 +1,10 @@
 <template>
   <div>
     <VideoModal
-      :youtube-id="clip.attributes.youtubeId"
-      :title="musicVideo.attributes.name+' BTS #'+clips.indexOf(clip)"
-      :description="clip.attributes.description"
+      v-if="clip !== null && clip !== undefined && musicVideo !== null && musicVideo !== undefined"
+      :youtube-id="clip.youtubeId"
+      :title="musicVideo.name+' BTS #'+clips.indexOf(clip)"
+      :description="clip.description"
       is-open
       @close="close"
     />
@@ -11,28 +12,24 @@
 </template>
 
 <script setup>
-const props = defineProps({
-  clips: Array,
-  musicVideo: Object
-})
-
 const route = useRoute()
-const clip = computed(() => {
-  return props.clips[route.params.number]
-})
+const { getVideoProjectBySlug, getBTSClipsByVideoProjectSlug } = useCMSData(false)
+const { data: musicVideo } = await getVideoProjectBySlug(route.params.slug)
+const { data: clips } = await getBTSClipsByVideoProjectSlug(route.params.slug)
+const clip = computed(() => (clips.value !== null) ? clips.value[route.params.number] : null)
 
 function close () {
   navigateTo('/bts/' + route.params.slug + '/')
 }
 
-const metaDescription = computed(() => {
-  const c = clip.value.attributes
-  const vid = props.musicVideo.attributes
-  return 'Behind the scenes klipp #' + route.params.number + ' fra innspillingen av ' + vid.artist + ' videoen ' + vid.name + '.'
-})
+// const metaDescription = computed(() => {
+//   const c = clip.value
+//   const vid = props.musicVideo
+//   return 'Behind the scenes klipp #' + route.params.number + ' fra innspillingen av ' + vid.artist + ' videoen ' + vid.name + '.'
+// })
 
-useHead({
-  title: 'Orkide - ' + props.musicVideo.attributes.name + ' BTS #' + route.params.number,
-  meta: [{ name: 'description', content: metaDescription.value }]
-})
+// useHead({
+//   title: 'Orkide - ' + props.musicVideo.name + ' BTS #' + route.params.number,
+//   meta: [{ name: 'description', content: metaDescription.value }]
+// })
 </script>

@@ -23,11 +23,25 @@ export const useCMSData = (doCacheData: boolean) => {
     return useAsyncData(getVideoProjects, buildAsyncOptions(normalize))
   }
 
+  const getBTSClipsByVideoProjectSlug = (slug: string) => {
+    const getVideoProjects = () => strapi.find('projects', {
+      filters: { slug },
+      populate: {
+        bts_clips: {
+          populate: ['thumbnail']
+        }
+      },
+      fields: ['name']
+    })
+    const normalize = res => res.data[0].attributes.bts_clips.data.map(clip => clip.attributes)
+    return useAsyncData(getVideoProjects, buildAsyncOptions(normalize))
+  }
+
   const getUserPolls = () => {
     const getPolls = () => strapi.find('polls')
     const normalize = res => res.data.map(poll => poll.attributes)
     return useAsyncData(getPolls, buildAsyncOptions(normalize))
   }
 
-  return { getVideoProjects, getVideoProjectBySlug, getUserPolls }
+  return { getVideoProjects, getVideoProjectBySlug, getUserPolls, getBTSClipsByVideoProjectSlug }
 }
