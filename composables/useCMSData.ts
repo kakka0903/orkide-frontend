@@ -57,5 +57,15 @@ export const useCMSData = (doCacheData: boolean) => {
     return useAsyncData(getProjects, buildAsyncOptions(normalize))
   }
 
-  return { getVideoProjects, getVideoProjectBySlug, getUserPolls, getBTSClipsByVideoProjectSlug, getCoverProjects }
+  const getCoverProjectById = (id: number) => {
+    const getProject = () => strapi.findOne('albumcover-projects', id, {
+      populate: {
+        slides: { populate: 'image' },
+        links: true
+      }
+    })
+    return useAsyncData(getProject, buildAsyncOptions(getOnlyAttributes))
+  }
+
+  return { getVideoProjects, getVideoProjectBySlug, getUserPolls, getBTSClipsByVideoProjectSlug, getCoverProjects, getCoverProjectById }
 }

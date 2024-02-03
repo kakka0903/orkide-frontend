@@ -90,7 +90,10 @@ interface Props {
   coverProjectId: number
 }
 const props = defineProps<Props>()
-const { data: project } = await useSingleCoverProject(props.coverProjectId)
+
+const doCacheCMSData = useRuntimeConfig().public.cacheCMSData
+const { getCoverProjectById } = useCMSData(doCacheCMSData)
+const { data: project } = await getCoverProjectById(props.coverProjectId)
 if (project === null) {
   throw createError('Could not load project!')
 }
