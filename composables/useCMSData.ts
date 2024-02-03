@@ -23,5 +23,11 @@ export const useCMSData = (doCacheData: boolean) => {
     return useAsyncData(getVideoProjects, buildAsyncOptions(normalize))
   }
 
-  return { getVideoProjects, getVideoProjectBySlug }
+  const getUserPolls = () => {
+    const getPolls = () => strapi.find('polls')
+    const normalize = res => res.data.map(poll => poll.attributes)
+    return useAsyncData(getPolls, buildAsyncOptions(normalize))
+  }
+
+  return { getVideoProjects, getVideoProjectBySlug, getUserPolls }
 }

@@ -5,8 +5,8 @@ const props = defineProps({
 })
 
 const options = computed(() => {
-  if (props.poll.attributes) {
-    const p = props.poll.attributes
+  if (props.poll) {
+    const p = props.poll
     return [p.option1, p.option2, p.option3]
   } else {
     return []
@@ -14,8 +14,8 @@ const options = computed(() => {
 })
 
 const sentence = computed(() => {
-  if (props.poll.attributes) {
-    return props.poll.attributes.sentence
+  if (props.poll) {
+    return props.poll.sentence
   } else {
     return '%o'
   }
