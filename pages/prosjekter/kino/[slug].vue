@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{ project }}
     <VideoModal
       v-if="project !== null && project !== undefined"
       :title="project.name"
@@ -11,23 +12,12 @@
 </template>
 
 <script setup lang="ts">
-const route = useRoute()
-const strapi = useStrapi()
 const doCacheCMSData = useRuntimeConfig().public.cacheCMSData
-
-const getVideoProjectBySlug = () => strapi.find('projects', { filters: { slug: route.params.slug } })
-
-const asyncOptions = {
-  transform: res => res.data[0].attributes,
-  server: doCacheCMSData
-}
-
-const { data: project } = await useAsyncData(
-  getVideoProjectBySlug,
-  asyncOptions
-)
+const { getVideoProjectBySlug } = useCMSData(doCacheCMSData)
+const route = useRoute()
+const { data: project } = await getVideoProjectBySlug(route.params.slug as string)
 
 const getDescription = videoProject => videoProject.artist + ' ' + videoProject.year + '. ' + videoProject.description
-
+console.log(project)
 // TODO: add back SEO meta
 </script>
