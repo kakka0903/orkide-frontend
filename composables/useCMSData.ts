@@ -1,3 +1,5 @@
+import { getOnlyAttributes, getOnlyAttributesMany } from '~/api/strapiUtils'
+
 export const useCMSData = (doCacheData: boolean) => {
   const strapi = useStrapi()
   const setCacheFn = (doCacheData) ? () => true : () => false
@@ -43,5 +45,17 @@ export const useCMSData = (doCacheData: boolean) => {
     return useAsyncData(getPolls, buildAsyncOptions(normalize))
   }
 
-  return { getVideoProjects, getVideoProjectBySlug, getUserPolls, getBTSClipsByVideoProjectSlug }
+  const getCoverProjects = () => {
+    const strapiOptions = {
+      populate: {
+        slides: { populate: 'image' },
+        links: true
+      }
+    }
+    const getProjects = () => strapi.find('albumcover-projects', strapiOptions)
+    const normalize = res => getOnlyAttributesMany(res)
+    return useAsyncData(getProjects, buildAsyncOptions(normalize))
+  }
+
+  return { getVideoProjects, getVideoProjectBySlug, getUserPolls, getBTSClipsByVideoProjectSlug, getCoverProjects }
 }
