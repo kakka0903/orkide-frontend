@@ -1,13 +1,13 @@
 <template>
-  <span>{{ text }}</span>
+    <span>{{text}}</span>
 </template>
 
 <script setup>
-const text = ref(':)')
+var text = ref(':)');
 setTimeout(() => {
-  text.value = ';)'
-  setTimeout(() => {
-    text.value = ':)'
-  }, 300)
-}, 1000)
+    text.value = ';)'
+    setTimeout(() => {
+        text.value = ':)'
+    }, 300);
+}, 1000);
 </script>

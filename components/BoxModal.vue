@@ -1,36 +1,36 @@
 <template>
-  <transition
-    enter-active-class="transition duration-150"
-    enter-from-class="opacity-0"
-    enter-to-class="opacity-100"
-  >
-    <div v-if="isOpen && appearShow" class="fixed inset-0 top-0 left-0 z-50 flex items-center justify-center text-left bg-black bg-opacity-50 cursor-default" @click.stop="close">
-      <transition
-        appear
-        enter-active-class="transition duration-500 delay-150 transform"
-        enter-from-class="-translate-y-6 opacity-0"
-        enter-to-class="translate-y-0 opacity-100"
-      >
-        <article class="relative w-full max-w-xs border-4 sm:max-w-lg bg-background border-primary" @click.stop>
-          <button class="absolute lowercase top-2 right-2 text-secondary hover:text-secondary-dark active:text-primary-dark" @click="close">
-            <XMarkIcon class="w-6 h-6" />
-          </button>
-          <slot />
-        </article>
-      </transition>
-    </div>
-  </transition>
+    <transition
+        enter-active-class="transition duration-150"
+        enter-from-class="opacity-0"
+        enter-to-class="opacity-100"
+    >
+        <div v-if="isOpen && appearShow" @click.stop="close" class="fixed inset-0 top-0 left-0 z-50 flex items-center justify-center text-left bg-black bg-opacity-50 cursor-default">
+            <transition appear
+                enter-active-class="transition duration-500 delay-150 transform"
+                enter-from-class="-translate-y-6 opacity-0"
+                enter-to-class="translate-y-0 opacity-100"
+            >
+                <article @click.stop class="relative bg-white border-4 border-primary">
+                    <button @click="close" class="absolute lowercase top-2 right-2 text-secondary hover:text-secondary-dark active:text-primary-dark">
+                        <XIcon class="w-6 h-6"/>
+                    </button>
+                    <slot></slot>
+                </article>
+            </transition>
+        </div>
+    </transition>
 </template>
 
 <script setup>
-import { XMarkIcon } from '@heroicons/vue/24/solid/index.js'
-import useAppearShow from '../composables/useAppearShow'
-const { appearShow } = useAppearShow()
+import useAppearShow from '../composables/useAppearShow';
+const { appearShow } = useAppearShow();
+import { XIcon } from '@heroicons/vue/solid/index.js';
 const emit = defineEmits(['close'])
 defineProps({
-  isOpen: Boolean
+    isOpen:Boolean
 })
-function close () {
-  emit('close')
+function close() {
+    emit('close');
 }
 </script>
+
