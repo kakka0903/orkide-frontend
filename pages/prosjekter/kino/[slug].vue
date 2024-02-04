@@ -18,6 +18,5 @@ const route = useRoute()
 const { data: project } = await getVideoProjectBySlug(route.params.slug as string)
 
 const getDescription = videoProject => videoProject.artist + ' ' + videoProject.year + '. ' + videoProject.description
-console.log(project)
 // TODO: add back SEO meta
 </script>
