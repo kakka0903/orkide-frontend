@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .description-field a {
+    @apply text-primary hover:text-secondary-dark active:text-secondary transition-colors underline
+  }
+  .description-field u {
+    @apply underline
+  }
+  .description-field ul > li {
+    @apply list-disc ml-4
+  }
+}
+
+:root {
+  --primary:        0 17 255;
+  --primary-dark:   29 58 138;
+  --secondary:      132 204 22;
+  --secondary-dark: 96 147 19;
+  --background:     255 255 255;
+}
+
+.dark {
+  --primary:        242 98 255;
+  --primary-dark:   172 71 180;
+  --secondary:      132 204 22;
+  --secondary-dark: 96 147 19;
+  --background:     19 12 20;
+}

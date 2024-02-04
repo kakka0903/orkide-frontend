@@ -1,38 +1,36 @@
 <template>
-    <div >
-        <VideoModal
-            @close="close"
-            :youtubeId="clip.attributes.youtubeId"
-            :title="musicVideo.attributes.name+' BTS #'+clips.indexOf(clip)"
-            :description="clip.attributes.description"
-            isOpen
-        />
-    </div>
+  <div>
+    <VideoModal
+      v-if="clip !== null && clip !== undefined && musicVideo !== null && musicVideo !== undefined"
+      :youtube-id="clip.youtubeId"
+      :title="musicVideo.name+' BTS #'+clips.indexOf(clip)"
+      :description="clip.description"
+      is-open
+      @close="close"
+    />
+  </div>
 </template>
 
 <script setup>
-const props = defineProps({
-    clips: Array,
-    musicVideo: Object,
-})
+const route = useRoute()
+const doCacheCMSData = useRuntimeConfig().public.cacheCMSData
+const { getVideoProjectBySlug, getBTSClipsByVideoProjectSlug } = useCMSData(doCacheCMSData)
+const { data: musicVideo } = await getVideoProjectBySlug(route.params.slug)
+const { data: clips } = await getBTSClipsByVideoProjectSlug(route.params.slug)
+const clip = computed(() => (clips.value !== null) ? clips.value[route.params.number] : null)
 
-const route = useRoute();
-const clip = computed(() => {
-    return props.clips[route.params.number];
-})
-
-function close() {
-    navigateTo('/bts/'+route.params.slug+'/');
+function close () {
+  navigateTo('/bts/' + route.params.slug + '/')
 }
 
-const metaDescription = computed(() => {
-    var c = clip.value.attributes
-    var vid = props.musicVideo.attributes
-    return 'Behind the scenes klipp #'+ route.params.number + ' fra innspillingen av ' + vid.artist + ' videoen '+ vid.name + '.';
-})
+// const metaDescription = computed(() => {
+//   const c = clip.value
+//   const vid = props.musicVideo
+//   return 'Behind the scenes klipp #' + route.params.number + ' fra innspillingen av ' + vid.artist + ' videoen ' + vid.name + '.'
+// })
 
-useHead({
-    title:'Orkide - '+props.musicVideo.attributes.name+' BTS #'+route.params.number,
-    meta: [{name:'description', content:metaDescription.value}]
-})
+// useHead({
+//   title: 'Orkide - ' + props.musicVideo.name + ' BTS #' + route.params.number,
+//   meta: [{ name: 'description', content: metaDescription.value }]
+// })
 </script>
