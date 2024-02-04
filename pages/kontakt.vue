@@ -24,8 +24,9 @@
 </template>
 
 <script setup>
-import contact_data from '~/data/contact.json'
-const contact = ref(contact_data.data.attributes)
+const cacheCMSData = useRuntimeConfig().public.cacheCMSData
+const { getContactData } = useCMSData(cacheCMSData)
+const { data: contact } = await getContactData()
 useHead({
   title: 'Orkidé - Kontakt',
   meta: [{ name: 'description', content: 'Hold deg oppdatert på alt Orkidé og Undergrunn. Sjekk ut ekslusivt materiale på Instagram, Youtube og TikTok. Gira på samarbeid? Linkene finner du her.' }]

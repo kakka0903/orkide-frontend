@@ -1,6 +1,10 @@
 import { getOnlyAttributes, getOnlyAttributesMany } from '~/api/strapiUtils'
 
 export const useCMSData = (doCacheData: boolean) => {
+  // TODO: more abstractions can be created here to reduce code duplication
+  // TODO: add existing types
+  // TODO: add types for all models
+
   const strapi = useStrapi()
   const setCacheFn = (doCacheData) ? () => true : () => false
 
@@ -67,5 +71,25 @@ export const useCMSData = (doCacheData: boolean) => {
     return useAsyncData(getProject, buildAsyncOptions(getOnlyAttributes))
   }
 
-  return { getVideoProjects, getVideoProjectBySlug, getUserPolls, getBTSClipsByVideoProjectSlug, getCoverProjects, getCoverProjectById }
+  const getContactData = () => {
+    return useAsyncData(() => strapi.find('kontakt'), {
+      transform: getOnlyAttributes,
+      server: setCacheFn()
+    })
+  }
+
+  const usePageData = (routeName: string) => {
+    const strapiReq = () => strapi.find('pages', {
+      populate: ['page_heading', 'page_intro'],
+      filters: {
+        path: routeName
+      }
+    })
+    return useAsyncData(strapiReq, {
+      transform: res => res.data[0].attributes,
+      server: setCacheFn()
+    })
+  }
+
+  return { getVideoProjects, getVideoProjectBySlug, getUserPolls, getBTSClipsByVideoProjectSlug, getCoverProjects, getCoverProjectById, getContactData, usePageData }
 }
