@@ -1,31 +1,22 @@
 <template>
   <div>
+    {{ project }}
     <VideoModal
-      v-if="musicVideo"
-      :title="musicVideo.attributes.name"
-      :description="description"
-      :youtube-id="musicVideo.attributes.youtubeId"
+      v-if="project !== null && project !== undefined"
+      :title="project.name"
+      :description="getDescription(project)"
+      :youtube-id="project.youtubeId"
       @close="navigateTo('/prosjekter/')"
     />
   </div>
 </template>
 
-<script setup>
-import projects from '~/data/projects.json'
-
+<script setup lang="ts">
+const doCacheCMSData = useRuntimeConfig().public.cacheCMSData
+const { getVideoProjectBySlug } = useCMSData(doCacheCMSData)
 const route = useRoute()
-const musicVideo = computed(() => {
-  return projects.data.find((project) => {
-    return project.attributes.slug == route.params.slug
-  })
-})
-const description = computed(() => {
-  const mvid = musicVideo.value.attributes
-  return mvid.artist + ' ' + mvid.year + '. ' + mvid.description
-})
+const { data: project } = await getVideoProjectBySlug(route.params.slug as string)
 
-useHead({
-  title: 'Orkidé - Prosjekter ' + musicVideo.value.attributes.name,
-  meta: [{ name: 'description', content: description }]
-})
+const getDescription = videoProject => videoProject.artist + ' ' + videoProject.year + '. ' + videoProject.description
+// TODO: add back SEO meta
 </script>

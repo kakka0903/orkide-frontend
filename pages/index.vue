@@ -8,12 +8,12 @@
       </NuxtLink>
     </div>
 
-    <div class="flex justify-center my-10 h-28">
+    <div v-if="polls !== null && polls !== undefined" class="flex justify-center my-10 h-28">
       <Transition
         enter-active-class="transition duration-500 ease-out delay-150 transform-gpu"
         enter-from-class="translate-x-10 opacity-0"
       >
-        <PollSequence v-show="appearShow" class="text-xl h-28" :polls="polls.data" netlify name="landing-page-form" />
+        <PollSequence v-show="appearShow" class="text-xl h-28" :polls="polls" netlify name="landing-page-form" />
       </Transition>
     </div>
 
@@ -41,8 +41,11 @@
 </template>
 
 <script async setup>
-import polls from '~/data/polls.json'
 const { appearShow } = useAppearShow()
+
+const doCacheCMSData = useRuntimeConfig().public.cacheCMSData
+const { getUserPolls } = useCMSData(doCacheCMSData)
+const { data: polls } = await getUserPolls()
 
 useHead({
   title: 'Orkidé'

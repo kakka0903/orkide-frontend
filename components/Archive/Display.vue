@@ -28,7 +28,9 @@
 import { PhotoIcon } from '@heroicons/vue/24/outline'
 import type { AlbumCoverProject } from '~/types/CoverProjects'
 
-const { data: coverProjects } = await useManyCoverProjects()
+const doCacheCMSData = useRuntimeConfig().public.cacheCMSData
+const { getCoverProjects } = useCMSData(doCacheCMSData)
+const { data: coverProjects } = await getCoverProjects()
 
 function getSlideShowLink (coverProject: AlbumCoverProject) {
   return '/prosjekter/covers/' + coverProject.id

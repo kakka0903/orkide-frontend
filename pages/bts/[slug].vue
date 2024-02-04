@@ -1,8 +1,9 @@
 <template>
   <main class="flex-grow space-y-5">
-    <h1 class="text-xl text-primary">
-      {{ musicVideo.attributes.name }} BTS
+    <h1 v-if="musicVideo !== null && musicVideo !== undefined" class="text-xl text-primary">
+      {{ musicVideo.name }} BTS
     </h1>
+
     <TransitionGroup
       :css="false"
       tag="div"
@@ -23,19 +24,22 @@
         />
       </NuxtLink>
     </TransitionGroup>
-    <BoxNotice v-if="clips.length == 0">
-      <p v-if="!musicVideo">
+
+    <!-- TODO: fix this error message -->
+    <!-- <BoxNotice v-if="clips === null || clips.length == 0">
+      <p v-if="musicVideo !== null && musicVideo !== undefined">
         Could not find "{{ route.params.slug }}" project.
       </p>
       <p v-else>
-        Det finnes ikke behind the scenes innhold for <span class="italic">{{ musicVideo.attributes.name }}</span> enda :(
+        Det finnes ikke behind the scenes innhold for dette video prosjektet enda :(
       </p>
       <div class="flex justify-end">
         <NuxtLink class="flex items-center text-primary" to="/prosjekter/">
           <ArrowLeftIcon class="w-4 h-4 mr-1" /> PROSJEKTER
         </NuxtLink>
       </div>
-    </BoxNotice>
+    </BoxNotice> -->
+
     <NuxtPage :clips="clips" :music-video="musicVideo" />
   </main>
 </template>
@@ -43,29 +47,25 @@
 <script setup>
 import gsap from 'gsap'
 import { ArrowLeftIcon } from '@heroicons/vue/24/solid/index.js'
-import projects from '~/data/projects.json'
-const { appearShow } = useAppearShow()
 
 const route = useRoute()
-const musicVideo = computed(() => {
-  return projects.data.find((project) => {
-    return project.attributes.slug === route.params.slug
-  })
-})
-const clips = computed(() => {
-  return musicVideo.value.attributes.bts_clips.data
-})
+const doCacheCMSData = useRuntimeConfig().public.cacheCMSData
+const { getVideoProjectBySlug, getBTSClipsByVideoProjectSlug } = useCMSData(doCacheCMSData)
+const { data: musicVideo } = await getVideoProjectBySlug(route.params.slug)
+const { data: clips } = await getBTSClipsByVideoProjectSlug(route.params.slug)
+const { appearShow } = useAppearShow()
 
-const metaDescription = computed(() => {
-  const vid = musicVideo.value.attributes
-  const c = clips.value
-  return 'Se ' + c.length + ' eksklusive BTS klipp fra musikkvideoen ' + vid.name + ', fremført av ' + vid.artist + ' og produsert av Orkidé.'
-})
+// TODO: fix the SEO properties
+// const metaDescription = computed(() => {
+//   const vid = musicVideo.value.attributes
+//   const c = clips.value
+//   return 'Se ' + c.length + ' eksklusive BTS klipp fra musikkvideoen ' + vid.name + ', fremført av ' + vid.artist + ' og produsert av Orkidé.'
+// })
 
-useHead({
-  title: 'Orkide - ' + musicVideo.value.attributes.name + ' BTS',
-  meta: [{ name: 'description', content: metaDescription.value }]
-})
+// useHead({
+//   title: 'Orkide - ' + musicVideo.value.attributes.name + ' BTS',
+//   meta: [{ name: 'description', content: metaDescription.value }]
+// })
 
 // animate staggered entry of BTSClips
 function onBeforeEnter (el) {

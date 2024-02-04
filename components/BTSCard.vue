@@ -19,8 +19,8 @@ const props = defineProps({
 
 const config = useRuntimeConfig()
 const thumbnailUrl = computed(() => {
-  const thumbnail = props.clip.attributes.thumbnail.data
-  return thumbnail ? thumbnail.attributes.url : undefined
+  const thumbnail = props.clip.thumbnail.data.attributes
+  return thumbnail ? thumbnail.url : undefined
 })
 
 const backgroundStyle = computed(() => {

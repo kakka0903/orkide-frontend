@@ -18,13 +18,10 @@
 
 <script setup>
 const isFlipped = ref(false)
-const props = defineProps({
+defineProps({
   musicVideo: {
     type: Object,
     required: true
   }
-})
-const hasClips = computed(() => {
-  return props.musicVideo.attributes.bts_clips.data.length > 0
 })
 </script>
