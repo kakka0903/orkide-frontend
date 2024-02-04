@@ -20,7 +20,7 @@ const props = defineProps({
 const config = useRuntimeConfig()
 const thumbnailUrl = computed(() => {
   const thumbnail = props.clip.thumbnail.data.attributes
-  return thumbnail ? thumbnail.url : undefined
+  return thumbnail ? config.public.strapi.url + thumbnail.url : undefined
 })
 
 const backgroundStyle = computed(() => {
