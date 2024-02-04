@@ -13,7 +13,8 @@
 
 <script setup>
 const route = useRoute()
-const { getVideoProjectBySlug, getBTSClipsByVideoProjectSlug } = useCMSData(false)
+const doCacheCMSData = useRuntimeConfig().public.cacheCMSData
+const { getVideoProjectBySlug, getBTSClipsByVideoProjectSlug } = useCMSData(doCacheCMSData)
 const { data: musicVideo } = await getVideoProjectBySlug(route.params.slug)
 const { data: clips } = await getBTSClipsByVideoProjectSlug(route.params.slug)
 const clip = computed(() => (clips.value !== null) ? clips.value[route.params.number] : null)

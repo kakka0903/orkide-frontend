@@ -42,7 +42,9 @@
 
 <script async setup>
 const { appearShow } = useAppearShow()
-const { getUserPolls } = useCMSData(false)
+
+const doCacheCMSData = useRuntimeConfig().public.cacheCMSData
+const { getUserPolls } = useCMSData(doCacheCMSData)
 const { data: polls } = await getUserPolls()
 
 useHead({

@@ -49,7 +49,8 @@ import gsap from 'gsap'
 import { ArrowLeftIcon } from '@heroicons/vue/24/solid/index.js'
 
 const route = useRoute()
-const { getVideoProjectBySlug, getBTSClipsByVideoProjectSlug } = useCMSData(false)
+const doCacheCMSData = useRuntimeConfig().public.cacheCMSData
+const { getVideoProjectBySlug, getBTSClipsByVideoProjectSlug } = useCMSData(doCacheCMSData)
 const { data: musicVideo } = await getVideoProjectBySlug(route.params.slug)
 const { data: clips } = await getBTSClipsByVideoProjectSlug(route.params.slug)
 const { appearShow } = useAppearShow()
