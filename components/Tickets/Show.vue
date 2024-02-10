@@ -29,33 +29,10 @@
           <TicketsImageSlide
             :image-url="slide.image.data.attributes.hash+slide.image.data.attributes.ext"
             :image-alt="slide.image.data.attributes.alternativeText"
-            :description="slide.description"
-            :show-description="showDescription"
-            @switch="toggleDescription"
           />
         </slide>
       </Carousel>
     </Transition>
-
-    <transition
-      enter-active-class="transition duration-300 ease-out delay-150"
-      enter-from-class="opacity-0"
-      enter-to-class="opacity-100"
-    >
-      <button
-        v-if="slideshow && 1 < currentSlide"
-        class="absolute flex items-center gap-2 p-3 transition bottom-14 text-secondary-dark hover:text-secondary touch-manipulation"
-        @click.stop="toggleDescription"
-      >
-        <p v-if="!showDescription">
-          show description
-        </p>
-        <p v-else>
-          show albumcover
-        </p>
-        <QuestionMarkCircleIcon class="w-6 h-6" />
-      </button>
-    </transition>
 
     <transition
       enter-active-class="transition duration-300 ease-out delay-1000"
@@ -114,12 +91,6 @@ onMounted(() => {
     canDragSlides.value = true
   }, 500)
 })
-
-const showDescription = ref(false)
-const toggleDescription = () => {
-  showDescription.value = !showDescription.value
-  slideshow.value.updateSlideWidth()
-}
 
 useScrollLock()
 </script>
