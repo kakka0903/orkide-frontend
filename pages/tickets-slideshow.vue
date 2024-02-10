@@ -1,9 +1,9 @@
 <template>
   <div class="flex-grow">
-    <BoxButton @click="showSlideshow = !showSlideshow">
+    <BoxButton @click="showSlideshow = true">
       open slideshow
     </BoxButton>
-    <TicketsShow v-if="showSlideshow" :cover-project-id="1" />
+    <TicketsShow v-if="showSlideshow" @close="showSlideshow = false" />
   </div>
 </template>
 

@@ -63,6 +63,7 @@ interface Props {
   coverProjectId: number
 }
 const props = defineProps<Props>()
+const emit = defineEmits(['close'])
 
 const doCacheCMSData = useRuntimeConfig().public.cacheCMSData
 const { getCoverProjectById } = useCMSData(doCacheCMSData)
@@ -77,7 +78,7 @@ const currentSlide = computed(() => {
 })
 
 const exit = () => {
-  history.back()
+  emit('close')
 }
 
 // disable drag while transitions are active to fix buggy UI
