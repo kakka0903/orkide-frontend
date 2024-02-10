@@ -14,7 +14,7 @@
         @click="exit"
       >
         <slide key="intro" @click="exit">
-          <CoversIntroSlide
+          <TicketsIntroSlide
             :title="project.title"
             :subtitle="project.subtitle"
             :text="project.description"
@@ -26,7 +26,7 @@
           :key="slide.id"
           class="flex justify-center h-full"
         >
-          <CoversImageSlide
+          <TicketsImageSlide
             :image-url="slide.image.data.attributes.hash+slide.image.data.attributes.ext"
             :image-alt="slide.image.data.attributes.alternativeText"
             :description="slide.description"
