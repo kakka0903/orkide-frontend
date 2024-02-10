@@ -3,13 +3,13 @@
     <DashedBox class="flex flex-col justify-center w-full p-8 overflow-y-scroll md:p-10 aspect-square">
       <div>
         <p class="text-3xl font-bold underline md:mb-2 md:text-4xl text-primary">
-          {{ title }}
+          {{ introSlide.title }}
         </p>
-        <p v-if="subtitle" class="mt-1 text-sm font-bold md:text-base md:mb-4 text-secondary">
-          {{ subtitle }}
+        <p class="mt-1 text-sm font-bold md:text-base md:mb-4 text-secondary">
+          {{ introSlide.subtitle }}
         </p>
-        <div class="mt-2 text-sm md:text-base text-primary">
-          <MarkdownField :markdown="text" />
+        <div v-if="introSlide.description" class="mt-2 text-sm md:text-base text-primary">
+          <MarkdownField :markdown="introSlide.description" />
         </div>
       </div>
     </DashedBox>
@@ -17,14 +17,9 @@
 </template>
 
 <script setup lang="ts">
+import type { TicketsIntroSlide } from '~/types/TicketSlideshow'
+defineProps<{ introSlide: TicketsIntroSlide }>()
 
 // TODO: fix sizing when missing subtitle and desc
 // TODO: set limit for text sizes
-interface Props {
-  title: string
-  subtitle?: string
-  text?: string
-}
-defineProps<Props>()
-// TODO: enable markdown formatting for text
 </script>

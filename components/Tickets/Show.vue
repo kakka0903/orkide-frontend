@@ -14,11 +14,7 @@
         @click="exit"
       >
         <slide key="intro" @click="exit">
-          <TicketsIntroSlide
-            :title="project.title"
-            :subtitle="project.subtitle"
-            :text="project.description"
-          />
+          <TicketsIntroSlide :intro-slide="project.intro_slide" />
         </slide>
 
         <slide

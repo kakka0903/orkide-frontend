@@ -1,7 +1,7 @@
 export interface TicketsIntroSlide {
   title: string
   subtitle: string
-  description: string
+  description?: string
 }
 
 export interface TicketsImageSlide {
