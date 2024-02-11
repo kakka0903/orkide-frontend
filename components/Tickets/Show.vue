@@ -27,6 +27,14 @@
             :image-alt="slide.image.data.attributes.alternativeText"
           />
         </slide>
+
+        <slide
+          v-for="slide in project.video_slides"
+          :key="slide.id"
+          class="flex justify-center h-full"
+        >
+          <TicketsVideoSlide :youtube-id="slide.youtube_id" />
+        </slide>
       </Carousel>
     </Transition>
 
