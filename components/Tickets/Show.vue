@@ -55,7 +55,6 @@
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide } from 'vue3-carousel'
 import { XMarkIcon } from '@heroicons/vue/24/solid/index.js'
-import { QuestionMarkCircleIcon } from '@heroicons/vue/24/outline/index.js'
 
 const { appearShow } = useAppearShow()
 
