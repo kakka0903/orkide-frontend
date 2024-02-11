@@ -94,7 +94,13 @@ export const useCMSData = (doCacheData: boolean) => {
 
   const getSlideshowById = (id: number) => {
     const strapiReq = () => strapi.findOne<TicketsSlideshow>('slideshows', id, {
-      populate: ['image_slides', 'intro_slide', 'video_slides']
+      populate: {
+        intro_slide: true,
+        image_slides: {
+          populate: ['image']
+        },
+        video_slides: true
+      }
     })
     return useAsyncData(strapiReq, {
       transform: getOnlyAttributes,
