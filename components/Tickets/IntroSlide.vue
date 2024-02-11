@@ -1,5 +1,5 @@
 <template>
-  <CoversBaseSlide class="flex justify-center h-full">
+  <TicketsBaseSlide class="flex justify-center h-full">
     <DashedBox class="flex flex-col justify-center w-full p-8 overflow-y-scroll md:p-10 aspect-square">
       <div>
         <p class="text-3xl font-bold underline md:mb-2 md:text-4xl text-primary">
@@ -13,7 +13,7 @@
         </div>
       </div>
     </DashedBox>
-  </CoversBaseSlide>
+  </TicketsBaseSlide>
 </template>
 
 <script setup lang="ts">
