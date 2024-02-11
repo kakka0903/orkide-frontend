@@ -60,12 +60,8 @@ const { appearShow } = useAppearShow()
 
 const emit = defineEmits(['close'])
 
-const doCacheCMSData = useRuntimeConfig().public.cacheCMSData
-const { getCoverProjectById } = useCMSData(doCacheCMSData)
-const { data: project } = await getCoverProjectById(props.coverProjectId)
-if (project === null) {
-  throw createError('Could not load project!')
-}
+const { getSlideshowById } = useCMSData(false)
+const { data: project } = await getSlideshowById(1)
 
 const slideshow = ref(null)
 const currentSlide = computed(() => {

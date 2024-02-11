@@ -1,4 +1,5 @@
 import { getOnlyAttributes, getOnlyAttributesMany } from '~/api/strapiUtils'
+import type { TicketsSlideshow } from '~/types/TicketSlideshow'
 
 export const useCMSData = (doCacheData: boolean) => {
   // TODO: more abstractions can be created here to reduce code duplication
@@ -91,5 +92,15 @@ export const useCMSData = (doCacheData: boolean) => {
     })
   }
 
-  return { getVideoProjects, getVideoProjectBySlug, getUserPolls, getBTSClipsByVideoProjectSlug, getCoverProjects, getCoverProjectById, getContactData, usePageData }
+  const getSlideshowById = (id: number) => {
+    const strapiReq = () => strapi.findOne<TicketsSlideshow>('slideshows', id, {
+      populate: ['image_slides', 'intro_slide', 'video_slides']
+    })
+    return useAsyncData(strapiReq, {
+      transform: getOnlyAttributes,
+      server: setCacheFn()
+    })
+  }
+
+  return { getVideoProjects, getVideoProjectBySlug, getUserPolls, getBTSClipsByVideoProjectSlug, getCoverProjects, getCoverProjectById, getContactData, usePageData, getSlideshowById }
 }
