@@ -6,7 +6,7 @@
       enter-to-class="opacity-100"
     >
       <Carousel
-        v-if="appearShow && project !== null"
+        v-if="appearShow && project !== null && project !== undefined"
         ref="slideshow"
         class="relative w-full sm:mb-10"
         :mouse-drag="canDragSlides"
@@ -18,7 +18,7 @@
         </slide>
 
         <slide
-          v-for="slide in project.slides"
+          v-for="slide in project.image_slides"
           :key="slide.id"
           class="flex justify-center h-full"
         >

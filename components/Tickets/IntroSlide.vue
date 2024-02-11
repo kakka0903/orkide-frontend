@@ -19,7 +19,6 @@
 <script setup lang="ts">
 import type { TicketsIntroSlide } from '~/types/TicketSlideshow'
 defineProps<{ introSlide: TicketsIntroSlide }>()
-
 // TODO: fix sizing when missing subtitle and desc
 // TODO: set limit for text sizes
 </script>
