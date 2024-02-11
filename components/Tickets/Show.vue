@@ -59,10 +59,6 @@ import { QuestionMarkCircleIcon } from '@heroicons/vue/24/outline/index.js'
 
 const { appearShow } = useAppearShow()
 
-interface Props {
-  coverProjectId: number
-}
-const props = defineProps<Props>()
 const emit = defineEmits(['close'])
 
 const doCacheCMSData = useRuntimeConfig().public.cacheCMSData
