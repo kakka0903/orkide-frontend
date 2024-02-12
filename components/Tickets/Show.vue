@@ -1,24 +1,24 @@
 <template>
-  <div class="fixed inset-0 z-20 flex items-center justify-center bg-black/80" @click="exit">
+  <div v-if="slideshow !== null && slideshow !== undefined" class="fixed inset-0 z-20 flex items-center justify-center bg-black/80" @click="exit">
     <Transition
       enter-active-class="transition duration-500 ease-out delay-300 transform-gpu"
       enter-from-class="translate-y-20 opacity-0"
       enter-to-class="opacity-100"
     >
       <Carousel
-        v-if="appearShow && project !== null && project !== undefined"
-        ref="slideshow"
+        v-if="appearShow && slideshow !== null && slideshow !== undefined"
+        ref="swiper"
         class="relative w-full sm:mb-10"
         :mouse-drag="canDragSlides"
         :touch-drag="canDragSlides"
         @click="exit"
       >
         <slide key="intro" @click="exit">
-          <TicketsIntroSlide :intro-slide="project.intro_slide" />
+          <TicketsIntroSlide :intro-slide="slideshow.intro_slide" />
         </slide>
 
         <slide
-          v-for="slide in project.image_slides"
+          v-for="slide in slideshow.image_slides"
           :key="slide.id"
           class="flex justify-center h-full"
         >
@@ -29,7 +29,7 @@
         </slide>
 
         <slide
-          v-for="slide in project.video_slides"
+          v-for="slide in slideshow.video_slides"
           :key="slide.id"
           class="flex justify-center h-full"
         >
@@ -44,12 +44,12 @@
       enter-to-class="opacity-100"
     >
       <arrow-controls
-        v-if="slideshow && appearShow"
+        v-if="swiper && appearShow"
         class="absolute bottom-4"
         :current="currentSlide"
-        :count="slideshow.data.slidesCount.value"
-        @next="slideshow.next"
-        @prev="slideshow.prev"
+        :count="swiper.data.slidesCount.value"
+        @next="swiper.next"
+        @prev="swiper.prev"
       />
     </transition>
 
@@ -63,17 +63,16 @@
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide } from 'vue3-carousel'
 import { XMarkIcon } from '@heroicons/vue/24/solid/index.js'
+import type { TicketsSlideshow } from '~/types/TicketSlideshow'
 
 const { appearShow } = useAppearShow()
 
+defineProps<{slideshow: TicketsSlideshow }>()
 const emit = defineEmits(['close'])
 
-const { getSlideshowById } = useCMSData(false)
-const { data: project } = await getSlideshowById(1)
-
-const slideshow = ref(null)
+const swiper = ref(null)
 const currentSlide = computed(() => {
-  return slideshow.value.data.currentSlide.value + 1
+  return swiper.data.currentSlide.value + 1
 })
 
 const exit = () => {
