@@ -1,22 +1,14 @@
 <template>
   <div>
-    {{ project }}
-    <VideoModal
-      v-if="project !== null && project !== undefined"
-      :title="project.name"
-      :description="getDescription(project)"
-      :youtube-id="project.youtubeId"
-      @close="navigateTo('/prosjekter/')"
-    />
+    <TicketsShow :slideshow="slideshow" @close="goBack" />
   </div>
 </template>
 
 <script setup lang="ts">
 const doCacheCMSData = useRuntimeConfig().public.cacheCMSData
-const { getVideoProjectBySlug } = useCMSData(doCacheCMSData)
-const route = useRoute()
-const { data: project } = await getVideoProjectBySlug(route.params.slug as string)
-
-const getDescription = videoProject => videoProject.artist + ' ' + videoProject.year + '. ' + videoProject.description
+const { getSlideshowById } = useCMSData(doCacheCMSData)
+// TODO: get associated slideshow
+const { data: slideshow } = getSlideshowById(1)
+const goBack = () => navigateTo('/prosjekter?section=kino')
 // TODO: add back SEO meta
 </script>
