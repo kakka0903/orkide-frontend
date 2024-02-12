@@ -1,9 +1,6 @@
 <template>
   <div>
     <TicketsShow :slideshow="videoProject.slideshow" @close="goBack" />
-    <p class="text-white">
-      {{ videoProject }}
-    </p>
   </div>
 </template>
 
