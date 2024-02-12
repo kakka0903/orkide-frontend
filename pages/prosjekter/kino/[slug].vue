@@ -1,14 +1,17 @@
 <template>
   <div>
-    <TicketsShow :slideshow="slideshow" @close="goBack" />
+    <TicketsShow :slideshow="videoProject.slideshow" @close="goBack" />
+    <p class="text-white">
+      {{ videoProject }}
+    </p>
   </div>
 </template>
 
 <script setup lang="ts">
 const doCacheCMSData = useRuntimeConfig().public.cacheCMSData
-const { getSlideshowById } = useCMSData(doCacheCMSData)
-// TODO: get associated slideshow
-const { data: slideshow } = getSlideshowById(1)
+const { getVideoProjectBySlug } = useCMSData(doCacheCMSData)
+const route = useRoute()
+const { data: videoProject } = await getVideoProjectBySlug(route.params.slug)
 const goBack = () => navigateTo('/prosjekter?section=kino')
 // TODO: add back SEO meta
 </script>
