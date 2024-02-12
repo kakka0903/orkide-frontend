@@ -16,7 +16,8 @@ export const useCMSData = (doCacheData: boolean) => {
 
   const getVideoProjects = () => {
     const getVideoProjects = () => strapi.find('projects', {
-      sort: ['release_date:desc']
+      sort: ['release_date:desc'],
+      populate: ['slideshow']
     })
     const normalizeVideoProjects = res => res.data.map(project => project.attributes)
     return useAsyncData(getVideoProjects, buildAsyncOptions(normalizeVideoProjects))
