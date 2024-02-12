@@ -44,7 +44,7 @@
       enter-to-class="opacity-100"
     >
       <arrow-controls
-        v-if="swiper && appearShow"
+        v-if="appearShow && swiper"
         class="absolute bottom-4"
         :current="currentSlide"
         :count="swiper.data.slidesCount.value"
@@ -72,7 +72,7 @@ const emit = defineEmits(['close'])
 
 const swiper = ref(null)
 const currentSlide = computed(() => {
-  return swiper.data.currentSlide.value + 1
+  return swiper.value.data.currentSlide.value + 1
 })
 
 const exit = () => {
