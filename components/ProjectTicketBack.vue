@@ -9,7 +9,7 @@
         </BoxButton>
       </NuxtLink>
       <p v-else>
-        :)
+        <BlinkSmiley />
       </p>
     </div>
   </div>
