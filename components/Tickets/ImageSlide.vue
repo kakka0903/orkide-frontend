@@ -1,15 +1,13 @@
 <template>
-  <CoversBaseSlide>
-    <div class="flex flex-col justify-center w-full gap-4 cursor-grab aspect-square">
-      <NuxtImg
-        class="bg-gray-500"
-        provider="strapi"
-        :modifiers="{ breakpoint: 'large' }"
-        :src="imageUrl"
-        :alt="imageAlt"
-      />
-    </div>
-  </CoversBaseSlide>
+  <TicketsBaseSlide>
+    <NuxtImg
+      class="bg-gray-500"
+      provider="strapi"
+      :modifiers="{ breakpoint: 'large' }"
+      :src="imageUrl"
+      :alt="imageAlt"
+    />
+  </TicketsBaseSlide>
 </template>
 
 <script setup lang="ts">

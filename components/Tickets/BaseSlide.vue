@@ -1,7 +1,5 @@
 <template>
-  <div class="w-full max-w-lg px-5 py-20 font-mono md:px-10 md:max-w-lg" @click.stop>
-    <div class="w-full shadow-xl">
-      <slot />
-    </div>
+  <div class="flex items-center justify-center w-full max-w-lg px-5 py-20 font-mono h-[90vh] md:px-10 md:max-w-lg" @click.stop>
+    <slot />
   </div>
 </template>
