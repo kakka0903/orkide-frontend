@@ -1,16 +1,14 @@
 <template>
-  <div v-if="slideshow !== null && slideshow !== undefined" class="fixed inset-0 z-20 flex items-center justify-center bg-black/80" @click="exit">
+  <div v-if="slideshow" class="fixed inset-0 z-20 flex items-center justify-center bg-black/80" @click="exit">
     <Transition
       enter-active-class="transition duration-500 ease-out delay-300 transform-gpu"
       enter-from-class="translate-y-20 opacity-0"
       enter-to-class="opacity-100"
     >
       <Carousel
-        v-if="appearShow && slideshow !== null && slideshow !== undefined"
+        v-if="appearShow"
         ref="swiper"
         class="relative w-full sm:mb-10"
-        :mouse-drag="canDragSlides"
-        :touch-drag="canDragSlides"
         @click="exit"
       >
         <slide key="intro" @click="exit">
@@ -78,14 +76,4 @@ const currentSlide = computed(() => {
 const exit = () => {
   emit('close')
 }
-
-// disable drag while transitions are active to fix buggy UI
-const canDragSlides = ref(false)
-onMounted(() => {
-  setTimeout(() => {
-    canDragSlides.value = true
-  }, 500)
-})
-
-useScrollLock()
 </script>
