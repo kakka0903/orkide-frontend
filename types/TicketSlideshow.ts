@@ -1,3 +1,8 @@
+export interface SlideComponentDefinition {
+  __component: string
+  id: number
+}
+
 export interface TicketsIntroSlide {
   title: string
   subtitle: string
