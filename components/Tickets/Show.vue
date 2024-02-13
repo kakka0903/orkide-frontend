@@ -11,28 +11,9 @@
         class="relative w-full sm:mb-10"
         @click="exit"
       >
-        <slide key="intro" @click="exit">
-          <TicketsIntroSlide :intro-slide="slideshow.intro_slide" />
-        </slide>
-
-        <slide
-          v-for="slide in slideshow.image_slides"
-          :key="slide.id"
-          class="flex justify-center h-full"
-        >
-          <TicketsImageSlide
-            :image-url="slide.image.data.attributes.hash+slide.image.data.attributes.ext"
-            :image-alt="slide.image.data.attributes.alternativeText"
-          />
-        </slide>
-
-        <slide
-          v-for="slide in slideshow.video_slides"
-          :key="slide.id"
-          class="flex justify-center h-full"
-        >
-          <TicketsVideoSlide :youtube-id="slide.youtube_id" />
-        </slide>
+        <Slide v-for="slide in slideshow.slides" :key="slide.id" @click="exit">
+          <TicketsSlideRenderer :slide="slide" />
+        </Slide>
       </Carousel>
     </Transition>
 

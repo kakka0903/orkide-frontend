@@ -18,7 +18,5 @@ export interface TicketsVideoSlide {
 }
 
 export interface TicketsSlideshow {
-  intro_slide: TicketsIntroSlide
-  image_slides: TicketsImageSlide[]
-  video_slides: TicketsVideoSlide[]
+  slides: SlideComponentDefinition[]
 }

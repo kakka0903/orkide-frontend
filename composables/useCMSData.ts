@@ -33,7 +33,10 @@ export const useCMSData = (doCacheData: boolean) => {
             image_slides: {
               populate: ['image']
             },
-            video_slides: true
+            video_slides: true,
+            slides: {
+              populate: '*'
+            }
           }
         }
       }
