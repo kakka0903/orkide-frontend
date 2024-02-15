@@ -138,7 +138,16 @@ export const useCMSData = (doCacheData: boolean) => {
       }
     })
     return useAsyncData(strapiReq, {
-      transform: getOnlyAttributes,
+      transform: (res) => {
+        res = getOnlyAttributes(res)
+        res.tickets.forEach((ticket) => {
+          if (ticket.slideshow.data) {
+            ticket.slideshow = getOnlyAttributes(ticket.slideshow)
+          }
+        })
+        console.log(res.tickets)
+        return res
+      },
       server: setCacheFn()
     })
   }
@@ -157,7 +166,17 @@ export const useCMSData = (doCacheData: boolean) => {
     }
     return useAsyncData(
       () => strapi.findOne<ProjectsPage>('prosjekter', strapiOptions),
-      { transform: getOnlyAttributes }
+      {
+        transform: (res) => {
+          res = getOnlyAttributes(res)
+          res.folders.forEach((folder) => {
+            if (folder.slideshow.data) {
+              folder.slideshow = getOnlyAttributes(folder.slideshow)
+            }
+          })
+          return res
+        }
+      }
     )
   }
 
