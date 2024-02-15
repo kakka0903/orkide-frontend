@@ -35,7 +35,7 @@ const { data: projectsPage } = await getFolderProjects()
 
 function getSlideShowLink (folder: FolderProject) {
   // TODO: how can we include the ID in the type :(
-  return '/prosjekter/' + folder.id
+  return '/prosjekter/' + folder.slideshow.slug
 }
 
 const selectedProjectID: Ref<null | number> = ref(null)

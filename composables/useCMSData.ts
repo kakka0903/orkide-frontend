@@ -109,8 +109,11 @@ export const useCMSData = (doCacheData: boolean) => {
     })
   }
 
-  const getSlideshowById = (id: number) => {
-    const strapiReq = () => strapi.findOne<TicketsSlideshow>('slideshows', id, {
+  const getSlideshowBySlug = (slug: string) => {
+    const strapiReq = () => strapi.find<TicketsSlideshow>('slideshows', {
+      filters: {
+        slug
+      },
       populate: {
         intro_slide: true,
         image_slides: {
@@ -120,7 +123,7 @@ export const useCMSData = (doCacheData: boolean) => {
       }
     })
     return useAsyncData(strapiReq, {
-      transform: getOnlyAttributes,
+      transform: res => res.data[0].attributes,
       server: setCacheFn()
     })
   }
@@ -131,7 +134,7 @@ export const useCMSData = (doCacheData: boolean) => {
         tickets: {
           populate: {
             slideshow: {
-              fields: ['id']
+              fields: ['slug']
             }
           }
         }
@@ -158,7 +161,7 @@ export const useCMSData = (doCacheData: boolean) => {
         folders: {
           populate: {
             slideshow: {
-              fields: ['id']
+              fields: ['slug']
             }
           }
         }
@@ -180,5 +183,5 @@ export const useCMSData = (doCacheData: boolean) => {
     )
   }
 
-  return { getVideoProjects, getVideoProjectBySlug, getUserPolls, getBTSClipsByVideoProjectSlug, getCoverProjects, getCoverProjectById, getContactData, usePageData, getSlideshowById, getTicketProjects, getFolderProjects }
+  return { getVideoProjects, getVideoProjectBySlug, getUserPolls, getBTSClipsByVideoProjectSlug, getCoverProjects, getCoverProjectById, getContactData, usePageData, getSlideshowBySlug, getTicketProjects, getFolderProjects }
 }
