@@ -1,4 +1,5 @@
 import { getOnlyAttributes, getOnlyAttributesMany } from '~/api/strapiUtils'
+import type { ProjectsPage } from '~/types/Projects'
 import type { TicketsSlideshow } from '~/types/TicketSlideshow'
 
 export const useCMSData = (doCacheData: boolean) => {
@@ -124,5 +125,23 @@ export const useCMSData = (doCacheData: boolean) => {
     })
   }
 
-  return { getVideoProjects, getVideoProjectBySlug, getUserPolls, getBTSClipsByVideoProjectSlug, getCoverProjects, getCoverProjectById, getContactData, usePageData, getSlideshowById }
+  const getTicketProjects = () => {
+    const strapiReq = () => strapi.findOne<ProjectsPage>('prosjekter', {
+      populate: {
+        tickets: {
+          populate: {
+            slideshow: {
+              fields: ['id']
+            }
+          }
+        }
+      }
+    })
+    return useAsyncData(strapiReq, {
+      transform: getOnlyAttributes,
+      server: setCacheFn()
+    })
+  }
+
+  return { getVideoProjects, getVideoProjectBySlug, getUserPolls, getBTSClipsByVideoProjectSlug, getCoverProjects, getCoverProjectById, getContactData, usePageData, getSlideshowById, getTicketProjects }
 }
