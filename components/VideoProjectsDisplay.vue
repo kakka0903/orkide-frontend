@@ -7,7 +7,7 @@
       <ProjectTicket
         v-for="ticket in projectsPage.tickets"
         :key="ticket.id"
-        :music-video="ticket"
+        :ticket="ticket"
       />
       <NuxtPage />
     </div>
