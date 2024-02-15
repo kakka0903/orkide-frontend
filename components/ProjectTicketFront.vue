@@ -1,6 +1,6 @@
 <template>
   <div class="relative flex px-6 py-5">
-    <SpikeBadge v-if="musicVideo.isNew" class="absolute z-10 rotate-[20deg] -top-8 -right-8">
+    <SpikeBadge v-if="ticket.isNew" class="absolute z-10 rotate-[20deg] -top-8 -right-8">
       NY!
     </SpikeBadge>
 
@@ -11,13 +11,13 @@
         TITTEL
       </p>
       <p class="text-xl leading-none uppercase text-secondary">
-        {{ musicVideo.ticketName || musicVideo.name }}
+        {{ ticket.title }}
       </p>
       <p class="mt-2 text-xs font-normal text-primary">
         ARTIST
       </p>
       <p class="text-xl leading-none uppercase text-secondary">
-        {{ musicVideo.artist }}
+        {{ ticket.client }}
       </p>
     </div>
 
@@ -30,6 +30,6 @@
   </div>
 </template>
 
-<script setup>
-defineProps({ musicVideo: Object })
+<script setup lang="ts">
+defineProps<{ ticket: TicketProject }>()
 </script>

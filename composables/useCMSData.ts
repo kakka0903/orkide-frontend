@@ -1,4 +1,5 @@
 import { getOnlyAttributes, getOnlyAttributesMany } from '~/api/strapiUtils'
+import type { ProjectsPage } from '~/types/Projects'
 import type { TicketsSlideshow } from '~/types/TicketSlideshow'
 
 export const useCMSData = (doCacheData: boolean) => {
@@ -108,8 +109,11 @@ export const useCMSData = (doCacheData: boolean) => {
     })
   }
 
-  const getSlideshowById = (id: number) => {
-    const strapiReq = () => strapi.findOne<TicketsSlideshow>('slideshows', id, {
+  const getSlideshowBySlug = (slug: string) => {
+    const strapiReq = () => strapi.find<TicketsSlideshow>('slideshows', {
+      filters: {
+        slug
+      },
       populate: {
         intro_slide: true,
         image_slides: {
@@ -119,10 +123,65 @@ export const useCMSData = (doCacheData: boolean) => {
       }
     })
     return useAsyncData(strapiReq, {
-      transform: getOnlyAttributes,
+      transform: res => res.data[0].attributes,
       server: setCacheFn()
     })
   }
 
-  return { getVideoProjects, getVideoProjectBySlug, getUserPolls, getBTSClipsByVideoProjectSlug, getCoverProjects, getCoverProjectById, getContactData, usePageData, getSlideshowById }
+  const getTicketProjects = () => {
+    const strapiReq = () => strapi.findOne<ProjectsPage>('prosjekter', {
+      populate: {
+        tickets: {
+          populate: {
+            slideshow: {
+              fields: ['slug']
+            }
+          }
+        }
+      }
+    })
+    return useAsyncData(strapiReq, {
+      transform: (res) => {
+        res = getOnlyAttributes(res)
+        res.tickets.forEach((ticket) => {
+          if (ticket.slideshow.data) {
+            ticket.slideshow = getOnlyAttributes(ticket.slideshow)
+          }
+        })
+        console.log(res.tickets)
+        return res
+      },
+      server: setCacheFn()
+    })
+  }
+
+  const getFolderProjects = () => {
+    const strapiOptions = {
+      populate: {
+        folders: {
+          populate: {
+            slideshow: {
+              fields: ['slug']
+            }
+          }
+        }
+      }
+    }
+    return useAsyncData(
+      () => strapi.findOne<ProjectsPage>('prosjekter', strapiOptions),
+      {
+        transform: (res) => {
+          res = getOnlyAttributes(res)
+          res.folders.forEach((folder) => {
+            if (folder.slideshow.data) {
+              folder.slideshow = getOnlyAttributes(folder.slideshow)
+            }
+          })
+          return res
+        }
+      }
+    )
+  }
+
+  return { getVideoProjects, getVideoProjectBySlug, getUserPolls, getBTSClipsByVideoProjectSlug, getCoverProjects, getCoverProjectById, getContactData, usePageData, getSlideshowBySlug, getTicketProjects, getFolderProjects }
 }
