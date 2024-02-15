@@ -8,6 +8,18 @@ export interface TicketProject {
   isNew: boolean
 }
 
+export interface FolderProject {
+  title: string
+  links: {
+    title: string
+    url: string
+    icon: string
+  }[]
+  slideshow: {
+    id: number
+  }
+}
+
 export interface ProjectsPage {
   tickets: TicketProject[]
 }

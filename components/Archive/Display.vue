@@ -3,19 +3,20 @@
     <div class="border-r-2 border-dashed border-primary" />
     <div class="space-y-5">
       <ArchiveFolder
-        v-for="project in coverProjects"
-        :key="project.slug"
-        :title="project.title"
-        :is-selected="isProjectSelected(project.id)"
-        @click="selectProject(project)"
+        v-for="folder in folders"
+        :key="folder.id"
+        :title="folder.title"
+        :is-selected="isProjectSelected(folder.id)"
+        @click="selectProject(folder)"
       >
         <div class="space-y-2">
-          <ArchiveTextLink :url="getSlideShowLink(project)">
+          <ArchiveTextLink :url="getSlideShowLink(folder)">
             <PhotoIcon class="w-6 h-6" /> Se prosessen
           </ArchiveTextLink>
-          <ArchiveTextLink v-for="link in project.links" :key="link.url" :url="link.url">
+
+          <ArchiveTextLink v-for="link in folder.links" :key="link.url" :url="link.url">
             <div class="w-6 h-6" v-html="JSON.parse(link.icon).component" />
-            <p>{{ link.label }}</p>
+            <p>{{ link.title }}</p>
           </ArchiveTextLink>
         </div>
       </ArchiveFolder>
@@ -26,14 +27,17 @@
 
 <script setup lang="ts">
 import { PhotoIcon } from '@heroicons/vue/24/outline'
-import type { AlbumCoverProject } from '~/types/CoverProjects'
+import type { FolderProject } from '~/types/Projects'
 
-const doCacheCMSData = useRuntimeConfig().public.cacheCMSData
-const { getCoverProjects } = useCMSData(doCacheCMSData)
-const { data: coverProjects } = await getCoverProjects()
+// const doCacheCMSData = useRuntimeConfig().public.cacheCMSData
+// const { getCoverProjects } = useCMSData(doCacheCMSData)
+// const { data: coverProjects } = await getCoverProjects()
 
-function getSlideShowLink (coverProject: AlbumCoverProject) {
-  return '/prosjekter/covers/' + coverProject.id
+const folders: FolderProject[] = []
+
+function getSlideShowLink (folder: FolderProject) {
+  // TODO: how can we include the ID in the type :(
+  return '/prosjekter/' + folder.id
 }
 
 const selectedProjectID: Ref<null | number> = ref(null)
@@ -50,7 +54,7 @@ function isProjectSelected (projectId: number) {
  * Select a project when its not selected and unselect it when it is selected.
  * @param project The project to select/unselect.
  */
-function selectProject (project: AlbumCoverProject) {
+function selectProject (project: FolderProject) {
   const isSelected = isProjectSelected(project.id)
   selectedProjectID.value = (isSelected) ? null : project.id
 }
