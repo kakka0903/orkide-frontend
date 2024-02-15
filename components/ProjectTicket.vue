@@ -17,6 +17,7 @@
 </template>
 
 <script setup lang="ts">
+import type { TicketProject } from '~/types/Projects'
 const isFlipped = ref(false)
 defineProps<{ ticket: TicketProject }>()
 </script>
