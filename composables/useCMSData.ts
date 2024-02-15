@@ -118,11 +118,9 @@ export const useCMSData = (doCacheData: boolean) => {
         slug
       },
       populate: {
-        intro_slide: true,
-        image_slides: {
-          populate: ['image']
-        },
-        video_slides: true
+        slides: {
+          populate: '*'
+        }
       }
     })
     return useAsyncData(strapiReq, {
