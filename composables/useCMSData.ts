@@ -143,5 +143,23 @@ export const useCMSData = (doCacheData: boolean) => {
     })
   }
 
-  return { getVideoProjects, getVideoProjectBySlug, getUserPolls, getBTSClipsByVideoProjectSlug, getCoverProjects, getCoverProjectById, getContactData, usePageData, getSlideshowById, getTicketProjects }
+  const getFolderProjects = () => {
+    const strapiOptions = {
+      populate: {
+        folders: {
+          populate: {
+            slideshow: {
+              fields: ['id']
+            }
+          }
+        }
+      }
+    }
+    return useAsyncData(
+      () => strapi.findOne<ProjectsPage>('prosjekter', strapiOptions),
+      { transform: getOnlyAttributes }
+    )
+  }
+
+  return { getVideoProjects, getVideoProjectBySlug, getUserPolls, getBTSClipsByVideoProjectSlug, getCoverProjects, getCoverProjectById, getContactData, usePageData, getSlideshowById, getTicketProjects, getFolderProjects }
 }

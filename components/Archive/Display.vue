@@ -3,7 +3,7 @@
     <div class="border-r-2 border-dashed border-primary" />
     <div class="space-y-5">
       <ArchiveFolder
-        v-for="folder in folders"
+        v-for="folder in projectsPage.folders"
         :key="folder.id"
         :title="folder.title"
         :is-selected="isProjectSelected(folder.id)"
@@ -29,11 +29,9 @@
 import { PhotoIcon } from '@heroicons/vue/24/outline'
 import type { FolderProject } from '~/types/Projects'
 
-// const doCacheCMSData = useRuntimeConfig().public.cacheCMSData
-// const { getCoverProjects } = useCMSData(doCacheCMSData)
-// const { data: coverProjects } = await getCoverProjects()
-
-const folders: FolderProject[] = []
+const doCacheCMSData = useRuntimeConfig().public.cacheCMSData
+const { getFolderProjects } = useCMSData(doCacheCMSData)
+const { data: projectsPage } = await getFolderProjects()
 
 function getSlideShowLink (folder: FolderProject) {
   // TODO: how can we include the ID in the type :(
