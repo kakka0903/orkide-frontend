@@ -149,7 +149,6 @@ export const useCMSData = (doCacheData: boolean) => {
             ticket.slideshow = getOnlyAttributes(ticket.slideshow)
           }
         })
-        console.log(res.tickets)
         return res
       },
       server: setCacheFn()
