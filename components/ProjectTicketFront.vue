@@ -14,7 +14,7 @@
         {{ ticket.title }}
       </p>
       <p class="mt-2 text-xs font-normal text-primary">
-        ARTIST
+        KLIENT
       </p>
       <p class="text-xl leading-none uppercase text-secondary">
         {{ ticket.client }}
