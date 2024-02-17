@@ -1,6 +1,6 @@
 <template>
   <div class="relative flex px-6 py-5">
-    <SpikeBadge v-if="ticket.isNew" class="absolute z-10 rotate-[20deg] -top-8 -right-8">
+    <SpikeBadge v-if="ticket.is_new" class="absolute z-10 rotate-[20deg] -top-8 -right-8">
       NY!
     </SpikeBadge>
 

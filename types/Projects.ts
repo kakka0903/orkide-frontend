@@ -5,7 +5,7 @@ export interface TicketProject {
   slideshow: {
     id: number
   }
-  isNew: boolean
+  is_new: boolean
 }
 
 export interface FolderProject {
