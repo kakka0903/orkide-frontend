@@ -1,11 +1,11 @@
 <template>
   <TicketsBaseSlide>
     <DashedBox class="p-10">
-      <YoutubeEmbed :youtube-id="youtubeId" />
+      <YoutubeEmbed :youtube-id="youtube_id" />
     </DashedBox>
   </TicketsBaseSlide>
 </template>
 
 <script setup lang="ts">
-defineProps<{ youtubeId: string }>()
+defineProps<{ youtube_id: string }>()
 </script>

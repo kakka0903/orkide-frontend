@@ -1,6 +1,6 @@
 <template>
   <TicketsIntroSlide v-if="slide.__component === 'ticket-slideshow.intro-slide'" :intro-slide="slide" />
-  <TicketsVideoSlide v-else-if="slide.__component === 'ticket-slideshow.video-slide'" :video-slide="slide" />
+  <TicketsVideoSlide v-else-if="slide.__component === 'ticket-slideshow.video-slide'" v-bind="slide" />
   <TicketsImageSlide
     v-else-if="slide.__component === 'ticket-slideshow.image-slide'"
     :image-url="slide.image.data.attributes.hash+slide.image.data.attributes.ext"
