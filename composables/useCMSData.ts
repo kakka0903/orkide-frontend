@@ -160,6 +160,7 @@ export const useCMSData = (doCacheData: boolean) => {
       populate: {
         folders: {
           populate: {
+            links: true,
             slideshow: {
               fields: ['slug']
             }

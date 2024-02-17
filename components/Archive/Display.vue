@@ -16,7 +16,7 @@
 
           <ArchiveTextLink v-for="link in folder.links" :key="link.url" :url="link.url">
             <div class="w-6 h-6" v-html="JSON.parse(link.icon).component" />
-            <p>{{ link.title }}</p>
+            <p>{{ link.label }}</p>
           </ArchiveTextLink>
         </div>
       </ArchiveFolder>
