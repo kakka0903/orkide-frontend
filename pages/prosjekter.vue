@@ -9,7 +9,7 @@
 
 const projectSections = [
   { title: 'KINO', component: resolveComponent('VideoProjectsDisplay') },
-  { title: 'ARKIV', component: resolveComponent('ArchiveDisplay') }
+  { title: 'GALLERI', component: resolveComponent('ArchiveDisplay') }
 ]
 
 useHead({
