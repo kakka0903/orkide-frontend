@@ -9,19 +9,15 @@
         leave-from-class="translate-x-0 opacity-100"
         leave-to-class="-translate-x-16 opacity-0"
       >
-        <ProjectTicketFront v-show="!isFlipped" key="front" :music-video="musicVideo" class="absolute top-0 left-0" />
-        <ProjectTicketBack v-show="isFlipped" key="back" :music-video="musicVideo" class="absolute top-0 left-0" />
+        <ProjectTicketFront v-show="!isFlipped" key="front" :ticket="ticket" class="absolute top-0 left-0" />
+        <ProjectTicketBack v-show="isFlipped" key="back" :ticket="ticket" class="absolute top-0 left-0" />
       </TransitionGroup>
     </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import type { TicketProject } from '~/types/Projects'
 const isFlipped = ref(false)
-defineProps({
-  musicVideo: {
-    type: Object,
-    required: true
-  }
-})
+defineProps<{ ticket: TicketProject }>()
 </script>
